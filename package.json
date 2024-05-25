@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "eslint": "^9.3.0",
-    "eslint-plugin-astro": "^1.2.0"
+    "eslint-plugin-astro": "^1.2.0",
+    "markdown-it": "^14.1.0",
+    "sanitize-html": "^2.13.0"
   }
 }

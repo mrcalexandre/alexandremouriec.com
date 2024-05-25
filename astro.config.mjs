@@ -6,5 +6,6 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://alexandremouriec.com",
-  integrations: [tailwind(), vue(), sitemap()]
+  integrations: [tailwind(), vue(), sitemap()],
+  trailingSlash: "always"
 });
