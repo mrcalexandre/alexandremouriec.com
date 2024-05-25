@@ -1,5 +1,7 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const pageTitle = "Home";
 ---
 
 <html lang="en">
@@ -8,13 +10,9 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
-
-		<h1>Astro site</h1>
+		<BaseLayout pageTitle={pageTitle} />
 	</body>
 </html>
