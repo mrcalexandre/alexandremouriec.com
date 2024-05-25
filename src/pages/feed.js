@@ -10,7 +10,7 @@ export async function GET(context) {
     title: 'Alexandre Mouriec',
     description: 'A blog',
     site: context.site,
-    stylesheet: '/rss/pretty-feed-v3.xsl',
+    stylesheet: '/rss/rss-style.xsl',
     items: blog.map((post) => ({
       link: `/blog/${post.slug}/`,
       // Note: this will not process components or JSX expressions in MDX files.
