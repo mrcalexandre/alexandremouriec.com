@@ -1,13 +1,5 @@
 ---
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
 import BaseLayout from "./BaseLayout.astro";
-
-dayjs.extend(utc);
-
-const lastModified = dayjs()
-  .utc(Astro.props.frontmatter.lastModified)
-  .format("HH:mm:ss DD MMMM YYYY UTC");
 
 const { frontmatter } = Astro.props;
 ---
@@ -15,7 +7,6 @@ const { frontmatter } = Astro.props;
 <BaseLayout pageTitle={frontmatter.title}>
   <p><em>{frontmatter.description}</em></p>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-  <p>Last Modified: {lastModified}</p>
 
   <p>Written by: {frontmatter.author}</p>
 
