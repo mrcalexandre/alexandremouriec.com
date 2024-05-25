@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check-unused": "npx depcheck"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.6",
