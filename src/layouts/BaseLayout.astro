@@ -8,13 +8,20 @@ const { pageTitle } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Alexandre Mouriec"
+      href={`${Astro.site}rss.xml`}
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
+    <h1 class="text-3xl font-bold underline">{pageTitle}</h1>
     <slot />
     <Footer />
   </body>
