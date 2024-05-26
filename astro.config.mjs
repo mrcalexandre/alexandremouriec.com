@@ -3,7 +3,6 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/static";
 import vue from "@astrojs/vue";
 import { defineConfig } from "astro/config";
-import { trailingSlash } from "./src/middleware/trailingSlash.js";
 import { remarkModifiedTime } from "./src/utils/remark-modified-time.mjs";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
@@ -17,9 +16,6 @@ export default defineConfig({
       enabled: true,
     },
   }),
-  build: {
-    middleware: [trailingSlash],
-  },
   markdown: {
     remarkPlugins: [remarkModifiedTime, remarkReadingTime],
   },
