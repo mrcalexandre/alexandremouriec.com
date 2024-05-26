@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
-const { frontmatter } = Astro.props;
+const { frontmatter, lastModified } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
   <p><em>{frontmatter.description}</em></p>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+
+  <p>Last Modified: {lastModified}</p>
 
   <p>Written by: {frontmatter.author}</p>
 
