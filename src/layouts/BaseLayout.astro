@@ -1,6 +1,8 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+
 const { pageTitle } = Astro.props;
 ---
 
@@ -18,10 +20,13 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <ViewTransitions />
   </head>
   <body>
     <Header />
-    <h1 class="text-3xl font-bold underline">{pageTitle}</h1>
+    <h1 class="text-3xl font-bold underline">
+      {pageTitle}
+    </h1>
     <slot />
     <Footer />
   </body>
