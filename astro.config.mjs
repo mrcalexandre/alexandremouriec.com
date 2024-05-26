@@ -4,6 +4,8 @@ import vercel from "@astrojs/vercel/static";
 import vue from "@astrojs/vue";
 import { defineConfig } from 'astro/config';
 import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +18,6 @@ export default defineConfig({
     },
   }),
   markdown: {
-    remarkPlugins: [remarkModifiedTime],
+    remarkPlugins: [remarkModifiedTime, remarkReadingTime],
   },
 });
