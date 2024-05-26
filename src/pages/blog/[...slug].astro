@@ -1,6 +1,10 @@
 ---
 import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+dayjs.extend(utc);
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
@@ -11,9 +15,14 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await entry.render();
+
+const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
+  .utc()
+  .format("HH:mm:ss DD MMMM YYYY UTC");
 ---
 
 <BlogPostLayout frontmatter={entry.data}>
   <Content />
+  <p>Last Modified: {lastModified}</p>
 </BlogPostLayout>
