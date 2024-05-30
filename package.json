@@ -8,27 +8,29 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check-unused": "npx depcheck"
+    "check-unused": "npx depcheck",
+    "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\""
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.6.0",
-    "@astrojs/vue": "^4.3.0",
-    "astro": "^4.9.1",
+    "astro": "^4.9.2",
     "dayjs": "^1.11.11",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
-    "tailwindcss": "^3.4.3",
-    "vue": "^3.4.27"
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "eslint": "^9.3.0",
     "eslint-plugin-astro": "^1.2.0",
+    "eslint-plugin-perfectionist": "^2.10.0",
     "markdown-it": "^14.1.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "sanitize-html": "^2.13.0"
   }
 }
