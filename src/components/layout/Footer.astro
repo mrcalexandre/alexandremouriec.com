@@ -1,0 +1,37 @@
+---
+import FooterItem from "@/components/layout/FooterItem.astro";
+
+const year = new Date().getFullYear();
+
+const footersItems = [
+  { external: false, href: "/now/", label: "Now" },
+  { external: true, href: "/feed/", label: "RSS Feed" },
+  { external: false, href: "/colophon/", label: "Colophon" },
+  { external: false, href: "/uses/", label: "Uses" },
+  { external: false, href: "/contact/", label: "Contact" },
+];
+---
+
+<footer
+  class="animate flex w-full max-w-[60rem] flex-wrap pb-6 text-sm sm:flex-nowrap sm:justify-start">
+  <div
+    class="text-md relative mx-auto flex w-full items-center justify-between font-medium sm:flex sm:items-center">
+    <div>
+      &copy; {year}
+      {`|`}
+      Alexandre Mouriec
+    </div>
+
+    <nav>
+      {
+        footersItems.map((item) => (
+          <FooterItem
+            external={item.external}
+            href={item.href}
+            label={item.label}
+          />
+        ))
+      }
+    </nav>
+  </div>
+</footer>

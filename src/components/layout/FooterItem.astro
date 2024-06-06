@@ -1,0 +1,11 @@
+---
+const { external, href, label } = Astro.props;
+---
+
+<a
+  aria-label={label}
+  class="text-md mx-1 rounded p-2 font-medium hover:bg-black/5 hover:text-black dark:hover:bg-white/5 dark:hover:text-white"
+  href={href}
+  target={external ? "_blank" : "_self"}>
+  {label}
+</a>
