@@ -1,0 +1,41 @@
+---
+import dayjs from "dayjs";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+const lastModified = dayjs(frontmatter.lastModified)
+  .utc()
+  .tz("Europe/Paris")
+  .format("DD MMMM YYYY HH:mm:ss");
+---
+
+<BaseLayout>
+  <section class="mx-auto mb-12 max-w-4xl px-4 leading-normal sm:px-6">
+    <div>
+      <section class="mx-auto pt-4">
+        <article
+          class="prose prose-sm mx-auto lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-table:table-fixed">
+          <header>
+            <div
+              class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
+              <div class="leading-loose">
+                <div class="mb-2 font-serif text-5xl font-bold">
+                  {frontmatter.title}
+                </div>
+
+                <div
+                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
+                  <span>
+                    Updated on {lastModified.toString().slice(0, 12)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </header>
+          <slot />
+        </article>
+      </section>
+    </div>
+  </section>
+</BaseLayout>
