@@ -1,0 +1,56 @@
+---
+import MoonIcon from "../icons/MoonIcon.astro";
+import SunIcon from "../icons/SunIcon.astro";
+---
+
+<button aria-label="themeToggle" id="themeToggle">
+  <SunIcon />
+  <MoonIcon />
+</button>
+
+<script>
+  // Check if the theme is stored in localStorage
+  let theme = localStorage.getItem("theme");
+
+  // If not, check the user's system preference
+  if (!theme) {
+    theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  // Set the theme in localStorage
+  localStorage.setItem("theme", theme);
+
+  // Add the theme as a class on the html element
+  document.documentElement.classList.add(theme);
+
+  // Function to toggle the theme
+  function toggleTheme() {
+    document.documentElement.classList.toggle("dark");
+
+    const isDark = document.documentElement.classList.contains("dark");
+    theme = isDark ? "dark" : "light";
+
+    localStorage.setItem("theme", theme);
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    document
+      .getElementById("themeToggle")
+      .addEventListener("click", toggleTheme);
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    // Get the theme from localStorage
+    theme = localStorage.getItem("theme");
+
+    // Add the theme as a class on the html element
+    document.documentElement.classList.add(theme);
+
+    // Reattach event listener to theme toggle button
+    document
+      .getElementById("themeToggle")
+      .addEventListener("click", toggleTheme);
+  });
+</script>
