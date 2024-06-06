@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+
+const { company, date, id, title } = Astro.props;
+---
+
+<a
+  class="group relative flex flex-nowrap items-center justify-between gap-2 rounded-lg p-3 duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:hover:bg-white/5 dark:hover:text-white"
+  href={company.url}
+  id={id}>
+  <div class="flex items-center gap-4">
+    <Image
+      alt={company.name}
+      class="h-[40px] w-[40px] rounded-full border object-cover"
+      height={120}
+      src={company.image}
+      width={120}
+    />
+    <div>
+      <h3 class="font-medium">{title}</h3>
+      <p class="text-sm opacity-60">{company.name}</p>
+    </div>
+  </div>
+  <p class="text-sm opacity-60">{date}</p>
+</a>
