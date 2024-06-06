@@ -7,18 +7,17 @@ const parser = new MarkdownIt();
 export async function GET(context) {
   const blog = await getCollection("posts");
   return rss({
-    title: "Alexandre Mouriec",
-    description: "A blog",
-    site: context.site,
-    stylesheet: "/rss/rss-style.xsl",
+    description: "A personal website by Alexandre Mouriec",
     items: blog.map((post) => ({
-      link: `/blog/${post.slug}/`,
-      // Note: this will not process components or JSX expressions in MDX files.
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
+      link: `/blog/${post.slug}/`,
       ...post.data,
     })),
+    site: context.site,
+    stylesheet: "/rss/rss-style.xsl",
+    title: "Alexandre Mouriec",
     trailingSlash: true,
   });
 }
