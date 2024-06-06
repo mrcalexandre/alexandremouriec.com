@@ -1,9 +1,9 @@
 ---
+import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
-import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -28,7 +28,8 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
 <BlogPostLayout
   frontmatter={entry.data}
   lastModified={lastModified}
-  readingTime={remarkPluginFrontmatter.minutesRead}
->
-  <Content />
+  readingTime={remarkPluginFrontmatter.minutesRead}>
+  <article class="animate leading-loose">
+    <Content />
+  </article>
 </BlogPostLayout>
