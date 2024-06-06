@@ -2,34 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: InterVariable;
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/InterVariable.woff2") format("woff2");
-}
-@font-face {
-  font-family: InterVariable;
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
-}
+@layer base {
+  @font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/InterVariable.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/InterVariable-Italic.woff2") format("woff2");
+  }
 
-@font-face {
-  font-family: EBGaramondVariable;
-  font-style: normal;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("/fonts/EBGaramondVariable.woff2") format("woff2");
-}
-@font-face {
-  font-family: EBGaramondVariable;
-  font-style: italic;
-  font-weight: 200 800;
-  font-display: swap;
-  src: url("/fonts/EBGaramondVariable-Italic.woff2") format("woff2");
+  @font-face {
+    font-family: EBGaramondVariable;
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url("/fonts/EBGaramondVariable.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: EBGaramondVariable;
+    font-style: italic;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url("/fonts/EBGaramondVariable-Italic.woff2") format("woff2");
+  }
 }
 
 html.dark {
