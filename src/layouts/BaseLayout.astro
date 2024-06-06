@@ -1,7 +1,10 @@
 ---
+import Container from "@/components/common/Container.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/Header.astro";
+import "@/styles/app.css";
+
 import { ViewTransitions } from "astro:transitions";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 
 const { pageTitle } = Astro.props;
 ---
@@ -9,25 +12,33 @@ const { pageTitle } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta content="" name="theme-color" />
+    <link href="/favicon.png" rel="icon" type="image/png" />
     <link
+      href={`
+  {Astro.site}rss.xml`}
       rel="alternate"
-      type="application/xml; charset=utf-8"
       title="Alexandre Mouriec"
-      href={`${Astro.site}rss.xml`}
+      type="application/xml; charset=utf-8"
     />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
+    <link href="/sitemap-index.xml" rel="sitemap" />
+
+    <meta content="width=device-width" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
     <title>{pageTitle}</title>
     <ViewTransitions />
-  </head>
-  <body>
-    <Header />
-    <h1 class="text-3xl font-bold underline">
-      {pageTitle}
-    </h1>
-    <slot />
+  </head><body class="flex min-h-screen flex-col items-center justify-center">
+    <main
+      class="mb-12 flex w-screen max-w-[60rem] flex-grow flex-col items-center px-6 py-8 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10">
+      <Header />
+      <h1
+        class="font-heading leading-tighter text-black-900 mx-auto font-serif text-3xl font-semibold tracking-tighter lg:prose-lg xl:prose-xl 2xl:prose-2xl md:text-4xl">
+        {pageTitle}
+      </h1>
+      <Container>
+        <slot />
+      </Container>
+    </main>
     <Footer />
   </body>
 </html>
