@@ -1,0 +1,16 @@
+---
+import ProjectItem from "@/components/projects/ProjectItem.astro";
+import { getCollection } from "astro:content";
+
+const allProjects = await getCollection("projects");
+---
+
+<ul class="mt-7 grid w-full justify-center gap-7 sm:grid-cols-1 md:grid-cols-2">
+  {
+    allProjects.map((project) => (
+      <li>
+        <ProjectItem entry={project} />
+      </li>
+    ))
+  }
+</ul>
