@@ -1,7 +1,6 @@
 ---
 layout: ../layouts/MarkdownPageLayout.astro
 title: What am I doing now
-date: 2024-06-06
 ---
 
 ## Personal
