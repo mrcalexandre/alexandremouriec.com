@@ -1,30 +1,57 @@
 ---
+import BackToPrev from "@/components/common/BackToPrev.astro";
+import FormattedDate from "@/components/common/FormattedDate.astro";
+
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter, lastModified, readingTime } = Astro.props;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <p><em>{frontmatter.description}</em></p>
-  <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+<BaseLayout>
+  <section class="mx-auto mb-12 max-w-4xl px-4 leading-normal sm:px-6">
+    <div>
+      <div class="animate">
+        <BackToPrev href="/blog/"> Back to Blog </BackToPrev>
+      </div>
+      <section class="mx-auto pt-4">
+        <article class="text-black-900 prose mx-auto prose-table:table-fixed">
+          <header>
+            <div
+              class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
+              <div class="leading-loose">
+                <div class="mb-2 font-serif text-5xl font-bold">
+                  {frontmatter.title}
+                </div>
 
-  <p>Last Modified: {lastModified}</p>
+                <div
+                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
+                  <span>
+                    Published on <FormattedDate date={frontmatter.pubDate} />
+                  </span>
+                  &bull;
 
-  <p>Written by: {frontmatter.author}</p>
+                  <span>
+                    Updated on {lastModified.toString().slice(0, 12)}
+                  </span>
 
-  <p>{readingTime}</p>
+                  &bull;
+                  <span>
+                    {readingTime}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="aspect-w-3 aspect-h-2 -my-2">
+            <img
+              class="h-full w-full rounded-lg object-cover object-center"
+              src={frontmatter.image.url}
+            />
+          </div>
 
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-
-  <div class="tags">
-    {
-      frontmatter.tags.map((tag) => (
-        <p class="tag">
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
-      ))
-    }
-  </div>
-
-  <slot />
+          <slot class="prose prose-xl" />
+        </article>
+      </section>
+    </div>
+  </section>
 </BaseLayout>
