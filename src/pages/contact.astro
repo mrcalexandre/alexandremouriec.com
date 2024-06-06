@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const pageTitle = "Contact Me";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="mx-auto px-5 pb-8">
+    <form
+      class="flex flex-wrap"
+      method="post"
+      action="https://formspree.io/f/xvovrbod">
+      <div class="w-full p-3 lg:w-1/2">
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
+        />
+      </div>
+      <div class="w-full p-3 lg:w-1/2">
+        <input
+          type="email"
+          placeholder="Email"
+          name="_replyto"
+          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
+        />
+      </div>
+      <div class="w-full p-3">
+        <textarea
+          rows="8"
+          name="message"
+          class="form-textarea mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
+          placeholder="Write your message here ..."></textarea>
+      </div>
+      <div class="flex w-full justify-center p-3">
+        <input
+          type="submit"
+          value="Send"
+          class="cursor-pointer rounded border px-5 py-1.5 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+        />
+      </div>
+    </form>
+  </div>
+</BaseLayout>
