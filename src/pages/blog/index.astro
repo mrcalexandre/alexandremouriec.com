@@ -1,0 +1,74 @@
+---
+import BlogPost from "@/components/blog/BlogPost.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const allBlogPosts = posts.reduce((acc, post) => {
+  const year = post.data.pubDate.getFullYear().toString();
+  const month = (post.data.pubDate.getMonth() + 1).toString().padStart(2, "0"); // Get month and pad with leading zero
+
+  if (!acc[year]) {
+    acc[year] = {};
+  }
+  if (!acc[year][month]) {
+    acc[year][month] = [];
+  }
+  acc[year][month].push(post);
+  return acc;
+}, {});
+const years = Object.keys(allBlogPosts).sort(
+  (a, b) => parseInt(b) - parseInt(a)
+);
+
+const pageTitle = "Blog";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="space-y-16">
+    <section class="content mt-4">
+      <article class="space-y-4">
+        <p class="animate">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget dolor
+          morbi non arcu risus quis varius. Et netus et malesuada fames ac
+          turpis.
+        </p>
+      </article>
+    </section>
+
+    <div class="space-y-4">
+      {
+        years.map((year) => (
+          <section class="animate space-y-4">
+            <h2 class="text-xl font-semibold text-black dark:text-white">
+              {year}
+            </h2>
+            {Object.keys(allBlogPosts[year])
+              .sort((a, b) => parseInt(b) - parseInt(a))
+              .map((month) => (
+                <div class="space-y-2">
+                  <h3 class="text-lg font-medium text-gray-700 dark:text-gray-300">
+                    {new Date(
+                      parseInt(year),
+                      parseInt(month) - 1
+                    ).toLocaleString("default", { month: "long" })}
+                  </h3>
+                  <ul class="flex flex-col gap-4">
+                    {allBlogPosts[year][month].map((post) => (
+                      <li>
+                        <BlogPost entry={post} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
