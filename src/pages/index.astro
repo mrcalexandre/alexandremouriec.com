@@ -1,18 +1,85 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPosts from "@/components/blog/BlogPosts.astro";
+import Link from "@/components/common/Link.astro";
+import Projects from "@/components/projects/Projects.astro";
+import Work from "@/components/work/Work.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
-const pageTitle = "Home";
+const pageTitle = "Alexandre Mouriec";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<BaseLayout pageTitle={pageTitle} />
-	</body>
-</html>
+<BaseLayout title={pageTitle}>
+  <h1
+    class="animate pb-2 font-serif text-2xl italic text-black dark:text-white">
+    Hi, I'm Alexandre <span class="text-xl not-italic">👋🏻</span>
+  </h1>
+  <p class="dark:text-slate-450 font-regular text-lg text-slate-400">
+    Full-Stack Developer & Full-Time Curious
+  </p>
+  <div class="space-y-16">
+    <section class="content mt-4">
+      <article class="font-regular space-y-4">
+        <p class="animate">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget dolor
+          morbi non arcu risus quis varius. Et netus et malesuada fames ac
+          turpis. Eget felis eget nunc lobortis. Phasellus vestibulum lorem sed
+          risus. In nibh mauris cursus mattis molestie a iaculis. Cras pulvinar
+          mattis nunc sed blandit libero volutpat
+        </p>
+
+        <p class="animate">
+          Viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor.
+          Tincidunt dui ut ornare lectus sit. Sapien et ligula ullamcorper
+          malesuada. Pharetra magna ac placerat vestibulum lectus mauris
+          ultrices eros in. Lectus magna fringilla urna porttitor rhoncus dolor
+          purus non. Id interdum velit laoreet id donec ultrices tincidunt arcu
+          non. At tempor commodo ullamcorper a lacus vestibulum sed.
+        </p>
+
+        <p class="animate">
+          Viverra ipsum nunc aliquet bibendum enim. Sit amet purus gravida quis
+          blandit. Vel fringilla est ullamcorper eget. Eget magna fermentum
+          iaculis eu non diam phasellus vestibulum.
+        </p>
+      </article>
+    </section>
+
+    <section class="animate space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-y-2">
+        <h2 class="font-serif text-xl font-semibold text-black dark:text-white">
+          Work Experience
+        </h2>
+        <Link href="/work/"> See all work </Link>
+      </div>
+      <section class="mx-auto my-8 mt-8 max-w-2xl flex-col sm:flex sm:gap-8">
+        <h2 class="mb-4 opacity-60 sm:mb-0">
+          Viverra ipsum nunc aliquet bibendum enim.
+        </h2>
+        <div>
+          <Work />
+        </div>
+      </section>
+    </section>
+
+    <section class="animate space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-y-2">
+        <h2 class="font-serif text-xl font-semibold text-black dark:text-white">
+          Latest Posts
+        </h2>
+        <Link href="/blog/"> See all posts </Link>
+      </div>
+      <BlogPosts />
+    </section>
+
+    <section class="animate space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-y-2">
+        <h2 class="font-serif text-xl font-semibold text-black dark:text-white">
+          Recent Projects
+        </h2>
+        <Link href="/projects"> See all projects </Link>
+      </div>
+      <Projects />
+    </section>
+  </div>
+</BaseLayout>
