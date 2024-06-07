@@ -14,18 +14,19 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
         <BackToPrev href="/blog/"> Back to Blog </BackToPrev>
       </div>
       <section class="mx-auto pt-4">
-        <article class="text-black-900 prose mx-auto prose-table:table-fixed">
+        <article
+          class="text-black-900 prose mx-auto prose-table:table-fixed dark:text-neutral-100">
           <header>
             <div
               class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
               <div class="leading-loose">
                 <h1
-                  class="mx-auto w-full max-w-2xl text-left font-serif text-3xl font-bold leading-tight tracking-tighter dark:text-neutral-100 md:mb-4 md:text-4xl md:leading-none lg:text-5xl">
+                  class="leading-tighter text-black-900 mx-auto font-serif text-3xl font-semibold tracking-tighter md:text-4xl">
                   {frontmatter.title}
                 </h1>
 
                 <div
-                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
+                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-neutral-300">
                   <span>
                     Published on <FormattedDate date={frontmatter.pubDate} />
                   </span>
@@ -55,6 +56,13 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
             )
           }
           <slot class="prose prose-xl" />
+          {
+            frontmatter.tags.map((tag) => (
+              <span class="mr-1 inline-flex cursor-pointer justify-start rounded-full border border-transparent bg-slate-100 px-2 py-1 text-sm text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300">
+                {tag}
+              </span>
+            ))
+          }
         </article>
       </section>
     </div>
