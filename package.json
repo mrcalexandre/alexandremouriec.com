@@ -12,10 +12,10 @@
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\""
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.6",
+    "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.10.3",
+    "astro": "^4.11.3",
     "astro-icon": "^1.1.0",
     "dayjs": "^1.11.11",
     "mdast-util-to-string": "^4.0.0",
