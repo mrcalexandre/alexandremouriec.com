@@ -57,13 +57,13 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
             )
           }
           <slot class="prose prose-xl" />
-          {
+          <!-- {
             frontmatter.tags.map((tag) => (
               <span class="mr-2 inline-flex cursor-pointer justify-start rounded-full border border-transparent bg-slate-100 px-2 py-1 text-sm text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300">
                 {tag}
               </span>
             ))
-          }
+          } -->
         </article>
       </section>
     </div>

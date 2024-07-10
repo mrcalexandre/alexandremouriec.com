@@ -1,32 +1,34 @@
 ---
-import Timeline from "@/components/common/Timeline.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
 const pageSubtitle = "Sharing a bit more about me";
 ---
 
-<BaseLayout pageTitle={pageTitle} pageSubtitle={pageSubtitle}>
-  <section
-    class="content mt-6 space-y-4 text-base text-zinc-600 dark:text-zinc-400">
-    <p class="animate">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Eget dolor morbi non
-      arcu risus quis varius. Et netus et malesuada fames ac turpis. Eget felis
-      eget nunc lobortis. Phasellus vestibulum lorem sed risus. In nibh mauris
-      cursus mattis molestie a iaculis. Cras pulvinar mattis nunc sed blandit
-      libero volutpat
-    </p>
+<BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
+  <div class="space-y-16">
+    <section class="content mt-4">
+      <article
+        class="font-regular mt-6 space-y-4 text-zinc-700 dark:text-zinc-400">
+        <p class="animate">
+          Hi I am Alexandre 👋 I am a Full-Stack developer and graduate in
+          Computer Science and Web Development from the IUT of Lannion.
+        </p>
 
-    <p class="animate">
-      Viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor.
-      Tincidunt dui ut ornare lectus sit. Sapien et ligula ullamcorper
-      malesuada. Pharetra magna ac placerat vestibulum lectus mauris ultrices
-      eros in. Lectus magna fringilla urna porttitor rhoncus dolor purus non. Id
-      interdum velit laoreet id donec ultrices tincidunt arcu non. At tempor
-      commodo ullamcorper a lacus vestibulum sed.
-    </p>
-  </section>
+        <p class="animate">
+          Previously, I had the chance to work with amazing companies like
+          Crisp, Apitic, Getro and Henge and am currently looking for something
+          new.
+        </p>
 
-  <Timeline />
+        <p class="animate">
+          Full-time Curious, I am always excited to discover a new industry or
+          topic. In my free time, I am djing and managing a DJ collective which
+          I cofounded, hosting house and techno parties in the West of France. I
+          also read a lot, build side-projects, and spend time with my close
+          ones.
+        </p>
+      </article>
+    </section>
+  </div>
 </BaseLayout>
