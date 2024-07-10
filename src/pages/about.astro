@@ -1,11 +1,14 @@
 ---
+import Timeline from "@/components/common/Timeline.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
+const pageSubtitle = "Sharing a bit more about me";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <section class="content mt-4 font-medium">
+<BaseLayout pageTitle={pageTitle} pageSubtitle={pageSubtitle}>
+  <section
+    class="content mt-6 space-y-4 text-base text-zinc-600 dark:text-zinc-400">
     <p class="animate">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Eget dolor morbi non
@@ -24,4 +27,6 @@ const pageTitle = "About Me";
       commodo ullamcorper a lacus vestibulum sed.
     </p>
   </section>
+
+  <Timeline />
 </BaseLayout>
