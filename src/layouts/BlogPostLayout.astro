@@ -2,10 +2,16 @@
 import BackToPrev from "@/components/common/BackToPrev.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
 import { Image } from "astro:assets";
+import dayjs from "dayjs";
 
 import BaseLayout from "./BaseLayout.astro";
 
-const { frontmatter, lastModified, readingTime } = Astro.props;
+const { frontmatter, readingTime } = Astro.props;
+
+const lastModified = dayjs(frontmatter.lastModified)
+  .utc()
+  .tz("Europe/Paris")
+  .format("MMMM DD YYYY HH:mm:ss");
 ---
 
 <BaseLayout>

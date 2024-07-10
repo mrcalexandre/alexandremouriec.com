@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 const lastModified = dayjs(frontmatter.lastModified)
   .utc()
   .tz("Europe/Paris")
-  .format("DD MMMM YYYY HH:mm:ss");
+  .format("MMMM DD YYYY HH:mm:ss");
 ---
 
 <BaseLayout>
