@@ -1,9 +1,9 @@
 {
   "name": "Hire a BuzzFeeder",
   "description": "Telling more about this project",
-  "url": "#",
+  "url": "https://github.com/mrcalexandre/HireALaidOff/",
   "image": {
-    "url": "https://docs.astro.build/assets/arc.webp",
+    "url": "images/projects/hire-a-buzzfeeder.png",
     "alt": "Thumbnail of Hire a BuzzFeeder"
   }
 }

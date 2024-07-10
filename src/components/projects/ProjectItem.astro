@@ -1,11 +1,9 @@
 ---
-import { Image } from "astro:assets";
-
 const { entry } = Astro.props;
 ---
 
 <a
-  class="h-100 max-h-md group relative flex max-w-md cursor-pointer flex-col items-stretch rounded-2xl p-7 shadow-sm duration-300 ease-out hover:bg-black/5 hover:text-black dark:hover:bg-white/5 dark:hover:text-white sm:p-3"
+  class="h-100 max-h-md group relative flex max-w-md cursor-pointer flex-col items-stretch rounded-2xl p-7 shadow-sm duration-300 ease-in-out ease-out hover:bg-black/5 hover:text-zinc-800 dark:hover:bg-white/5 dark:hover:text-zinc-100 sm:p-3"
   href={entry.data.url}
   target="_blank">
   <span
@@ -16,10 +14,11 @@ const { entry } = Astro.props;
   ></span>
   <span class="relative z-30 block duration-300 ease-out">
     <span class="block w-full">
-      <Image
+      <img
         alt={entry.data.image.alt}
         class="max-h-md aspect-[16/9] h-auto w-full max-w-md rounded-lg"
         height="90"
+        loading="eager"
         src={entry.data.image.url}
         width="160"
       />

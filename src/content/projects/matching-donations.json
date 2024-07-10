@@ -1,9 +1,9 @@
 {
   "name": "Matching Donations",
   "description": "Telling more about this project",
-  "url": "#",
+  "url": "https://github.com/mrcalexandre/Matching-Donations/",
   "image": {
-    "url": "https://docs.astro.build/assets/arc.webp",
+    "url": "images/projects/matching-donations.png",
     "alt": "Thumbnail of Matching Donations"
   }
 }
