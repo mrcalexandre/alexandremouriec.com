@@ -8,7 +8,6 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/alexandremouriec.com",
   integrations: [tailwind(), sitemap(), icon({
     iconDir: "src/images/icons"
   })],
@@ -16,5 +15,5 @@ export default defineConfig({
     remarkPlugins: [remarkModifiedTime, remarkReadingTime]
   },
   output: "static",
-  site: "https://mrcalexandre.github.io"
+  site: "https://alexandremouriec.com"
 });
