@@ -1,49 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-
-# Pretty Feed
-
-Styles an RSS/Atom feed, making it friendly for humans viewers, and adds a link
-to aboutfeeds.com for new user onboarding. See it in action:
-
-   https://interconnected.org/home/feed
-
-
-## How to use
-
-1. Download this XML stylesheet from the following URL and host it on your own
-   domain (this is a limitation of XSL in browsers):
-
-   https://github.com/genmon/aboutfeeds/blob/main/tools/pretty-feed-v3.xsl
-
-2. Include the XSL at the top of the RSS/Atom feed, like:
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="/PATH-TO-YOUR-STYLES/pretty-feed-v3.xsl" type="text/xsl"?>
-```
-
-3. Serve the feed with the following HTTP headers:
-
-```
-Content-Type: application/xml; charset=utf-8  # not application/rss+xml
-x-content-type-options: nosniff
-```
-
-(These headers are required to style feeds for users with Safari on iOS/Mac.)
-
-
-## Credits
-
-pretty-feed is based on work by lepture.com:
-
-   https://lepture.com/en/2019/rss-style-with-xsl
-
-This current version is maintained by aboutfeeds.com:
-
-   https://github.com/genmon/aboutfeeds
-
--->
 <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">

@@ -7,7 +7,7 @@ const parser = new MarkdownIt();
 export async function GET(context) {
   const blog = await getCollection("posts");
   return rss({
-    description: "A personal website by Alexandre Mouriec",
+    description: "A personal blog by Alexandre Mouriec on various topics",
     items: blog.map((post) => ({
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
