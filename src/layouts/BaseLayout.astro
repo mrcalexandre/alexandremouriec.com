@@ -15,10 +15,10 @@ const { pageSubtitle } = Astro.props;
     <meta content="" name="theme-color" />
     <link href="/favicon.png" rel="icon" type="image/png" />
     <link
-      href=`${Astro.site}feed/`
+      href={new URL("feed", Astro.site)}
       rel="alternate"
       title="Alexandre Mouriec"
-      type="application/xml; charset=utf-8"
+      type="application/rss+xml"
     />
     <link href="/sitemap-index.xml" rel="sitemap" />
 
