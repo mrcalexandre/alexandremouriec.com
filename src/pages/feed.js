@@ -18,6 +18,5 @@ export async function GET(context) {
     site: context.site,
     stylesheet: "/rss/rss-style.xsl",
     title: "Alexandre Mouriec",
-    trailingSlash: true,
   });
 }
