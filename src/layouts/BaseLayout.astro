@@ -3,10 +3,10 @@ import Container from "@/components/common/Container.astro";
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/Header.astro";
 import "@/styles/app.css";
-
 import { ViewTransitions } from "astro:transitions";
 
 const { pageTitle } = Astro.props;
+const { pageSubtitle } = Astro.props;
 ---
 
 <html lang="en">
@@ -15,8 +15,7 @@ const { pageTitle } = Astro.props;
     <meta content="" name="theme-color" />
     <link href="/favicon.png" rel="icon" type="image/png" />
     <link
-      href={`
-  {Astro.site}rss.xml`}
+      href=`${Astro.site}feed/`
       rel="alternate"
       title="Alexandre Mouriec"
       type="application/xml; charset=utf-8"
@@ -25,16 +24,33 @@ const { pageTitle } = Astro.props;
 
     <meta content="width=device-width" name="viewport" />
     <meta content={Astro.generator} name="generator" />
-    <title>{pageTitle}</title>
+    <title>
+      {
+        pageTitle === "Alexandre Mouriec"
+          ? `${pageTitle} • Alexandre Mouriec`
+          : "Alexandre Mouriec"
+      }
+    </title>
     <ViewTransitions />
-  </head><body class="flex min-h-screen flex-col items-center justify-center">
+  </head><body
+    class="bg-light dark:bg-dark flex min-h-screen flex-col items-center justify-center">
     <main
       class="mb-12 flex w-screen max-w-[60rem] flex-grow flex-col items-center px-6 py-8 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10">
       <Header />
-      <h1
-        class="font-heading leading-tighter text-black-900 mx-auto font-serif text-3xl font-semibold tracking-tighter lg:prose-lg xl:prose-xl 2xl:prose-2xl md:text-4xl">
-        {pageTitle}
-      </h1>
+      {
+        pageTitle && (
+          <h1 class="leading-tighter mx-auto font-serif text-3xl font-semibold tracking-tighter text-zinc-900 lg:prose-lg xl:prose-xl 2xl:prose-2xl md:text-4xl">
+            {pageTitle}
+          </h1>
+        )
+      }
+      {
+        pageSubtitle && (
+          <p class="dark:text-slate-450 font-regular font-serif text-base italic leading-7 text-slate-400">
+            {pageSubtitle}
+          </p>
+        )
+      }
       <Container>
         <slot />
       </Container>

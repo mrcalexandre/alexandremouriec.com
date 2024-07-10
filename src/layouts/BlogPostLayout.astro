@@ -1,6 +1,7 @@
 ---
 import BackToPrev from "@/components/common/BackToPrev.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
+import { Image } from "astro:assets";
 
 import BaseLayout from "./BaseLayout.astro";
 
@@ -15,13 +16,13 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
       </div>
       <section class="mx-auto pt-4">
         <article
-          class="text-black-900 prose mx-auto prose-table:table-fixed dark:text-neutral-100">
+          class="prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
           <header>
             <div
               class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
               <div class="leading-loose">
                 <h1
-                  class="leading-tighter text-black-900 mx-auto font-serif text-3xl font-semibold tracking-tighter md:text-4xl">
+                  class="mb-2 mt-6 font-serif text-4xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   {frontmatter.title}
                 </h1>
 
@@ -47,10 +48,10 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
           {
             frontmatter.image && (
               <div class="aspect-w-3 aspect-h-2 -my-2">
-                <img
+                <Image
+                  alt={frontmatter.image.alt}
                   class="h-full w-full rounded-lg object-cover object-center"
                   src={frontmatter.image.url}
-                  alt={frontmatter.image.alt}
                 />
               </div>
             )
@@ -58,7 +59,7 @@ const { frontmatter, lastModified, readingTime } = Astro.props;
           <slot class="prose prose-xl" />
           {
             frontmatter.tags.map((tag) => (
-              <span class="mr-1 inline-flex cursor-pointer justify-start rounded-full border border-transparent bg-slate-100 px-2 py-1 text-sm text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300">
+              <span class="mr-2 inline-flex cursor-pointer justify-start rounded-full border border-transparent bg-slate-100 px-2 py-1 text-sm text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300">
                 {tag}
               </span>
             ))

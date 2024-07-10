@@ -1,5 +1,6 @@
 ---
 import dayjs from "dayjs";
+
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -15,25 +16,29 @@ const lastModified = dayjs(frontmatter.lastModified)
     <div>
       <section class="mx-auto pt-4">
         <article
-          class="prose prose-sm mx-auto lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-table:table-fixed">
+          class="prose mx-auto text-zinc-900 prose-table:table-fixed dark:text-neutral-100">
           <header>
             <div
               class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
               <div class="leading-loose">
-                <div class="mb-2 font-serif text-5xl font-bold">
+                <div
+                  class="leading-tighter mx-auto font-serif text-3xl font-semibold tracking-tighter text-zinc-900 md:text-4xl">
                   {frontmatter.title}
                 </div>
-
-                <div
-                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
-                  <span>
-                    Updated on {lastModified.toString().slice(0, 12)}
-                  </span>
-                </div>
+                <p
+                  class="dark:text-slate-450 font-regular font-serif text-base italic leading-7 text-slate-400">
+                  {frontmatter.subtitle}
+                </p>
               </div>
             </div>
           </header>
-          <slot />
+          <slot class="prose" />
+          <div
+            class="animate font-regular prose prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
+            <span>
+              Last updated on {lastModified.toString().slice(0, 12)}
+            </span>
+          </div>
         </article>
       </section>
     </div>
