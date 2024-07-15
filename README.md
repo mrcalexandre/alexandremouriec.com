@@ -1,5 +1,7 @@
 # Alexandre Mouriec's Personal Website
 
+[![Deploy to GitHub Pages](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml)
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
