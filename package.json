@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check-unused": "npx depcheck",
+    "optimize-fonts": "glyphhanger https://alexandremouriec.com --subset='*.ttf' --spider-limit=0",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\""
   },
   "dependencies": {
