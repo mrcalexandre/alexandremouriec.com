@@ -16,5 +16,5 @@ export default defineConfig({
   },
   output: "static",
   site: "https://alexandremouriec.com",
-  trailingSlash: "always"
+  trailingSlash: "never"
 });
