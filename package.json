@@ -24,11 +24,11 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
-    "eslint": "^9.5.0",
+    "eslint": "^9.7.0",
     "eslint-plugin-astro": "^1.2.2",
     "eslint-plugin-perfectionist": "^2.11.0",
     "markdown-it": "^14.1.0",
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "sanitize-html": "^2.13.0"
