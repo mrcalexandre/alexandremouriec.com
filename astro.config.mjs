@@ -15,5 +15,6 @@ export default defineConfig({
     remarkPlugins: [remarkModifiedTime, remarkReadingTime]
   },
   output: "static",
-  site: "https://alexandremouriec.com"
+  site: "https://alexandremouriec.com",
+  trailingSlash: "always"
 });
