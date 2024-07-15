@@ -15,7 +15,7 @@ const { pageSubtitle } = Astro.props;
     <meta content="" name="theme-color" />
     <link href="/favicon.png" rel="icon" type="image/png" />
     <link
-      href={new URL("feed", Astro.site)}
+      href={new URL("feed.xml", Astro.site)}
       rel="alternate"
       title="Alexandre Mouriec"
       type="application/rss+xml"
@@ -35,7 +35,7 @@ const { pageSubtitle } = Astro.props;
   </head><body
     class="bg-light dark:bg-dark flex min-h-screen flex-col items-center justify-center">
     <main
-      class="mb-12 flex w-screen max-w-[60rem] flex-grow flex-col items-center px-6 py-8 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10">
+      class="mb-12 flex w-screen max-w-[60rem] flex-grow flex-col items-center py-8 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10">
       <Header />
       {
         pageTitle && (
