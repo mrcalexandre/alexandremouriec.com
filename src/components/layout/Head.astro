@@ -66,6 +66,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )
   }
 
+  <!-- Webmentions -->
+  <link
+    href="https://webmention.io/alexandremouriec.com/webmention"
+    rel="webmention"
+  />
+  <link
+    href="https://webmention.io/alexandremouriec.com/xmlrpc"
+    rel="pingback"
+  />
+
   <!-- Favicon -->
   <link href="/favicon.svg" rel="icon" type="image/x-icon" />
 
