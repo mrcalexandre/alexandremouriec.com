@@ -2,35 +2,33 @@
 const { entry } = Astro.props;
 ---
 
-<li>
-  <a
-    class="border-zinc/15 hover:bg-zinc/5 group relative flex flex-nowrap gap-2 rounded-lg border border-dashed px-4 py-3 pr-10 shadow-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-zinc-800 dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-zinc-100"
-    href={`/blog/${entry.slug}/`}>
-    <div class="flex flex-1 flex-col truncate">
-      <div class="text-md font-serif font-semibold">
-        {entry.data.title}
-      </div>
-      <div class="text-md max-w-sm truncate">
-        {entry.data.description}
-      </div>
+<a
+  class="border-zinc/15 hover:bg-zinc/5 group relative flex flex-nowrap gap-2 rounded-lg border border-dashed px-4 py-3 pr-10 shadow-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-zinc-800 dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-zinc-100"
+  href={`/blog/${entry.slug}/`}>
+  <div class="flex flex-1 flex-col truncate">
+    <div class="text-md font-serif font-semibold">
+      {entry.data.title}
     </div>
-    <div
-      class="font-regular absolute right-8 top-1/2 -translate-y-1/2 transform text-sm italic duration-300 ease-in-out">
-      {entry.data.pubDate.toString().slice(4, 16)}
+    <div class="text-md max-w-sm truncate">
+      {entry.data.description}
     </div>
-    <svg
-      class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg">
-      <line
-        class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
-        x1="5"
-        x2="19"
-        y1="12"
-        y2="12"></line>
-      <polyline
-        class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
-        points="12 5 19 12 12 19"></polyline>
-    </svg>
-  </a>
-</li>
+  </div>
+  <div
+    class="font-regular absolute right-8 top-1/2 -translate-y-1/2 transform text-sm italic duration-300 ease-in-out">
+    {entry.data.pubDate.toString().slice(4, 16)}
+  </div>
+  <svg
+    class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg">
+    <line
+      class="translate-x-3 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
+      x1="5"
+      x2="19"
+      y1="12"
+      y2="12"></line>
+    <polyline
+      class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
+      points="12 5 19 12 12 19"></polyline>
+  </svg>
+</a>
