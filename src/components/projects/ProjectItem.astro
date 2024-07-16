@@ -19,10 +19,8 @@ const { entry } = Astro.props;
       <Image
         alt={entry.data.image.alt}
         class="max-h-md aspect-[16/9] h-auto w-full max-w-md rounded-lg"
-        height="225"
         loading="eager"
         src={import(`../../images/projects/${entry.data.image.url}.png`)}
-        width="365"
       />
     </span>
     <span class="mb-1 mt-5 block w-full px-1 sm:mt-3">
