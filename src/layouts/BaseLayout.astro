@@ -1,38 +1,20 @@
 ---
 import Container from "@/components/common/Container.astro";
 import Footer from "@/components/layout/Footer.astro";
+import Head from "@/components/layout/Head.astro";
 import Header from "@/components/layout/Header.astro";
 import "@/styles/app.css";
-import { ViewTransitions } from "astro:transitions";
 
 const { pageTitle } = Astro.props;
 const { pageSubtitle } = Astro.props;
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="" name="theme-color" />
-    <link href="/favicon.png" rel="icon" type="image/png" />
-    <link
-      href={new URL("feed", Astro.site)}
-      rel="alternate"
-      title="Alexandre Mouriec"
-      type="application/rss+xml"
-    />
-    <link href="/sitemap-index.xml" rel="sitemap" />
-
-    <meta content="width=device-width" name="viewport" />
-    <meta content={Astro.generator} name="generator" />
-    <title>
-      {
-        pageTitle === "Alexandre Mouriec"
-          ? `${pageTitle} • Alexandre Mouriec`
-          : "Alexandre Mouriec"
-      }
-    </title>
-    <ViewTransitions />
-  </head><body
+  <Head
+    description="Alexandre Mouriec's personal website"
+    title="Alexandre Mouriec"
+  />
+  <body
     class="bg-light dark:bg-dark flex min-h-screen flex-col items-center justify-center">
     <main
       class="mb-12 flex w-screen max-w-[60rem] flex-grow flex-col items-center py-8 text-[0.92rem] leading-relaxed sm:px-10 lg:px-10">

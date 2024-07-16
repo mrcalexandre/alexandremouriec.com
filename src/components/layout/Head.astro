@@ -1,0 +1,104 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+let { description, title } = Astro.props;
+
+const ogImage = new URL("opengraph.png", Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<head>
+  <!-- Global Metadata -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <meta content={Astro.generator} name="generator" />
+  <link href="/favicon.png" rel="icon" type="image/png" />
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+  <link href="/favicon.png" rel="icon" sizes="32x32" type="image/png" />
+  <link href="/favicon.png" rel="icon" sizes="16x16" type="image/png" />
+  <link href="/sitemap-index.xml" rel="sitemap" />
+  <meta content="#2e2e2e" name="msapplication-TileColor" />
+  <meta content="#fff7f3" name="theme-color" />
+  <link
+    href={new URL("feed", Astro.site)}
+    rel="alternate"
+    title="RSS Feed for alexandremouriec.com"
+    type="application/rss+xml"
+  />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta content={title} name="title" />
+  <meta content={description} name="description" />
+
+  <!-- Open Graph / Facebook -->
+  <meta content="website" property="og:type" />
+  <meta content={Astro.url} property="og:url" />
+  <meta content={title} property="og:title" />
+  <meta content={description} property="og:description" />
+  <meta content={ogImage} property="og:image" />
+
+  <!-- Twitter -->
+  <meta content="summary_large_image" name="twitter:card" />
+  <meta content={Astro.url} name="twitter:url" />
+  <meta content={title} name="twitter:title" />
+  <meta content={description} name="twitter:description" />
+  <meta content={ogImage} name="twitter:image" />
+  <meta content="@mrcalexandre" name="twitter:site" />
+  <meta content="@mrcalexandre" name="twitter:creator" />
+
+  <!-- Canonical URL -->
+  <link href={canonicalURL} rel="canonical" />
+  {
+    canonicalURL && (
+      <>
+        <link href={canonicalURL} rel="canonical" />
+        <meta content="article" property="og:type" />
+        <meta content={title} property="og:title" />
+        <meta content={description} property="og:description" />
+        <meta content={Astro.url} property="og:url" />
+        <meta content={title} property="og:site_name" />
+        <meta content={ogImage} property="og:image" />
+        <meta content={title} name="author" />
+        <meta content="Written by" name="twitter:label1" />
+        <meta content={title} name="twitter:data1" />
+      </>
+    )
+  }
+
+  <!-- Favicon -->
+  <link href="/favicon.svg" rel="icon" type="image/x-icon" />
+
+  <!-- Font Preloads -->
+  <link
+    as="font"
+    crossorigin
+    href="/fonts/EBGaramondVariable-Italic.woff2"
+    rel="preload"
+    type="font/woff2"
+  />
+  <link
+    as="font"
+    crossorigin
+    href="/fonts/EBGaramondVariable.woff2"
+    rel="preload"
+    type="font/woff2"
+  />
+  <link
+    as="font"
+    crossorigin
+    href="/fonts/InterVariable-Italic.woff2"
+    rel="preload"
+    type="font/woff2"
+  />
+  <link
+    as="font"
+    crossorigin
+    href="/fonts/InterVariable.woff2"
+    rel="preload"
+    type="font/woff2"
+  />
+
+  <!-- View Transitions -->
+  <ViewTransitions />
+</head>
