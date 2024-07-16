@@ -3,7 +3,7 @@
   "description": "An unofficial Venture Capital job board",
   "url": "https://github.com/mrcalexandre/InitializedJobs/",
   "image": {
-    "url": "images/projects/initialized-jobs.png",
+    "url": "initialized-jobs",
     "alt": "Thumbnail of Initialized Jobs"
   }
 }

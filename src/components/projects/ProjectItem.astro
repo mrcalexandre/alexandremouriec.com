@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const { entry } = Astro.props;
 ---
 
@@ -14,13 +16,13 @@ const { entry } = Astro.props;
   ></span>
   <span class="relative z-30 block duration-300 ease-out">
     <span class="block w-full">
-      <img
+      <Image
         alt={entry.data.image.alt}
         class="max-h-md aspect-[16/9] h-auto w-full max-w-md rounded-lg"
-        height="90"
+        height="225"
         loading="eager"
-        src={entry.data.image.url}
-        width="160"
+        src={import(`../../images/projects/${entry.data.image.url}.png`)}
+        width="365"
       />
     </span>
     <span class="mb-1 mt-5 block w-full px-1 sm:mt-3">
