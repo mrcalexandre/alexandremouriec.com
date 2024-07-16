@@ -1,9 +1,14 @@
 ---
 import dayjs from "dayjs";
+import timezone from "dayjs/plugin/timezone";
+import utc from "dayjs/plugin/utc";
 
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const lastModified = dayjs(frontmatter.lastModified)
   .utc()
@@ -17,21 +22,25 @@ const lastModified = dayjs(frontmatter.lastModified)
       <section class="mx-auto pt-4">
         <article
           class="prose mx-auto text-zinc-900 prose-table:table-fixed dark:text-neutral-100">
-          <header>
-            <div
-              class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
-              <div class="leading-loose">
-                <div
-                  class="leading-tighter mx-auto font-serif text-3xl font-semibold tracking-tighter text-zinc-900 md:text-4xl">
-                  {frontmatter.title}
-                </div>
-                <p
-                  class="dark:text-slate-450 font-regular font-serif text-base italic leading-7 text-slate-400">
-                  {frontmatter.subtitle}
-                </p>
-              </div>
+          <div
+            class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
+            <div class="leading-loose">
+              {
+                frontmatter.title && (
+                  <h1 class="leading-tighter dark: mx-auto font-serif text-3xl font-semibold tracking-tighter text-zinc-900 lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:text-zinc-100 md:text-4xl">
+                    {frontmatter.title}
+                  </h1>
+                )
+              }
+              {
+                frontmatter.subtitle && (
+                  <p class="dark:text-slate-450 font-regular font-serif text-base italic leading-7 text-slate-400">
+                    {frontmatter.subtitle}
+                  </p>
+                )
+              }
             </div>
-          </header>
+          </div>
           <slot class="prose" />
           <div
             class="animate font-regular prose prose-sm flex items-center gap-1.5 text-gray-800 dark:text-gray-300">

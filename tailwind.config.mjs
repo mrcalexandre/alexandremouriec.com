@@ -6,7 +6,7 @@ export default {
   darkMode: ["class"],
   extend: {
     colors: {
-      "dark": "#2E2E2E",
+      "dark": "#2e2e2e",
       "light": "#fff7f3",
     },
   },
