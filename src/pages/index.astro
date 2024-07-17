@@ -18,10 +18,15 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   <div class="space-y-16">
     <section class="content mt-4">
       <article
-        class="font-regular mt-6 space-y-4 text-zinc-700 dark:text-zinc-400">
+        class="font-regular h-card mt-6 space-y-4 text-zinc-700 dark:text-zinc-400">
         <p class="animate">
-          Hi I am Alexandre 👋 I am a Full-Stack developer and graduate in
-          Computer Science and Web Development from the IUT of Lannion.
+          Hi I am <Link
+            class="p-name u-url"
+            href="https://alexandremouriec.com/"
+            rel="me">
+            Alexandre Mouriec</Link
+          > 👋 I am a Full-Stack developer and graduate in Computer Science and Web
+          Development from the IUT of Lannion.
         </p>
 
         <p class="animate">
@@ -38,12 +43,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           ones. You can find me on <Link
             href="https://github.com/mrcalexandre"
             rel="me">GitHub</Link
-          > and <Link
-            class="h-card"
-            href="https://alexandremouriec.com/"
-            rel="me">
-            this website</Link
-          > where I am trying to build my Indie Web presence.
+          > and this website where I am trying to build my Indie Web presence.
         </p>
       </article>
     </section>
