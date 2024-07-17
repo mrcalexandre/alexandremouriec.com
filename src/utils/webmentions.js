@@ -1,5 +1,4 @@
 // Ensure to load the .env variables
-import fs from 'fs';
 import https from 'https';
 
 const DOMAIN = 'alexandremouriec.com';
@@ -60,7 +59,7 @@ function writeWebMention(webmention) {
     .replace(`https://${DOMAIN}/`, '')
     .replace(/\/$/, '')
     .replace('/', '--');
-  const filename = `./src/content/webmentions/${slug || 'home'}.json`;
+  const filename = `${__dirname}/src/content / webmentions / ${slug || 'home'}.json`;
 
   if (!fs.existsSync(filename)) {
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));

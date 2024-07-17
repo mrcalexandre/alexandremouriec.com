@@ -11,10 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@master
+        with:
+          node-version: 12.x
 
       - name: Fetch webmentions
         env:
@@ -25,12 +27,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_MSG: |
-            add webmentions
+            chore: fetch webmentions
             skip-checks: true
         run: |
           git config user.email ${{ secrets.YOUR_EMAIL }}
           git config user.name "Alexandre Mouriec"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/mrcalexandre/your-project.git
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/mrcalexandre/alexandremouriec.com.com.git
           git checkout main
           git add .
           git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git push origin main)
