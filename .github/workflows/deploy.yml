@@ -20,6 +20,24 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
+      - name: Cache Node.js modules
+        uses: actions/cache@master
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build your site
+        run: npm run build
+
       - name: Install, build, and upload your site
         uses: withastro/action@v2.0.1
 
