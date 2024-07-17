@@ -60,7 +60,7 @@ function writeWebMention(webmention) {
     .replace(`https://${DOMAIN}/`, "")
     .replace(/\/$/, "")
     .replace("/", "--");
-  const filename = `./src/content/webmentions/${slug || "home"}.json`;
+  const filename = `./src/content/webmentions/received/${slug || "home"}.json`;
 
   if (!fs.existsSync(filename)) {
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));
