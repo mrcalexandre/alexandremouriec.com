@@ -1,4 +1,5 @@
 // Ensure to load the .env variables
+import fs from "fs";
 import https from "https";
 
 const DOMAIN = "alexandremouriec.com";
