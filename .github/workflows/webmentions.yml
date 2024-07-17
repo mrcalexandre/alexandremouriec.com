@@ -15,8 +15,6 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@master
-        with:
-          node-version: 12.x
 
       - name: Fetch webmentions
         env:
@@ -30,7 +28,7 @@ jobs:
             chore: fetch webmentions
             skip-checks: true
         run: |
-          git config user.email ${{ secrets.YOUR_EMAIL }}
+          git config user.email "${{ secrets.YOUR_EMAIL }}"
           git config user.name "Alexandre Mouriec"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/mrcalexandre/alexandremouriec.com.com.git
           git checkout main

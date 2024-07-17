@@ -1,11 +1,11 @@
 // Ensure to load the .env variables
-import https from 'https';
+import https from "https";
 
-const DOMAIN = 'alexandremouriec.com';
+const DOMAIN = "alexandremouriec.com";
 const WEBMENTION_API_KEY = process.env.WEBMENTION_API_KEY;
 
 if (!WEBMENTION_API_KEY) {
-  console.error('Error: WEBMENTION_API_KEY environment variable is not set.');
+  console.error("Error: WEBMENTION_API_KEY environment variable is not set.");
   process.exit(1);
 }
 
@@ -13,17 +13,17 @@ if (!WEBMENTION_API_KEY) {
   try {
     const webmentions = await fetchWebmentions();
     if (webmentions.length === 1) {
-      console.log(`One webmention has been added.`);
+      console.log("One webmention has been added.");
       webmentions.forEach(writeWebMention);
     }
     else if (webmentions.length > 1) {
       console.log(`${webmentions.length} webmentions have been added.`);
       webmentions.forEach(writeWebMention);
     } else {
-      console.log('There are no new webmentions available.');
+      console.log("There are no new webmentions available.");
     }
   } catch (error) {
-    console.error('Error fetching webmentions:', error);
+    console.error("Error fetching webmentions:", error);
   }
 })();
 
@@ -32,10 +32,10 @@ function fetchWebmentions() {
 
   return new Promise((resolve, reject) => {
     const req = https.get(url, (res) => {
-      let body = '';
+      let body = "";
 
-      res.on('data', (chunk) => (body += chunk));
-      res.on('end', () => {
+      res.on("data", (chunk) => (body += chunk));
+      res.on("end", () => {
         try {
           if (res.statusCode !== 200) {
             const errorResponse = JSON.parse(body);
@@ -50,16 +50,16 @@ function fetchWebmentions() {
       });
     });
 
-    req.on('error', (error) => reject(error));
+    req.on("error", (error) => reject(error));
   });
 }
 
 function writeWebMention(webmention) {
-  const slug = webmention['wm-target']
-    .replace(`https://${DOMAIN}/`, '')
-    .replace(/\/$/, '')
-    .replace('/', '--');
-  const filename = `${__dirname}/src/content / webmentions / ${slug || 'home'}.json`;
+  const slug = webmention["wm-target"]
+    .replace(`https://${DOMAIN}/`, "")
+    .replace(/\/$/, "")
+    .replace("/", "--");
+  const filename = `./src/content/webmentions/${slug || "home"}.json`;
 
   if (!fs.existsSync(filename)) {
     fs.writeFileSync(filename, JSON.stringify([webmention], null, 2));
@@ -67,8 +67,8 @@ function writeWebMention(webmention) {
   }
 
   const entries = JSON.parse(fs.readFileSync(filename))
-    .filter((wm) => wm['wm-id'] !== webmention['wm-id'])
+    .filter((wm) => wm["wm-id"] !== webmention["wm-id"])
     .concat([webmention]);
-  entries.sort((a, b) => a['wm-id'] - b['wm-id']);
+  entries.sort((a, b) => a["wm-id"] - b["wm-id"]);
   fs.writeFileSync(filename, JSON.stringify(entries, null, 2));
 }
