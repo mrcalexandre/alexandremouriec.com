@@ -1,10 +1,9 @@
 // Ensure to load the .env variables
-import 'dotenv/config';
 import fs from 'fs';
 import https from 'https';
 
 const DOMAIN = 'alexandremouriec.com';
-const WEBMENTION_API_KEY = process.env.WEBMENTION_API_KEY || secrets.WEBMENTION_API_KEY;
+const WEBMENTION_API_KEY = process.env.WEBMENTION_API_KEY;
 
 if (!WEBMENTION_API_KEY) {
   console.error('Error: WEBMENTION_API_KEY environment variable is not set.');
