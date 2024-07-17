@@ -22,18 +22,18 @@ const lastModified = dayjs(frontmatter.lastModified)
       </div>
       <section class="mx-auto pt-4">
         <article
-          class="prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
+          class="h-entry prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
           <header>
             <div
-              class="mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
+              class="e-content mx-auto mt-0 flex max-w-5xl flex-col justify-between sm:flex-row sm:items-center">
               <div class="leading-loose">
                 <h1
-                  class="mb-2 mt-6 font-serif text-4xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                  class="p-name mb-2 mt-6 font-serif text-4xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                   {frontmatter.title}
                 </h1>
 
                 <div
-                  class="animate font-regular prose-sm flex items-center gap-1.5 text-gray-800 dark:text-neutral-300">
+                  class="animate font-regular dt-published prose-sm flex items-center gap-1.5 text-gray-800 dark:text-neutral-300">
                   <span>
                     Published on <FormattedDate date={frontmatter.pubDate} />
                   </span>
