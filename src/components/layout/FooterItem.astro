@@ -4,8 +4,9 @@ const { external, href, label } = Astro.props;
 
 <a
   aria-label={label}
-  class="text-md mx-1 rounded p-2 font-medium hover:bg-black/5 hover:text-zinc-800 dark:hover:bg-white/5 dark:hover:text-zinc-100"
+  class="mx-1 rounded p-2 text-md font-medium hover:bg-black/5 hover:text-zinc-800 dark:hover:bg-white/5 dark:hover:text-zinc-100"
   href={href}
+  rel={external ? "noopener noreferrer" : null}
   target={external ? "_blank" : "_self"}>
   {label}
 </a>

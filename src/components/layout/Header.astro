@@ -1,28 +1,27 @@
 ---
-import Rss from "@/components/common/Rss.astro";
+import HeaderIcons from "@/components/common/HeaderIcons.astro";
 import Navigation from "@/components/navigation/Navigation.astro";
 import Logo from "@/images/logos/logo-512x512.png";
 import { Image } from "astro:assets";
 ---
 
-<header
-  class="mb-12 flex w-full flex-wrap px-6 pb-3 text-sm sm:flex-nowrap sm:justify-start">
+<header class="mb-12 w-full px-6 pb-3">
   <nav
     aria-label="global"
-    class="relative mx-auto flex w-full items-center justify-between sm:flex sm:items-center">
-    <a aria-label="Header Logo Image" class="mr-6 flex-none" href="/">
+    class="mx-auto flex w-full items-center justify-between sm:flex-nowrap">
+    <a aria-label="Header Logo" class="mr-6 flex-none" href="/">
       <Image
         alt="Alexandre Mouriec"
-        class="h-[32px] w-[32px] rounded-full"
+        class="h-8 w-8 rounded-full"
         height="64"
         loading="eager"
         src={Logo}
         width="64"
       />
     </a>
-    <div class="flex flex-row items-center justify-center gap-x-5">
+    <div class="flex items-center gap-x-5">
       <Navigation />
-      <Rss />
+      <HeaderIcons />
     </div>
   </nav>
 </header>

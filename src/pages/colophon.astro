@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const pageTitle = "Colophon";
+const pageSubtitle = "How this website was builte";
+---
+
+<BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
+  <div class="space-y-16">
+    <section class="content mt-4">
+      <article
+        class="font-regular mt-6 space-y-4 text-zinc-700 dark:text-zinc-400">
+        <p>
+          <ul>
+            <li>Astro for the framework</li>
+            <li>Tailwind CSS for styling</li>
+            <li>Content managed in Markdown</li>
+            <li>Hosted on Github Pages</li>
+          </ul>
+        </p>
+      </article>
+    </section>
+  </div>
+</BaseLayout>

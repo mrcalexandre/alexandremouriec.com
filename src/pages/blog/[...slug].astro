@@ -3,9 +3,7 @@ import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
 
-dayjs.extend(utc);
 dayjs.extend(timezone);
 
 export async function getStaticPaths() {
@@ -20,7 +18,6 @@ const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
 
 const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
-  .utc()
   .tz("Europe/Paris")
   .format("DD MMMM YYYY HH:mm:ss");
 ---
@@ -29,7 +26,7 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
   frontmatter={entry.data}
   lastModified={lastModified}
   readingTime={remarkPluginFrontmatter.minutesRead}>
-  <section class="animate text-dark-900 dark:text-neutral-100">
+  <section class="text-dark-900 dark:text-neutral-100">
     <Content />
   </section>
 </BlogPostLayout>
