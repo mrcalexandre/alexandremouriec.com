@@ -22,7 +22,7 @@
     "@remy/webmention": "^1.5.0",
     "astro": "^4.11.6",
     "astro-icon": "^1.1.0",
-    "dayjs": "^1.11.11",
+    "dayjs": "^1.11.12",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "tailwindcss": "^3.4.6"
