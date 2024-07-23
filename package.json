@@ -9,20 +9,20 @@
     "preview": "astro preview",
     "astro": "astro",
     "check-unused": "npx depcheck",
-    "optimize-fonts": "glyphhanger https://alexandremouriec.com --subset='*.ttf' --spider-limit=0",
-    "optimize-img": "imageoptim './src/images'",
+    "optimize:fonts": "glyphhanger https://alexandremouriec.com --subset='*.ttf' --spider-limit=0",
+    "optimize:images": "imageoptim './src/images'",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\"",
-    "webmentions:send": "npm run webmention https://alexandremouriec.com/feed --limit 10 --send",
-    "webmentions:get": "webmention https://alexandremouriec.com/feed --limit 10"
+    "webmentions:send": "npm run webmention https://alexandremouriec.com/blog/feed.xml --limit 10 --send",
+    "webmentions:debug": "webmention https://alexandremouriec.com/blog/feed.xml --limit 10 --debug"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@remy/webmention": "^1.5.0",
-    "astro": "^4.11.6",
+    "astro": "^4.12.2",
     "astro-icon": "^1.1.0",
-    "dayjs": "^1.11.11",
+    "dayjs": "^1.11.12",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "tailwindcss": "^3.4.6"
