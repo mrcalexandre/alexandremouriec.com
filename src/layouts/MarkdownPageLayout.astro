@@ -17,7 +17,7 @@ const lastModified = dayjs(frontmatter.lastModified)
 ---
 
 <BaseLayout>
-  <section class="mx-auto mb-12 px-4 leading-normal sm:px-6">
+  <section class="mx-auto mb-12 max-w-screen-sm">
     <div>
       <section class="mx-auto pt-4">
         <article class="mx-auto text-zinc-900 dark:text-neutral-100">
@@ -32,14 +32,14 @@ const lastModified = dayjs(frontmatter.lastModified)
               }
               {
                 frontmatter.subtitle && (
-                  <p class="dark:text-slate-450 font-serif text-base italic leading-7 text-slate-400">
+                  <p class="dark:text-slate-450 font-serif text-base italic text-slate-400">
                     {frontmatter.subtitle}
                   </p>
                 )
               }
             </div>
           </div>
-          <slot class="" />
+          <slot />
           <div
             class="font-regular flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
             <span>

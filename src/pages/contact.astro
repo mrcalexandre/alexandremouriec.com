@@ -7,37 +7,37 @@ const pageTitle = "Contact Me";
 <BaseLayout pageTitle={pageTitle}>
   <div class="mx-auto px-5 pb-8">
     <form
+      action="https://formspree.io/f/xvovrbod"
       class="flex flex-wrap"
-      method="post"
-      action="https://formspree.io/f/xvovrbod">
+      method="post">
       <div class="w-full p-3 lg:w-1/2">
         <input
-          type="text"
-          placeholder="Name"
+          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
           name="name"
-          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
+          placeholder="Name"
+          type="text"
         />
       </div>
       <div class="w-full p-3 lg:w-1/2">
         <input
-          type="email"
-          placeholder="Email"
+          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
           name="_replyto"
-          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
+          placeholder="Email"
+          type="email"
         />
       </div>
       <div class="w-full p-3">
         <textarea
-          rows="8"
+          class="form-textarea mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
           name="message"
-          class="form-textarea mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm sm:leading-5"
-          placeholder="Write your message here ..."></textarea>
+          placeholder="Write your message here ..."
+          rows="8"></textarea>
       </div>
       <div class="flex w-full justify-center p-3">
         <input
+          class="cursor-pointer rounded border px-5 py-1.5 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
           type="submit"
           value="Send"
-          class="cursor-pointer rounded border px-5 py-1.5 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
         />
       </div>
     </form>

@@ -1,25 +1,29 @@
 ---
+import Container from "@/components/common/Container.astro";
 import FooterItem from "@/components/layout/FooterItem.astro";
 
 const footerItems = [
   { external: false, href: "/now", label: "Now" },
   { external: false, href: "/colophon", label: "Colophon" },
+  { external: false, href: "/feeds", label: "Feeds" },
   { external: false, href: "/contact", label: "Contact" },
 ];
 ---
 
 <footer
-  class="flex w-full max-w-4xl flex-wrap px-6 pb-6 text-sm sm:flex-nowrap sm:justify-start">
-  <nav class="mx-auto flex w-full justify-center md:justify-end">
-    {
-      footerItems.map((item) => (
-        <FooterItem
-          external={item.external}
-          href={item.href}
-          key={item.href}
-          label={item.label}
-        />
-      ))
-    }
-  </nav>
+  class="flex w-full flex-wrap px-6 pb-6 text-sm sm:flex-nowrap sm:justify-start">
+  <Container>
+    <nav class="mx-auto flex justify-center">
+      {
+        footerItems.map((item) => (
+          <FooterItem
+            external={item.external}
+            href={item.href}
+            key={item.href}
+            label={item.label}
+          />
+        ))
+      }
+    </nav>
+  </Container>
 </footer>
