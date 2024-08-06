@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "name": "Personal Website",
+  "description": "V4 of my website, focused on the Indie Web",
+  "url": "https://github.com/mrcalexandre/alexandremouriec.com/",
+  "image": {
+    "url": "personal-website",
+    "alt": "Thumbnail of an Astro website"
+  }
+}

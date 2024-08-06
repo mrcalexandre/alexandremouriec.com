@@ -3,12 +3,17 @@ import ProjectItem from "@/components/projects/ProjectItem.astro";
 import { getCollection } from "astro:content";
 
 const allProjects = await getCollection("projects");
+
+// Sort projects by id property
+const sortedProjects = allProjects.sort((a, b) => {
+  return a.data.id - b.data.id;
+});
 ---
 
 <ul class="xs:grid-cols-1 mt-7 grid justify-center gap-7 sm:grid-cols-2">
   {
-    allProjects.map((project) => (
-      <li>
+    sortedProjects.map((project) => (
+      <li key={project.id}>
         <ProjectItem entry={project} />
       </li>
     ))
