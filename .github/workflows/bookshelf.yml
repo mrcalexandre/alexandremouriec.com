@@ -1,0 +1,34 @@
+name: Update Bookshelf from Goodreads
+
+on:
+  schedule:
+    - cron: "0 0 */14 * *" # Run every 14 days at midnight UTC
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+jobs:
+  webmentions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@master
+
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+
+      - name: Fetch books from  Goodreads
+        run: node ./src/utils/bookshelf.js
+
+      - name: Commit to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MSG: |
+            chore: fetch books
+            skip-checks: true
+        run: |
+          git config user.email "${{ secrets.YOUR_EMAIL }}"
+          git config user.name "Alexandre Mouriec"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/mrcalexandre/alexandremouriec.com.git
+          git checkout main
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "${COMMIT_MSG}"; git push origin main)
