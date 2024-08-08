@@ -6,15 +6,15 @@ import xml2js from "xml2js";
 // Define a function to replace accented characters with unaccented ones
 function normalizeString(str) {
     const accents = {
-        'À': 'A', 'Ç': 'C', 'È': 'E', 'É': 'E', 'Ê': 'E',
-        'Ë': 'E', 'Î': 'I', 'Ï': 'I', 'Ô': 'O', 'Ö': 'O',
-        'Ù': 'U', 'Û': 'U', 'Ü': 'U', 'à': 'a',
-        'ç': 'c', 'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
-        'î': 'i', 'ï': 'i', 'ô': 'o', 'ö': 'o', 'ù': 'u',
-        'û': 'u', 'ü': 'u', 'ÿ': 'y', 'Ÿ': 'Y'
+        "À": "A", "Ç": "C", "È": "E", "É": "E", "Ê": "E",
+        "Ë": "E", "Î": "I", "Ï": "I", "Ô": "O", "Ö": "O",
+        "Ù": "U", "Û": "U", "Ü": "U", "à": "a",
+        "ç": "c", "è": "e", "é": "e", "ê": "e", "ë": "e",
+        "î": "i", "ï": "i", "ô": "o", "ö": "o", "ù": "u",
+        "û": "u", "ü": "u", "ÿ": "y", "Ÿ": "Y"
     };
 
-    return str.split('').map(char => accents[char] || char).join('');
+    return str.split("").map(char => accents[char] || char).join("");
 }
 
 async function getGoodreadsBooks() {
@@ -38,19 +38,20 @@ async function getGoodreadsBooks() {
     // Map through each book item and save each as a separate JSON file
     result.rss.channel[0].item.forEach(book => {
         const bookData = {
-            author: book.author_name[0], // Author name
+            author: book.author_name[0],
             cover_image: {
-                cover_image_alt: book.book_large_image_alt ? book.book_large_image_alt[0] : "", // Alternative text for the cover image (if available)
-                cover_image_url: book.book_large_image_url[0], // URL of the book's cover image
+                cover_image_alt: book.book_large_image_alt ? book.book_large_image_alt[0] : "",
+                cover_image_url: book.book_large_image_url[0],
             },
-            date_read: book.user_read_at[0], // Date when the book was read
-            link: book.link[0], // Link to the book on Goodreads
-            title: book.title[0] // Book title
+            date_read: book.user_read_at[0],
+            link: book.link[0],
+            title: book.title[0]
         };
 
         // Normalize and sanitize the book title for filename
-        const normalizedTitle = normalizeString(bookData.title);
-        const filename = `${normalizedTitle.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.json`;
+        let normalizedTitle = normalizeString(bookData.title);
+        normalizedTitle = normalizedTitle.replace(/[^a-z0-9]+/gi, "_") // Replace non-alphanumeric characters with a single underscore
+            .replace(/_{2,}/g, "_"); // Remove duplicate underscores
 
         // Save the book data as a JSON file
         fs.writeFileSync(`${dir}/${filename}`, JSON.stringify(bookData, null, 2));
