@@ -1,4 +1,6 @@
 ---
+import FormattedDate from "@/components/common/FormattedDate.astro";
+
 const { entry } = Astro.props;
 ---
 
@@ -14,8 +16,8 @@ const { entry } = Astro.props;
     </div>
   </div>
   <div
-    class="font-regular dt-published absolute right-8 top-1/2 -translate-y-1/2 transform text-sm italic duration-300 ease-in-out">
-    {entry.data.pubDate.toString().slice(4, 16)}
+    class="font-regular absolute right-8 top-1/2 -translate-y-1/2 transform text-sm italic duration-300 ease-in-out">
+    <FormattedDate class="dt-published" date={entry.data.pubDate} />
   </div>
   <svg
     class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"

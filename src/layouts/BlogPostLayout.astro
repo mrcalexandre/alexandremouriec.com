@@ -26,7 +26,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
       <BackToPrev href="/blog">Back to Blog</BackToPrev>
       <section class="mx-auto pt-4">
         <article
-          class="prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
+          class="h-entry prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
           <header class="mx-auto mb-10 mt-6">
             <h1
               class="mb-6 font-serif text-4xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -40,13 +40,21 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
                 src={Logo}
                 width="80"
               />
-              <div class="text-md font-medium dark:text-white">
-                <div>Alexandre Mouriec</div>
-              </div>
+              <a
+                class="text-md p-author h-card font-medium dark:text-white"
+                href={Astro.site}
+                rel="me">
+                Alexandre Mouriec
+              </a>
             </div>
             <p class="text-sm text-gray-500 dark:text-neutral-400">
-              <span
-                >Published on <FormattedDate date={frontmatter.pubDate} /></span
+              <a
+                class="u-url text-gray-500 no-underline dark:text-neutral-400"
+                href={Astro.url}
+                >Published on <FormattedDate
+                  class="dt-published"
+                  date={frontmatter.pubDate}
+                /></a
               >
               &bull;
               <span>Updated on {formattedLastModified}</span>
