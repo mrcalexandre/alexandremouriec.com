@@ -24,7 +24,10 @@ async function getGoodreadsBooks() {
     result.rss.channel[0].item.forEach(book => {
         const bookData = {
             author: book.author_name[0], // Author name
-            cover_image: book.book_large_image_url[0], // URL of the book's cover image
+            cover_image: {
+                cover_image_alt: book.book_large_image_alt ? book.book_large_image_alt[0] : "", // Alternative text for the cover image (if available)
+                cover_image_url: book.book_large_image_url[0], // URL of the book's cover image
+            },
             date_read: book.user_read_at[0], // Date when the book was read
             link: book.link[0], // Link to the book on Goodreads
             title: book.title[0] // Book title
