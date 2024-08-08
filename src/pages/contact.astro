@@ -5,37 +5,61 @@ const pageTitle = "Contact Me";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="mx-auto px-5 pb-8">
+  <div class="mx-auto px-5 py-8">
     <form
       action="https://formspree.io/f/xvovrbod"
       class="flex flex-wrap"
       method="post">
       <div class="w-full p-3 lg:w-1/2">
+        <label
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          for="name">Name</label
+        >
         <input
-          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
+          class="form-input mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out group-hover:border group-hover:border-dashed group-hover:border-neutral-300 dark:border-neutral-400 dark:group-hover:border-neutral-600 dark:group-hover:bg-neutral-950 sm:text-sm"
+          id="name"
           name="name"
           placeholder="Name"
+          required
           type="text"
         />
+        <p class="mt-2 text-sm text-red-600" id="name-error"></p>
       </div>
+
       <div class="w-full p-3 lg:w-1/2">
+        <label
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          for="email">Email</label
+        >
         <input
-          class="form-input mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
+          class="form-input mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out group-hover:border group-hover:border-dashed group-hover:border-neutral-300 dark:border-neutral-400 dark:group-hover:border-neutral-600 dark:group-hover:bg-neutral-950 sm:text-sm"
+          id="email"
           name="_replyto"
           placeholder="Email"
+          required
           type="email"
         />
+        <p class="mt-2 text-sm text-red-600" id="email-error"></p>
       </div>
+
       <div class="w-full p-3">
+        <label
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+          for="message">Message</label
+        >
         <textarea
-          class="form-textarea mt-1 block w-full rounded-md px-3 py-3 shadow-sm focus:outline-none sm:text-sm"
+          class="form-textarea mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out focus:outline-dashed group-hover:border group-hover:border-dashed group-hover:border-neutral-300 dark:border-neutral-400 focus:dark:border-neutral-400 dark:group-hover:border-neutral-600 dark:group-hover:bg-neutral-950 sm:text-sm"
+          id="message"
           name="message"
           placeholder="Write your message here ..."
+          required
           rows="8"></textarea>
+        <p class="mt-2 text-sm text-red-600" id="message-error"></p>
       </div>
+
       <div class="flex w-full justify-center p-3">
         <input
-          class="cursor-pointer rounded border px-5 py-1.5 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          class="cursor-pointer rounded border px-8 py-1.5 transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
           type="submit"
           value="Send"
         />
