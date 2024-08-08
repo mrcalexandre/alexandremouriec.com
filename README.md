@@ -1,6 +1,9 @@
 # Alexandre Mouriec's Personal Website
 
-[![Deploy to GitHub Pages](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml)
+## GitHub Actions Status
+[![GitHub Pages Deployment](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/deploy.yml)
+[![Bookshelf Update from Goodreads](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/bookshelf.yml/badge.svg)](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/bookshelf.yml)
+[![Webmentions Fetching](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/webmentions.yml/badge.svg)](https://github.com/mrcalexandre/alexandremouriec.com/actions/workflows/webmentions.yml)
 
 ## 🧞 Commands
 
