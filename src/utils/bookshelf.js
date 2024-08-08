@@ -50,6 +50,8 @@ async function getGoodreadsBooks() {
 
         // Normalize and sanitize the book title for filename
         let normalizedTitle = normalizeString(bookData.title);
+        normalizedTitle = normalizedTitle.replace(/[^a-z0-9]+/gi, "_") // Replace non-alphanumeric characters with a single underscore
+            .replace(/_{2,}/g, "_"); // Remove duplicate underscores
         const filename = `${normalizedTitle.replace(/_{2,}/g, "_").toLowerCase()}.json`;
 
         // Save the book data as a JSON file
