@@ -41,8 +41,7 @@ const lastModified = dayjs(frontmatter.lastModified)
             </div>
           </div>
           <slot />
-          <div
-            class="font-regular flex items-center gap-1.5 text-gray-800 dark:text-gray-300">
+          <div class="text-sm text-gray-500 dark:text-neutral-400">
             <span>
               Last updated on {lastModified.toString().slice(0, 12)}
             </span>
