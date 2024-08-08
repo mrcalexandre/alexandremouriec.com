@@ -1,6 +1,5 @@
 import fs from "fs";
 import fetch from "node-fetch";
-import path from "path";
 import xml2js from "xml2js";
 
 async function getGoodreadsBooks() {
@@ -35,7 +34,7 @@ async function getGoodreadsBooks() {
         const filename = `${bookData.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.json`;
 
         // Save the book data as a JSON file
-        fs.writeFileSync(path.join(dir, filename), JSON.stringify(bookData, null, 2));
+        fs.writeFileSync(`${dir}/${filename}`, JSON.stringify(bookData, null, 2));
     });
 }
 

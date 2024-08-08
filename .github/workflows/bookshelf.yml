@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  webmentions:
+  goodreads:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
 
-      - name: Fetch books from  Goodreads
+      - name: Fetch books from Goodreads
         run: node ./src/utils/bookshelf.js
 
       - name: Commit to repository

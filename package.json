@@ -24,8 +24,10 @@
     "astro-navbar": "^2.3.3",
     "dayjs": "^1.11.12",
     "mdast-util-to-string": "^4.0.0",
+    "node-fetch": "^3.3.2",
     "reading-time": "^1.5.0",
-    "tailwindcss": "^3.4.6"
+    "tailwindcss": "^3.4.6",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
