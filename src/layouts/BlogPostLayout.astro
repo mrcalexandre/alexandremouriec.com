@@ -17,7 +17,7 @@ const { frontmatter, readingTime } = Astro.props;
 const formattedLastModified = dayjs(frontmatter.lastModified)
   .utc()
   .tz("Europe/Paris")
-  .format("MMMM DD YYYY HH:mm:ss");
+  .format("MMMM DD YYYY");
 ---
 
 <BaseLayout>
@@ -49,7 +49,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
                 >Published on <FormattedDate date={frontmatter.pubDate} /></span
               >
               &bull;
-              <span>Updated on {formattedLastModified.slice(0, 12)}</span>
+              <span>Updated on {formattedLastModified}</span>
               &bull;
               <span>{readingTime}</span>
             </p>
