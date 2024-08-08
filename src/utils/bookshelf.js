@@ -2,6 +2,21 @@ import fs from "fs";
 import fetch from "node-fetch";
 import xml2js from "xml2js";
 
+
+// Define a function to replace accented characters with unaccented ones
+function normalizeString(str) {
+    const accents = {
+        'À': 'A', 'Ç': 'C', 'È': 'E', 'É': 'E', 'Ê': 'E',
+        'Ë': 'E', 'Î': 'I', 'Ï': 'I', 'Ô': 'O', 'Ö': 'O',
+        'Ù': 'U', 'Û': 'U', 'Ü': 'U', 'à': 'a',
+        'ç': 'c', 'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
+        'î': 'i', 'ï': 'i', 'ô': 'o', 'ö': 'o', 'ù': 'u',
+        'û': 'u', 'ü': 'u', 'ÿ': 'y', 'Ÿ': 'Y'
+    };
+
+    return str.split('').map(char => accents[char] || char).join('');
+}
+
 async function getGoodreadsBooks() {
     // Goodreads RSS feed URL with your user ID and API key
     const url = "https://www.goodreads.com/review/list_rss/51626532?key=DLQz_TdaH9a8JYqPbY9AV6UU-LPMXRtUBIxM2g9gXiNnLGSR&shelf=read";
@@ -33,8 +48,9 @@ async function getGoodreadsBooks() {
             title: book.title[0] // Book title
         };
 
-        // Create a filename by sanitizing the book title
-        const filename = `${bookData.title.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.json`;
+        // Normalize and sanitize the book title for filename
+        const normalizedTitle = normalizeString(bookData.title);
+        const filename = `${normalizedTitle.replace(/[^a-z0-9]/gi, "_").toLowerCase()}.json`;
 
         // Save the book data as a JSON file
         fs.writeFileSync(`${dir}/${filename}`, JSON.stringify(bookData, null, 2));
