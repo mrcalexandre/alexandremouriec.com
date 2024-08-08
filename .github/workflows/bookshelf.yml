@@ -16,6 +16,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Fetch books from Goodreads
         run: node ./src/utils/bookshelf.js
 
