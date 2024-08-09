@@ -19,6 +19,7 @@ const postsCollection = defineCollection({
 const projectsCollection = defineCollection({
   type: "data",
   schema: z.object({
+    date: z.number(),
     name: z.string(),
     description: z.string(),
     url: z.string(),
@@ -26,7 +27,6 @@ const projectsCollection = defineCollection({
       url: z.string(),
       alt: z.string(),
     }),
-    id: z.number(),
   }),
 });
 
