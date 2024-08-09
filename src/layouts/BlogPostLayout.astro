@@ -68,6 +68,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
                 <Image
                   alt={frontmatter.image.alt}
                   class="rounded-lg object-cover object-center"
+                  inferSize={true}
                   src={frontmatter.image.url}
                 />
               </div>
