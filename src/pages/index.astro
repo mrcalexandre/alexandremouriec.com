@@ -9,26 +9,27 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 <BaseLayout>
   <h1
     class="font-regular pb-2 font-serif text-2xl italic text-zinc-800 dark:text-zinc-100">
-    Hi, I'm Alexandre <span class="text-xl not-italic">👋🏻</span>
+    Hi, I'm Alexandre <span class="text-xl not-italic">👋</span>
   </h1>
   <p
     class="dark:text-slate-450 font-regular font-serif text-lg italic text-slate-400">
     Full-Stack Developer & Full-Time Curious
   </p>
   <div class="space-y-16">
-    <section class="content mt-4">
+    <section class="content mt-4 space-y-8">
       <article
         class="font-regular h-card mt-6 space-y-4 text-zinc-700 dark:text-zinc-400">
         <p>
-          Hi I am <Link
+          I am <Link
             class="p-name u-url u-uid"
             href="https://alexandremouriec.com/"
             rel="me">
             Alexandre Mouriec</Link
-          > 👋 <span class="p-note"
-            >I am a <span class="p-job-title">Full-Stack developer</span> from <span
+          >,
+          <span class="p-note"
+            ><span class="p-job-title">Full-Stack developer</span> from <span
               class="p-country-name">France</span
-            >, currently based in <span class="p-locality">Rennes</span>"
+            >, currently based in <span class="p-locality">Rennes</span>
           </span>
 
           <p>
@@ -50,6 +51,17 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           </p>
         </p>
       </article>
+
+      <section class="space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h2
+            class="font-serif text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+            Latest Posts
+          </h2>
+          <Link href="/blog"> See all posts </Link>
+        </div>
+        <BlogPosts />
+      </section>
 
       <section class="space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
@@ -86,17 +98,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
               </svg>
             </a>
           </div>
-        </section>
-
-        <section class="space-y-6">
-          <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2
-              class="font-serif text-xl font-semibold text-zinc-800 dark:text-zinc-100">
-              Latest Posts
-            </h2>
-            <Link href="/blog"> See all posts </Link>
-          </div>
-          <BlogPosts />
         </section>
 
         <section class="space-y-6">

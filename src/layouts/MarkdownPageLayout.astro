@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props;
 const lastModified = dayjs(frontmatter.lastModified)
   .utc()
   .tz("Europe/Paris")
-  .format("MMMM DD YYYY HH:mm:ss");
+  .format("MMMM DD YYYY");
 ---
 
 <BaseLayout>
@@ -43,7 +43,7 @@ const lastModified = dayjs(frontmatter.lastModified)
           <slot />
           <div class="text-sm text-gray-500 dark:text-neutral-400">
             <span>
-              Last updated on {lastModified.toString().slice(0, 12)}
+              Last updated on {lastModified.toString()}
             </span>
           </div>
         </article>
