@@ -19,25 +19,25 @@
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.0",
     "@remy/webmention": "^1.5.0",
-    "astro": "^4.12.2",
+    "astro": "^4.13.3",
     "astro-icon": "^1.1.0",
     "astro-navbar": "^2.3.3",
     "dayjs": "^1.11.12",
     "mdast-util-to-string": "^4.0.0",
     "node-fetch": "^3.3.2",
     "reading-time": "^1.5.0",
-    "tailwindcss": "^3.4.6",
+    "tailwindcss": "^3.4.9",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.14",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^1.2.2",
     "eslint-plugin-perfectionist": "^2.11.0",
     "markdown-it": "^14.1.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.5",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "sanitize-html": "^2.13.0"
   }
 }
