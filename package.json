@@ -37,7 +37,7 @@
     "markdown-it": "^14.1.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.5",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "sanitize-html": "^2.13.0"
   }
 }
