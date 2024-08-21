@@ -20,7 +20,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@remy/webmention": "^1.5.0",
     "astro": "^4.13.3",
-    "astro-icon": "^1.1.0",
+    "astro-icon": "^1.1.1",
     "astro-navbar": "^2.3.3",
     "dayjs": "^1.11.12",
     "mdast-util-to-string": "^4.0.0",
