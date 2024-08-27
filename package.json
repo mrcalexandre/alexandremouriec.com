@@ -22,7 +22,7 @@
     "astro": "^4.14.5",
     "astro-icon": "^1.1.1",
     "astro-navbar": "^2.3.3",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "mdast-util-to-string": "^4.0.0",
     "node-fetch": "^3.3.2",
     "reading-time": "^1.5.0",
