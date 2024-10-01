@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
-    "eslint": "^8.56.0",
+    "eslint": "^9.11.1",
     "eslint-plugin-astro": "^1.2.4",
     "eslint-plugin-perfectionist": "^2.11.0",
     "markdown-it": "^14.1.0",
