@@ -13,7 +13,7 @@ title: App Defaults
 | 📷 **iPhone Photo Shooting**          | Camera                                         |
 | 🟦 **Photo Management**               | Apple Photos                                   |
 | 📆 **Calendar**                       | Apple Calendar (CalDAV via Infomaniak)         |
-| 📁 **Cloud File Storage**             | iCloud                                         |
+| 📁 **Cloud File Storage**             | iCloud / Infomaniak                            |
 | 🖥️ **Backups**                        | Time Machine                                   |
 | 📖 **RSS**                            | NetNewsWire [^1]                               |
 | 🙍🏻‍♂️ **Contacts**                       | Apple Contacts (CardDAV via Infomaniak)        |
