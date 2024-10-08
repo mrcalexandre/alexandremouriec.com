@@ -37,7 +37,7 @@ title: App Defaults
 | 🔍 **Search Engine**                  | Brave Search                                   |
 | 🎬 **Movies / Shows tracking**        | Obsidian                                       |
 | 🗣️ **Language Checker**               | LanguageTool [^1]                              |
-| 🎧 **Screen Time App**                | Jomo [^2][^3]                                  |
+| 📵 **Screen Time App**                | Jomo [^2][^3]                                  |
 | 🎧 **DJing**                          | Rekordbox                                      |
 
 [^1]: Open-source.
