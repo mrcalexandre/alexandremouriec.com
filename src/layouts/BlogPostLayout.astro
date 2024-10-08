@@ -12,9 +12,9 @@ dayjs.extend(timezone);
 
 import BaseLayout from "./BaseLayout.astro";
 
-const { frontmatter, readingTime } = Astro.props;
+const { frontmatter, lastModified, readingTime } = Astro.props;
 
-const formattedLastModified = dayjs(frontmatter.lastModified)
+const formattedLastModified = dayjs(lastModified)
   .utc()
   .tz("Europe/Paris")
   .format("MMMM DD YYYY");
