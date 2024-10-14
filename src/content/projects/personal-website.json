@@ -2,7 +2,7 @@
   "id": 5,
   "date": 2024,
   "name": "Personal Website",
-  "description": "V4 of my website, focused on the Indie Web",
+  "description": "V4 of my website, built using Astro, Tailwind CSS and Markdown",
   "url": "https://github.com/mrcalexandre/alexandremouriec.com/",
   "image": {
     "url": "personal-website",
