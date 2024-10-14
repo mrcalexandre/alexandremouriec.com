@@ -2,7 +2,7 @@
   "id": 6,
   "date": 2024,
   "name": "Shaarli",
-  "description": "A curated feed powered by Shaarli which I set up to share my favorite content",
+  "description": "A curated feed powered by Shaarli and managed by Docker",
   "url": "https://links.alexandremouriec.com/",
   "image": {
     "url": "shaarli",
