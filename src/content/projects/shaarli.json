@@ -1,0 +1,11 @@
+{
+  "id": 6,
+  "date": 2024,
+  "name": "Shaarli",
+  "description": "A curated feed powered by Shaarli which I set up to share my favorite content",
+  "url": "https://links.alexandremouriec.com/",
+  "image": {
+    "url": "shaarli",
+    "alt": "Thumbnail of my Shaarli page using Stack theme"
+  }
+}
