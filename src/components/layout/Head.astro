@@ -22,7 +22,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link
     href={new URL("blog/feed.xml", Astro.site)}
     rel="alternate"
-    title="RSS Feed for alexandremouriec.com"
+    title="Alexandre's Blog RSS Feed"
+    type="application/rss+xml"
+  />
+
+  <link
+    href="https://links.alexandremouriec.com/feed/rss?"
+    rel="alternate"
+    title="Alexandre's Curation RSS Feed"
     type="application/rss+xml"
   />
 
