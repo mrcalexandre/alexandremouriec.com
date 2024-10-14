@@ -19,6 +19,7 @@ const postsCollection = defineCollection({
 const projectsCollection = defineCollection({
   type: "data",
   schema: z.object({
+    id: z.number(),
     date: z.number(),
     name: z.string(),
     description: z.string(),

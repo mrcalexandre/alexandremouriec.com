@@ -3,13 +3,19 @@ import ProjectItem from "@/components/projects/ProjectItem.astro";
 import { getCollection } from "astro:content";
 
 const allProjects = (await getCollection("projects")).sort(
-  (a, b) => b.data.date - a.data.date
+  (a, b) => b.data.id - a.data.id
 );
+
+// Props (limit is optional)
+const { limit } = Astro.props;
+
+// Conditionally limit the number of projects
+const displayedProjects = limit ? allProjects.slice(0, limit) : allProjects;
 ---
 
 <ul class="xs:grid-cols-1 mt-7 grid justify-center gap-8 sm:grid-cols-2">
   {
-    allProjects.map((project) => (
+    displayedProjects.map((project) => (
       <li key={project.id}>
         <ProjectItem entry={project} />
       </li>
