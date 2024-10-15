@@ -20,7 +20,7 @@ const { entry } = Astro.props;
       <Image
         alt={entry.data.image.alt}
         class="h-full w-full rounded-lg object-cover"
-        loading="eager"
+        loading="lazy"
         src={import(`../../images/projects/${entry.data.image.url}.png`)}
       />
     </span>
