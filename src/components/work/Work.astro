@@ -4,7 +4,7 @@ import ApiticLogo from "@/images/logos/apitic.jpg";
 import CrispLogo from "@/images/logos/crisp.png";
 import GetroLogo from "@/images/logos/getro.webp";
 
-const work = {
+const allWork = {
   description: `I've worked with a variety of technologies and tools to build cool things. Here are some of the projects I've worked on.`,
   items: [
     {
@@ -34,13 +34,19 @@ const work = {
         url: "https://getro.com/",
       },
       date: "Apr 2019 - Aug 2019",
-      id: 2,
+      id: 3,
       title: "Front-End Developer Intern",
     },
   ],
 };
+
+// Props (limit is optional)
+const { limit } = Astro.props;
+
+// Conditionally limit the number of projects
+const displayedWork = limit ? allWork.items.slice(0, limit) : allWork.items;
 ---
 
 <div class="group grid grid-cols-1">
-  {work.items.map((item) => <WorkItem {...item} />)}
+  {displayedWork.map((item) => <WorkItem {...item} />)}
 </div>
