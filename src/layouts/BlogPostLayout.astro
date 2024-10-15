@@ -1,6 +1,6 @@
 ---
 import BackToPrev from "@/components/common/BackToPrev.astro";
-import FormattedDate from "@/components/common/FormattedDate.astro";
+import Footnote from "@/components/common/Footnote.astro";
 import Logo from "@/images/logos/logo-512x512.png";
 import { Image } from "astro:assets";
 import dayjs from "dayjs";
@@ -15,80 +15,63 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter, lastModified, readingTime } = Astro.props;
 
 const formattedLastModified = dayjs(lastModified)
-  .utc()
   .tz("Europe/Paris")
-  .format("MMMM DD YYYY");
+  .format("MMMM DD, YYYY");
 ---
 
 <BaseLayout>
   <section class="mx-auto mb-12 sm:px-6">
-    <div>
-      <BackToPrev href="/blog">Back to Blog</BackToPrev>
-      <section class="mx-auto pt-4">
-        <article
-          class="h-entry prose mx-auto text-zinc-800 prose-table:table-fixed dark:text-neutral-100">
-          <header class="mx-auto mb-10 mt-6">
-            <h1
-              class="mb-6 font-serif text-4xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              {frontmatter.title}
-            </h1>
-            <div class="flex items-center justify-start gap-2">
-              <Image
-                alt="Alexandre Mouriec"
-                class="u-photo m-0 mr-1 h-10 w-10 cursor-pointer rounded-full object-cover"
-                height="80"
-                src={Logo}
-                width="80"
-              />
-              <a
-                class="text-md p-author h-card font-medium dark:text-white"
-                href={Astro.site}
-                rel="me">
-                Alexandre Mouriec
-              </a>
-            </div>
-            <p
-              class="text-md mb-8 mt-4 font-medium text-gray-500 dark:text-neutral-400">
-              <a
-                class="u-url text-gray-500 no-underline dark:text-neutral-400"
-                href={Astro.url}
-                >Published on <FormattedDate
-                  class="dt-published"
-                  date={frontmatter.pubDate}
-                /></a
-              >
-              &bull;
-              <span>Updated on {formattedLastModified}</span>
-              &bull;
-              <span>{readingTime}</span>
-            </p>
-          </header>
-          {
-            frontmatter.image && (
-              <div class="aspect-w-3 aspect-h-2 mb-6">
-                <Image
-                  alt={frontmatter.image.alt}
-                  class="rounded-lg object-cover object-center"
-                  inferSize={true}
-                  src={frontmatter.image.url}
-                />
-              </div>
-            )
-          }
-          <slot class="prose prose-xl" />
-          <div class="mt-8 flex flex-wrap gap-2">
-            {
-              frontmatter.tags.map((tag) => (
-                <span
-                  class="p-category inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300"
-                  key={tag}>
-                  {tag}
-                </span>
-              ))
-            }
+    <BackToPrev href="/blog">Back to Blog</BackToPrev>
+    <section class="mx-auto pt-4">
+      <article class="h-entry prose mx-auto prose-table:table-fixed">
+        <header class="mb-4 mt-6">
+          <h1
+            class="my-4 font-serif text-4xl font-semibold tracking-tight dark:text-zinc-100 sm:text-5xl">
+            {frontmatter.title}
+          </h1>
+          <div class="flex items-center justify-start gap-2">
+            <Image
+              alt="Alexandre Mouriec"
+              class="u-photo m-0 mr-1 h-8 w-8 rounded-full"
+              height="70"
+              loading="eager"
+              src={Logo}
+              width="70"
+            />
+            <a
+              class="p-author h-card text-sm no-underline dark:text-white"
+              href={Astro.site}>Alexandre Mouriec</a
+            >
           </div>
-        </article>
-      </section>
-    </div>
+        </header>
+        {
+          frontmatter.image && (
+            <Image
+              alt={frontmatter.image.alt}
+              class="mb-6 rounded-lg object-cover"
+              src={frontmatter.image.url}
+            />
+          )
+        }
+        <slot />
+        <div class="mt-8 flex gap-2">
+          {
+            frontmatter.tags.map((tag) => (
+              <span
+                class="p-category inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 no-underline transition hover:rotate-2 hover:scale-105 active:scale-95 dark:bg-slate-600 dark:text-slate-300"
+                key={tag}>
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+        <hr class="my-6" />
+        <Footnote
+          lastModified={formattedLastModified}
+          publishedDate={frontmatter.pubDate}
+          readingTime={readingTime}
+        />
+      </article>
+    </section>
   </section>
 </BaseLayout>
