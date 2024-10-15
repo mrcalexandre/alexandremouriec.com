@@ -1,0 +1,47 @@
+---
+import FormattedDate from "@/components/common/FormattedDate.astro";
+import CalendarIcon from "@/components/icons/CalendarIcon.astro";
+import ClockIcon from "@/components/icons/ClockIcon.astro";
+import RssIcon from "@/components/icons/RssIcon.astro";
+
+const { lastModified, publishedDate, readingTime } = Astro.props;
+---
+
+<div class="mt-2 space-y-2 text-sm">
+  <div class="flex items-center space-x-2 text-gray-600 dark:text-zinc-100">
+    <CalendarIcon />
+
+    <a class="u-url text-gray-600 no-underline" href={Astro.url}>
+      {
+        publishedDate && (
+          <span class="font-normal">
+            Published on{" "}
+            <FormattedDate class="dt-published" date={publishedDate} />
+            &bull;
+          </span>
+        )
+      }
+      <span class="font-normal">Updated on {lastModified}</span>
+    </a>
+  </div>
+
+  {
+    readingTime && (
+      <div class="flex items-center space-x-2 text-gray-600 dark:text-zinc-100">
+        <ClockIcon />
+        <span>{readingTime}</span>
+      </div>
+    )
+  }
+
+  {
+    publishedDate && (
+      <a
+        class="flex items-center space-x-2 text-blue-600 hover:underline dark:text-blue-300"
+        href="/blog/feed.xml">
+        <RssIcon />
+        <span>Subscribe via RSS</span>
+      </a>
+    )
+  }
+</div>
