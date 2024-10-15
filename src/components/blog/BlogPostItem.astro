@@ -5,22 +5,23 @@ const { entry } = Astro.props;
 ---
 
 <a
-  class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex flex-nowrap gap-2 rounded-lg border border-dashed px-4 py-3 pr-10 shadow-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-zinc-800 dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-zinc-100"
+  class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-zinc-800 dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-zinc-100"
   href={`/blog/${entry.slug}/`}>
   <div class="flex flex-1 flex-col truncate">
-    <div class="text-md p-name font-serif font-semibold">
+    <div class="p-name text-md truncate font-serif font-semibold">
       {entry.data.title}
     </div>
-    <div class="text-md e-content max-w-sm truncate">
+    <div class="text-md e-content truncate text-gray-600 dark:text-gray-400">
       {entry.data.description}
     </div>
   </div>
-  <div
-    class="font-regular absolute right-8 top-1/2 -translate-y-1/2 transform text-sm italic duration-300 ease-in-out">
+
+  <div class="text-sm italic text-gray-500 dark:text-zinc-100">
     <FormattedDate class="dt-published" date={entry.data.pubDate} />
   </div>
+
   <svg
-    class="absolute right-2 top-1/2 size-5 -translate-y-1/2 fill-none stroke-current stroke-2"
+    class="-ml-4 h-5 w-5 fill-none stroke-current stroke-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg">
     <line
