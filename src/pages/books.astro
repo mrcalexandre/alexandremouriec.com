@@ -55,16 +55,14 @@ const pageSubtitle = "Books I've read, organized by year";
             <h2 class="mb-4 font-serif text-3xl font-bold">{year}</h2>
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
               {booksByYear[year].map((book) => (
-                <a
-                  class="group relative"
-                  href={book.link}
-                  key={book.title}
-                  target="_blank">
-                  <img
-                    alt={book.cover_image.cover_image_alt}
-                    class="mb-4 h-48 w-auto object-cover"
-                    src={book.cover_image.cover_image_url}
-                  />
+                <div class="group relative" key={book.title}>
+                  <a href={book.link} target="_blank">
+                    <img
+                      alt={book.cover_image.cover_image_alt}
+                      class="mb-4 h-48 w-auto object-cover"
+                      src={book.cover_image.cover_image_url}
+                    />
+                  </a>
                   <span class="absolute z-10 hidden w-64 transform rounded-lg bg-gray-900 p-2 text-sm text-gray-200 opacity-0 transition-opacity duration-300 ease-in-out group-hover:block group-hover:-translate-y-2 group-hover:opacity-100">
                     {book.title}
                   </span>
@@ -72,7 +70,7 @@ const pageSubtitle = "Books I've read, organized by year";
                   <p class="text-gray-700 dark:text-gray-200">
                     by {book.author}
                   </p>
-                </a>
+                </div>
               ))}
             </div>
           </div>
