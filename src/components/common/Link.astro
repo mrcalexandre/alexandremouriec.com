@@ -3,7 +3,7 @@ const { external, href, underline = true, ...rest } = Astro.props;
 ---
 
 <a
-  class="decoration-zinc/15 hover:decoration-zinc/25 inline-block cursor-pointer text-current underline decoration-dashed underline-offset-4 transition-colors duration-300 ease-in-out hover:text-zinc-800 dark:decoration-white/30 hover:dark:text-zinc-100 hover:dark:decoration-white/50"
+  class="decoration-zinc/15 hover:decoration-zinc/25 inline-block cursor-pointer text-current underline underline-offset-4 transition-colors duration-300 ease-in-out hover:text-zinc-800 dark:decoration-white/30 hover:dark:text-zinc-100 hover:dark:decoration-white/50"
   href={href}
   target={external ? "_blank" : "_self"}
   {...rest}>
