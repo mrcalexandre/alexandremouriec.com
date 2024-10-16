@@ -2,7 +2,6 @@ import fs from "fs";
 import fetch from "node-fetch";
 import xml2js from "xml2js";
 
-
 // Define a function to replace accented characters with unaccented ones
 function normalizeString(str) {
     const accents = {
@@ -37,6 +36,11 @@ async function getGoodreadsBooks() {
 
     // Map through each book item and save each as a separate JSON file
     result.rss.channel[0].item.forEach(book => {
+        const description = book.description[0];
+        // Use regex to extract the book URL from the description
+        const urlMatch = description.match(/<a href="(https:\/\/www\.goodreads\.com\/book\/show\/\d+\.([^"]+))"/);
+        let bookUrl = urlMatch ? urlMatch[1] : book.link[0]; // Extracted URL or review link
+
         const bookData = {
             author: book.author_name[0],
             cover_image: {
@@ -44,7 +48,7 @@ async function getGoodreadsBooks() {
                 cover_image_url: book.book_large_image_url[0],
             },
             date_read: book.user_read_at[0],
-            link: book.link[0],
+            link: bookUrl,
             title: book.title[0]
         };
 
