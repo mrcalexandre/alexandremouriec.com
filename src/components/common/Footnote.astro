@@ -8,10 +8,12 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
 ---
 
 <div class="mt-2 space-y-2 text-sm">
-  <div class="flex items-center space-x-2 text-gray-600 dark:text-zinc-100">
+  <div class="flex items-center space-x-2 text-gray-600 dark:text-gray-200">
     <CalendarIcon />
 
-    <a class="u-url text-gray-600 no-underline" href={Astro.url}>
+    <a
+      class="u-url text-gray-600 no-underline dark:text-gray-200"
+      href={Astro.url}>
       {
         publishedDate && (
           <span class="font-normal">
@@ -27,7 +29,7 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
 
   {
     readingTime && (
-      <div class="flex items-center space-x-2 text-gray-600 dark:text-zinc-100">
+      <div class="flex items-center space-x-2 text-gray-600 dark:text-gray-200">
         <ClockIcon />
         <span>{readingTime}</span>
       </div>

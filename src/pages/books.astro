@@ -65,11 +65,13 @@ const pageSubtitle = "Books I've read, organized by year";
                     class="mb-4 h-48 w-auto object-cover"
                     src={book.cover_image.cover_image_url}
                   />
-                  <span class="absolute z-10 hidden w-64 transform rounded-lg bg-zinc-900 p-2 text-sm text-zinc-100 opacity-0 transition-opacity duration-300 ease-in-out group-hover:block group-hover:-translate-y-2 group-hover:opacity-100">
+                  <span class="absolute z-10 hidden w-64 transform rounded-lg bg-gray-900 p-2 text-sm text-gray-200 opacity-0 transition-opacity duration-300 ease-in-out group-hover:block group-hover:-translate-y-2 group-hover:opacity-100">
                     {book.title}
                   </span>
                   <h2 class="text-md line-clamp-2 font-bold">{book.title}</h2>
-                  <p class="text-gray-700">by {book.author}</p>
+                  <p class="text-gray-700 dark:text-gray-200">
+                    by {book.author}
+                  </p>
                 </a>
               ))}
             </div>
