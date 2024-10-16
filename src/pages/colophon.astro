@@ -1,4 +1,5 @@
 ---
+import Link from "@/components/common/Link.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "Colophon";
@@ -15,24 +16,27 @@ const pageSubtitle = "How this website was built";
           Technologies
         </h2>
         <p>
-          I use <a href="https://astro.build/" target="_blank">Astro</a> to generate
+          I use <Link external href="https://astro.build/">Astro</Link> to generate
           the <b>static files</b> for this site. Version control and backups are
-          managed through <a
+          managed through <Link
+            external
             href="https://github.com/mrcalexandre/alexandremouriec.com/"
-            target="_blank">GitHub</a
-          >, which also handles deployment via GitHub Pages, supported by <a
+            >GitHub</Link
+          >, which also handles deployment via GitHub Pages, supported by <Link
+            external
             href="https://github.com/mrcalexandre/alexandremouriec.com/actions"
-            target="_blank">custom GitHub Actions</a
-          > I’ve configured. For styling and layout, I rely on <a
-            href="https://tailwindcss.com/"
-            target="_blank">Tailwind CSS</a
+            >custom GitHub Actions</Link
+          > I’ve configured. For styling and layout, I rely on <Link
+            external
+            href="https://tailwindcss.com/">Tailwind CSS</Link
           >, which helps me build various components and pages on this website.
-          All my blog posts are written in <b>Markdown</b> to follow the <a
-            href="https://stephango.com/file-over-app"
-            target="_blank">file over app</a
-          > principle. Assets are optimized using <a
-            href="https://imageoptim.com/"
-            target="_blank">ImagOptim</a
+          All my blog posts are written in <b>Markdown</b> to follow the <Link
+            external
+            href="https://stephango.com/file-over-app">file over app</Link
+          >
+          principle. Assets are optimized using <Link
+            external
+            href="https://imageoptim.com/">ImagOptim</Link
           > for images, and converted in the webbp format by Astro at build time.
         </p>
 
@@ -41,11 +45,12 @@ const pageSubtitle = "How this website was built";
           Accessibility
         </h2>
         <p>
-          This topic is still a <i>work in progress</i> for me so this website will
+          This topic is still a <i>work in progress</i> for me, so this website will
           be my playground to improve on accessibility. To make this progress transparent,
-          I am currently checking and improving using <a
-            href="https://wave.webaim.org/report#/alexandremouriec.com"
-            target="_blank">WAVE by WebAIM</a
+          I am currently checking and improving using <Link
+            external
+            href="https://wave.webaim.org/report#/alexandremouriec.com">
+            WAVE by WebAIM</Link
           >.
         </p>
 
@@ -53,16 +58,16 @@ const pageSubtitle = "How this website was built";
           class="font-serif text-xl font-semibold text-zinc-800 dark:text-zinc-100">
           Sustainability
         </h2>
-
         <p>
           I try to make my website as light as I can, with the tools I want to
-          use. <b>0.06 g of CO2</b> is produced when someone visits the homepage.
-          This is <b>cleaner than 95 % of all web pages globally</b>. This
-          website is also running on <b>sustainable energy</b>, by being hosted
-          on GitHub servers. Everything can be checked on <a
+          use.
+          <b> 0.06 g of CO2</b> is produced when someone visits the homepage. This
+          is <b>cleaner than 95 % of all web pages globally</b>. This website is
+          also running on <b>sustainable energy</b>, by being hosted on GitHub
+          servers. Everything can be checked on <Link
+            external
             href="https://www.websitecarbon.com/website/alexandremouriec-com/"
-            target="_blank">
-            Website Carbon</a
+            >Website Carbon</Link
           >.
         </p>
 
@@ -77,38 +82,37 @@ const pageSubtitle = "How this website was built";
           There’s no data collection, no ads, no affiliate links, and no
           third-party tracking. You won’t find any pop-ups or intrusive elements
           like modal windows here either. On the privacy aspect, this can be
-          verified using <a
+          verified using <Link
+            external
             href="https://themarkup.org/blacklight?location=eu&device=desktop&force=false&url=alexandremouriec.com/"
-            target="_blank">
-            The Markup</a
+            >The Markup</Link
           >.
         </p>
         <p>
-          I am using <a
-            href="https://github.com/shaarli/Shaarli/"
-            target="_blank">Shaarli</a
+          I am using <Link external href="https://github.com/shaarli/Shaarli/"
+            >Shaarli</Link
           > for my curation, where there is also no data collection, no ads, no affiliate
           links, and no third-party tracking. But since I am sharing links to other
-          websites, these websites might be doing data collection. I also use <a
-            href="https://fulltimecurious.substack.com/"
-            target="_blank">Substack</a
+          websites, these websites might be doing data collection. I also use <Link
+            external
+            href="https://fulltimecurious.substack.com/">Substack</Link
           >
-          to host my website and this platform uses various third-party trackers.
+          to host my website, and this platform uses various third-party trackers.
         </p>
 
         <h2
           class="font-serif text-xl font-semibold text-zinc-800 dark:text-zinc-100">
           Typography
         </h2>
-
         <p>
           I chose two fonts for this website. Both of them are self-hosted for
           privacy and performance, and are in their variant version. Headers are
-          set in <a
-            href="http://www.georgduffner.at/ebgaramond/index.html/"
-            target="_blank">EB Garamond by Georg Duffner</a
-          >. Body is set in <a href="https://rsms.me/inter/" target="_blank"
-            >Inter by Rasmus Andersson</a
+          set in <Link
+            external
+            href="http://www.georgduffner.at/ebgaramond/index.html/">
+            EB Garamond by Georg Duffner</Link
+          >. Body is set in <Link external href="https://rsms.me/inter/"
+            >Inter by Rasmus Andersson</Link
           >.
         </p>
       </article>
