@@ -1,0 +1,70 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import fs from "fs";
+
+// Function to fetch all book files
+async function fetchBooks() {
+  const bookFiles = fs.readdirSync("./src/content/books");
+  return bookFiles.map((file) => {
+    const content = fs.readFileSync(`./src/content/books/${file}`, "utf-8");
+    return JSON.parse(content);
+  });
+}
+
+// Fetch all books
+const books = await fetchBooks();
+
+// Function to group and sort books by the date they were read
+function groupBooksByYear(books) {
+  const groupedBooks = {};
+  books.forEach((book) => {
+    const year = new Date(book.date_read).getFullYear();
+    if (!groupedBooks[year]) {
+      groupedBooks[year] = [];
+    }
+    groupedBooks[year].push(book);
+  });
+
+  // Sort books in each year group by date, from most recent to oldest
+  Object.keys(groupedBooks).forEach((year) => {
+    groupedBooks[year] = groupedBooks[year].sort(
+      (a, b) => new Date(b.date_read) - new Date(a.date_read)
+    );
+  });
+
+  return groupedBooks;
+}
+
+// Group the books by year
+const booksByYear = groupBooksByYear(books);
+
+const pageTitle = "Bookshelf";
+const pageSubtitle = "Books I've read, organized by year";
+---
+
+<BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
+  <section class="content mx-auto mt-4">
+    {
+      Object.keys(booksByYear)
+        .sort((a, b) => b - a)
+        .map((year) => (
+          <div class="mt-8" key={year}>
+            <h2 class="mb-4 font-serif text-3xl font-bold">{year}</h2>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-4">
+              {booksByYear[year].map((book) => (
+                <a href={book.link} key={book.title} target="_blank">
+                  <img
+                    alt={book.cover_image.cover_image_alt}
+                    class="mb-4 h-48 w-auto object-cover"
+                    src={book.cover_image.cover_image_url}
+                  />
+                  <h2 class="text-md text-clip font-bold">{book.title}</h2>
+                  <p class="text-gray-700">by {book.author}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+    }
+  </section>
+</BaseLayout>
