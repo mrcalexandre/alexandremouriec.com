@@ -1,42 +1,45 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import fs from "fs";
+import fs from "fs/promises"; // Use promises version for better async handling
 
 // Function to fetch all book files
 async function fetchBooks() {
-  const bookFiles = fs.readdirSync("./src/content/books");
-  return bookFiles.map((file) => {
-    const content = fs.readFileSync(`./src/content/books/${file}`, "utf-8");
-    return JSON.parse(content);
-  });
+  try {
+    const bookFiles = await fs.readdir("./src/content/books");
+    const bookPromises = bookFiles.map(async (file) => {
+      const content = await fs.readFile(`./src/content/books/${file}`, "utf-8");
+      return JSON.parse(content);
+    });
+    return await Promise.all(bookPromises);
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    return [];
+  }
 }
 
-// Fetch all books
-const books = await fetchBooks();
-
-// Function to group and sort books by the date they were read
+// Function to group and sort books by year
 function groupBooksByYear(books) {
-  const groupedBooks = {};
-  books.forEach((book) => {
-    const year = new Date(book.date_read).getFullYear();
-    if (!groupedBooks[year]) {
-      groupedBooks[year] = [];
+  return books.reduce((groupedBooks, book) => {
+    // Ensure the book has a valid `date_read`
+    if (book.date_read) {
+      const year = new Date(book.date_read).getFullYear();
+      if (!groupedBooks[year]) {
+        groupedBooks[year] = [];
+      }
+      groupedBooks[year].push(book);
+      // Sort books within each year by most recent date
+      groupedBooks[year].sort(
+        (a, b) => new Date(b.date_read) - new Date(a.date_read)
+      );
     }
-    groupedBooks[year].push(book);
-  });
-
-  // Sort books in each year group by date, from most recent to oldest
-  Object.keys(groupedBooks).forEach((year) => {
-    groupedBooks[year] = groupedBooks[year].sort(
-      (a, b) => new Date(b.date_read) - new Date(a.date_read)
-    );
-  });
-
-  return groupedBooks;
+    return groupedBooks;
+  }, {});
 }
 
-// Group the books by year
-const booksByYear = groupBooksByYear(books);
+// Fetch all books, filter out those without a `date_read`, and group them
+const books = await fetchBooks();
+const validBooks = books.filter((book) => book.date_read); // Exclude books without `date_read`
+const booksByYear = groupBooksByYear(validBooks);
 
 const pageTitle = "Bookshelf";
 const pageSubtitle = "Books I've read, organized by year";
@@ -50,15 +53,22 @@ const pageSubtitle = "Books I've read, organized by year";
         .map((year) => (
           <div class="mt-8" key={year}>
             <h2 class="mb-4 font-serif text-3xl font-bold">{year}</h2>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-4">
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
               {booksByYear[year].map((book) => (
-                <a href={book.link} key={book.title} target="_blank">
+                <a
+                  class="group relative"
+                  href={book.link}
+                  key={book.title}
+                  target="_blank">
                   <img
                     alt={book.cover_image.cover_image_alt}
                     class="mb-4 h-48 w-auto object-cover"
                     src={book.cover_image.cover_image_url}
                   />
-                  <h2 class="text-md text-clip font-bold">{book.title}</h2>
+                  <span class="absolute z-10 hidden w-64 transform rounded-lg bg-zinc-900 p-2 text-sm text-zinc-100 opacity-0 transition-opacity duration-300 ease-in-out group-hover:block group-hover:-translate-y-2 group-hover:opacity-100">
+                    {book.title}
+                  </span>
+                  <h2 class="text-md line-clamp-2 font-bold">{book.title}</h2>
                   <p class="text-gray-700">by {book.author}</p>
                 </a>
               ))}
