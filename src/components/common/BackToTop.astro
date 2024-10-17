@@ -1,0 +1,51 @@
+<button
+  class="duration-800 fixed bottom-16 right-5 z-50 hidden rounded-full border border-gray-200 bg-transparent stroke-current p-2 shadow-sm transition-colors ease-in-out hover:bg-gray-100 hover:stroke-gray-600 dark:border-white/25 dark:bg-transparent dark:text-white dark:hover:bg-white/20 dark:hover:stroke-white md:right-10"
+  id="back-to-top">
+  <svg
+    class="h-5 w-5"
+    fill="none"
+    height="24"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg">
+    <line x1="12" x2="12" y1="19" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+
+<script is:inline>
+  function goBackToTop(event) {
+    event.preventDefault();
+    window.scrollTo({ behavior: "smooth", top: 0 });
+  }
+
+  function shouldShowBackToTop() {
+    const backToTop = document.getElementById("back-to-top");
+    const pageHeight = document.documentElement.scrollHeight;
+    const windowHeight = window.innerHeight;
+
+    if (pageHeight > 1.5 * windowHeight) {
+      window.addEventListener("scroll", toggleBackToTopVisibility);
+    } else {
+      backToTop.style.display = "none";
+    }
+  }
+
+  function toggleBackToTopVisibility() {
+    const backToTop = document.getElementById("back-to-top");
+    backToTop.classList.toggle("hidden", window.scrollY <= 50);
+  }
+
+  function initializeBackToTop() {
+    const backToTop = document.getElementById("back-to-top");
+    backToTop.addEventListener("click", goBackToTop);
+    shouldShowBackToTop();
+  }
+
+  document.addEventListener("astro:after-swap", initializeBackToTop);
+  initializeBackToTop();
+</script>
