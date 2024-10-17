@@ -9,8 +9,7 @@ const pageTitle = "404 Not Found";
 <BaseLayout pageTitle={pageTitle}>
   <Error404Icon />
   <div class="flex flex-col items-center justify-center space-y-6 text-center">
-    <p
-      class="font-regular text-md mt-16 text-neutral-600 dark:text-neutral-200">
+    <p class="font-regular text-md mt-16 opacity-60">
       Oops! It seems like the page you're looking for doesn't exist anymore or
       has been moved.
     </p>
@@ -18,13 +17,13 @@ const pageTitle = "404 Not Found";
     <div class="flex items-center justify-center gap-4">
       <Link
         aria-label="Go back to previous page"
-        class="bg-gray-200 px-4 py-2 text-gray-700 transition hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+        class="bg-gray-200 px-4 py-2"
         href="javascript:history.back()">
         Go Back
       </Link>
       <Link
         aria-label="Return to homepage"
-        class="bg-blue-500 px-4 py-2 text-white transition hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+        class="bg-blue-500 px-4 py-2 transition"
         href="/">
         Homepage
       </Link>

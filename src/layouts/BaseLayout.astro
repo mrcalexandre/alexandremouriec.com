@@ -21,16 +21,14 @@ const { pageSubtitle, pageTitle } = Astro.props;
       <Header />
       {
         pageTitle && (
-          <h1 class="prose mx-auto font-serif text-3xl font-semibold tracking-tight text-gray-900 lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:text-gray-200 md:text-4xl">
+          <h1 class="prose mx-auto font-serif text-3xl font-semibold tracking-tight lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:text-white md:text-4xl">
             {pageTitle}
           </h1>
         )
       }
       {
         pageSubtitle && (
-          <p class="dark:text-slate-450 font-serif text-base italic text-slate-400">
-            {pageSubtitle}
-          </p>
+          <p class="font-serif text-base italic opacity-60">{pageSubtitle}</p>
         )
       }
       <Container>

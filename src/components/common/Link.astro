@@ -5,14 +5,14 @@ const { external, href, underline = true, ...rest } = Astro.props;
 ---
 
 <a
-  class="decoration-zinc/15 hover:decoration-zinc/25 inline-flex cursor-pointer items-center text-current underline underline-offset-4 transition-colors duration-300 ease-in-out hover:text-gray-800 dark:decoration-white/30 hover:dark:text-gray-200 hover:dark:decoration-white/50"
+  class="decoration-zinc/15 hover:decoration-zinc/25 inline-flex cursor-pointer items-center text-current underline underline-offset-4 transition-colors duration-300 ease-in-out dark:decoration-white/30 hover:dark:decoration-white/50"
   href={href}
   target={external ? "_blank" : "_self"}
   {...rest}>
   <slot />
   {
     external && (
-      <ArrowUpRightIcon class="ml-1 h-4 w-4 text-gray-500 transition-colors duration-300 ease-in-out hover:text-gray-800 dark:text-white" />
+      <ArrowUpRightIcon class="ml-1 h-4 w-4 transition-colors duration-300 ease-in-out" />
     )
   }
 </a>

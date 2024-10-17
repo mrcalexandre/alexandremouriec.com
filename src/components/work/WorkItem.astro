@@ -5,7 +5,7 @@ const { entry } = Astro.props;
 ---
 
 <a
-  class="group relative flex flex-nowrap items-center justify-between gap-2 rounded-lg p-3 duration-300 ease-in-out hover:bg-black/5 hover:text-gray-800 dark:hover:bg-white/5 dark:hover:text-gray-200"
+  class="group relative flex flex-nowrap items-center justify-between gap-2 rounded-lg p-3 duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5"
   href={entry.data.url}
   id={entry.data.id}>
   <div class="flex items-center gap-4">
@@ -19,8 +19,12 @@ const { entry } = Astro.props;
     />
     <div>
       <h3 class="font-medium">{entry.data.title}</h3>
-      <p class="text-sm opacity-60">{entry.data.name}</p>
+      <p class="text-sm opacity-60">
+        {entry.data.name}
+      </p>
     </div>
   </div>
-  <p class="text-sm opacity-60">{entry.data.date}</p>
+  <p class="text-sm opacity-60">
+    {entry.data.date}
+  </p>
 </a>
