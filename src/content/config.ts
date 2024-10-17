@@ -31,8 +31,23 @@ const projectsCollection = defineCollection({
   }),
 });
 
+const jobsCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    image: z.object({
+      url: z.string(),
+      alt: z.string(),
+    }),
+    name: z.string(),
+    url: z.string(),
+    date: z.string(),
+    title: z.string(),
+  }),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
   posts: postsCollection,
-  projects: projectsCollection
+  projects: projectsCollection,
+  jobs: jobsCollection
 };

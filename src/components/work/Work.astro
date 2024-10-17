@@ -1,52 +1,24 @@
 ---
 import WorkItem from "@/components/work/WorkItem.astro";
-import ApiticLogo from "@/images/logos/apitic.jpg";
-import CrispLogo from "@/images/logos/crisp.png";
-import GetroLogo from "@/images/logos/getro.webp";
+import { getCollection } from "astro:content";
 
-const allWork = {
-  description: `I've worked with a variety of technologies and tools to build cool things. Here are some of the projects I've worked on.`,
-  items: [
-    {
-      company: {
-        image: CrispLogo,
-        name: "Crisp",
-        url: "https://crisp.chat/en/",
-      },
-      date: "Apr 2021 - Mar 2024",
-      id: 1,
-      title: "Full-Stack Developer",
-    },
-    {
-      company: {
-        image: ApiticLogo,
-        name: "Apitic",
-        url: "https://apitic.com/",
-      },
-      date: "Sep 2019 - Sep 2020",
-      id: 2,
-      title: "Full-Stack Developer",
-    },
-    {
-      company: {
-        image: GetroLogo,
-        name: "Getro",
-        url: "https://getro.com/",
-      },
-      date: "Apr 2019 - Aug 2019",
-      id: 3,
-      title: "Front-End Developer Intern",
-    },
-  ],
-};
+const allJobs = (await getCollection("jobs")).sort(
+  (a, b) => b.data.id - a.data.id
+);
 
 // Props (limit is optional)
 const { limit } = Astro.props;
 
-// Conditionally limit the number of projects
-const displayedWork = limit ? allWork.items.slice(0, limit) : allWork.items;
+// Conditionally limit the number of jobs
+const displayedJobs = limit ? allJobs.slice(0, limit) : allJobs;
 ---
 
-<div class="group grid grid-cols-1">
-  {displayedWork.map((item) => <WorkItem {...item} />)}
-</div>
+<ul class="group grid grid-cols-1">
+  {
+    displayedJobs.map((job) => (
+      <li key={job.id}>
+        <WorkItem entry={job} />
+      </li>
+    ))
+  }
+</ul>
