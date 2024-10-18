@@ -29,7 +29,7 @@
     const pageHeight = document.documentElement.scrollHeight;
     const windowHeight = window.innerHeight;
 
-    if (pageHeight > 1.5 * windowHeight) {
+    if (pageHeight > 2 * windowHeight) {
       window.addEventListener("scroll", toggleBackToTopVisibility);
     } else {
       backToTop.style.display = "none";
