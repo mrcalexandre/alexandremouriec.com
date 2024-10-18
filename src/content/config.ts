@@ -48,6 +48,7 @@ const projectsCollection = defineCollection({
 const jobsCollection = defineCollection({
   type: "data",
   schema: z.object({
+    id: z.number(),
     image: z.object({
       url: z.string(),
       alt: z.string(),
