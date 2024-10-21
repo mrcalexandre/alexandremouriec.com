@@ -1,0 +1,49 @@
+---
+import RssIcon from "@/components/icons/RssIcon.astro";
+---
+
+<div class="mx-auto max-w-3xl py-8">
+  <h2 class="mb-4 text-2xl font-semibold text-gray-900 dark:text-white">
+    Subscribe to Full-Time Curious
+  </h2>
+  <p class="mb-6 text-gray-700 dark:text-gray-300">
+    Subscribe to receive the latest updates from the Full-Time Curious
+    newsletter.
+  </p>
+
+  <form
+    action="https://fulltimecurious.substack.com/subscribe"
+    class="flex space-x-4"
+    method="get"
+    target="_blank">
+    <div class="flex-grow">
+      <input
+        class="form-input w-full rounded-lg border border-dashed bg-white px-4 py-3 text-gray-900 placeholder-gray-600 transition duration-300 ease-out focus:border-gray-300 focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-gray-600 sm:text-sm"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        type="email"
+      />
+      <p class="mt-2 hidden text-sm text-red-600" id="email-error">
+        Please fill out this field.
+      </p>
+    </div>
+
+    <input
+      class="cursor-pointer rounded-lg bg-blue-600 px-5 py-3 text-white shadow-sm transition duration-300 ease-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+      type="submit"
+      value="Subscribe"
+    />
+  </form>
+
+  <div class="mt-6">
+    <a href="https://fulltimecurious.substack.com/feed" target="_blank">
+      <button
+        class="flex w-full items-center justify-center space-x-2 rounded-lg border px-4 py-3 text-gray-900 shadow-sm transition duration-300 ease-out hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <RssIcon />
+        <span>Subscribe to RSS</span>
+      </button>
+    </a>
+  </div>
+</div>

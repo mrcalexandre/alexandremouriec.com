@@ -15,6 +15,16 @@ const booksCollection = defineCollection({
   }),
 });
 
+const newslettersCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    description: z.string(),
+    link: z.string().url()
+  }),
+});
+
 const postsCollection = defineCollection({
   type: "content",
   schema: z.object({

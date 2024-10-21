@@ -1,0 +1,27 @@
+---
+import FormattedDate from "@/components/common/FormattedDate.astro";
+import ArrowRightIcon from "@/components/icons/ArrowRightIcon.astro";
+
+const { entry } = Astro.props;
+---
+
+<a
+  class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-sm transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
+  href={`${entry.data.link}`}
+  target="_blank">
+  <div class="flex flex-1 flex-col truncate">
+    <div class="p-name text-md truncate font-serif font-semibold">
+      {entry.data.title}
+    </div>
+    <div class="text-md e-content truncate opacity-60">
+      {entry.data.description}
+    </div>
+  </div>
+
+  <div class="text-sm italic">
+    <span class="dt-published">
+      <FormattedDate date={new Date(entry.data.pubDate)} />
+    </span>
+  </div>
+  <ArrowRightIcon />
+</a>
