@@ -17,7 +17,7 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
 <BlogPostLayout
   frontmatter={entry.data}
   readingTime={remarkPluginFrontmatter.minutesRead}>
-  <section class="">
+  <section class="e-content">
     <Content />
   </section>
 </BlogPostLayout>
