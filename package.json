@@ -19,7 +19,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@remy/webmention": "^1.0.4",
-    "astro": "^4.16.6",
+    "astro": "^4.16.7",
     "astro-icon": "^1.1.1",
     "astro-navbar": "^2.3.4",
     "dayjs": "^1.11.13",
