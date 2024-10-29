@@ -19,7 +19,7 @@ title: App Defaults
 | 🙍🏻‍♂️ **Contacts**                       | Apple Contacts (CardDAV via Infomaniak) |
 | 🌐 **Browser**                        | Zen (Firefox fork) [^1]                 |
 | 💬 **Chat**                           | Beeper [^1] / Messages                  |
-| 🔖 **Bookmarks**                      | Raindrop [^1][^2][^3]                   |
+| 🔖 **Bookmarks**                      | Zen Browser bookmarks [^1]              |
 | 📑 **Read It Later**                  | Readwise Reader [^2]                    |
 | 📜 **Word Processing**                | Apple Pages (rarely using it)           |
 | 📷 **Image compression**              | ImagOptim [^1]                          |
