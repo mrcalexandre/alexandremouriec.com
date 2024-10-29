@@ -1,4 +1,6 @@
 ---
+import Link from "@/components/common/Link.astro";
+import Work from "@/components/work/Work.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
@@ -28,6 +30,40 @@ const pageSubtitle = "Sharing a bit more about me";
           ones.
         </p>
       </article>
+    </section>
+    <section class="space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-y-2">
+        <h2 class="font-serif text-xl font-semibold">Work Experience</h2>
+        <Link href="/work"> See all work </Link>
+      </div>
+      <section class="mx-auto my-8 mt-8 flex-col sm:flex sm:gap-8">
+        <h2 class="mb-4 opacity-60 sm:mb-0">
+          I have had the chance to work at various exciting companies over the
+          years.
+        </h2>
+        <div>
+          <Work limit="3" />
+          <a
+            class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-gray-50 px-3 py-2 text-sm font-medium outline-offset-2 transition hover:bg-gray-100 active:bg-gray-100 active:text-gray-900/60 active:transition-none dark:bg-gray-600/50 dark:hover:bg-gray-600 dark:active:bg-gray-600/50 dark:active:text-gray-50/70"
+            href="/resume"
+            target="_blank"
+            >Download CV <svg
+              class="right-8 top-4 size-4 rotate-90 fill-none stroke-current stroke-2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <line
+                class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
+                x1="5"
+                x2="19"
+                y1="12"
+                y2="12"></line>
+              <polyline
+                class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
+                points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </section>
     </section>
   </div>
 </BaseLayout>
