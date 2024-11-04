@@ -21,7 +21,7 @@
     "@remy/webmention": "^1.0.4",
     "astro": "^4.16.6",
     "astro-icon": "^1.1.1",
-    "astro-navbar": "^2.3.4",
+    "astro-navbar": "^2.3.6",
     "dayjs": "^1.11.13",
     "mdast-util-to-string": "^4.0.0",
     "node-fetch": "^3.3.2",
