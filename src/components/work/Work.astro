@@ -3,7 +3,7 @@ import WorkItem from "@/components/work/WorkItem.astro";
 import { getCollection } from "astro:content";
 
 const allJobs = (await getCollection("jobs")).sort(
-  (a, b) => a.data.id - b.data.id
+  (a, b) => b.data.id - a.data.id
 );
 
 // Props (limit is optional)
