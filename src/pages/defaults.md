@@ -9,7 +9,7 @@ title: App Defaults
 | 📮 **Mail Server**                    | Gmail - Infomaniak [^1]                     |
 | 📝 **Notes**                          | Obsidian                                    |
 | ✅ **To-Do**                          | Apple Reminders (Personal) - Todoist (Work) |
-| 🎯 **Habit Tracker**                  | Onrise [^3]                                 |
+| 🎯 **Habit Tracker**                  | Apple Reminders                             |
 | 📷 **iPhone Photo Shooting**          | Camera                                      |
 | 🟦 **Photo Management**               | Apple Photos                                |
 | 📆 **Calendar**                       | Apple Calendar (CalDAV via Infomaniak)      |
