@@ -4,7 +4,6 @@ import xml2js from "xml2js";
 
 // Fetch the RSS feed and parse it into JSON
 async function fetchAndParseRSSFeed() {
-
   // URL of the Substack RSS feed
   const url = "https://fulltimecurious.substack.com/feed";
 
@@ -22,10 +21,14 @@ async function fetchAndParseRSSFeed() {
     fs.mkdirSync(dir, { recursive: true });
   }
 
-  // Map through each newsletter issue and save each as a separate JSON file
+  // Get all newsletters and reverse the array so oldest comes first
   const newsletters = result.rss.channel[0].item;
 
+  // Map through each newsletter issue and save each as a separate JSON file
   newsletters.forEach((newsletter, index) => {
+    // Calculate the ID (total number of newsletters - current index)
+    // This ensures the newest newsletter gets the highest ID
+    const id = newsletters.length - index;
 
     // Extract the data for each newsletter
     const sanitizedTitle = newsletter.title[0].toLowerCase().replace(/[^a-zA-Z0-9]/g, "_"); // Clean title for file name
@@ -38,7 +41,10 @@ async function fetchAndParseRSSFeed() {
     };
 
     // Save the newsletter data as a JSON file
-    fs.writeFileSync(`${dir}/${index + 1}_${sanitizedTitle}.json`, JSON.stringify(newsletterData, null, 2));
+    fs.writeFileSync(
+      `${dir}/${id}_${sanitizedTitle}.json`,
+      JSON.stringify(newsletterData, null, 2)
+    );
   });
 }
 
