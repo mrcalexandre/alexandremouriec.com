@@ -19,7 +19,7 @@ const newslettersCollection = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
-    date: z.date(),
+    pubDate: z.string(),
     description: z.string(),
     link: z.string().url()
   }),
