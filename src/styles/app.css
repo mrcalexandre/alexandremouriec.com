@@ -32,6 +32,10 @@
     font-display: swap;
     src: url("/fonts/EBGaramondVariable-Italic.woff2") format("woff2");
   }
+
+  body {
+    @apply font-sans;
+  }
 }
 
 html.dark {
@@ -40,6 +44,10 @@ html.dark {
 
 article {
   @apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold prose-p:font-serif;
+  @apply prose-headings:font-serif prose-headings:font-semibold;
   @apply prose-headings:text-zinc-800 prose-headings:dark:text-zinc-100;
+
+  p {
+    @apply font-sans;
+  }
 }
