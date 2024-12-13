@@ -10,7 +10,7 @@ const pageSubtitle = "Sharing a bit more about me";
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
   <div class="space-y-16">
     <section class="content mt-4">
-      <article class="font-regular mt-6 space-y-4">
+      <article class="text-md mt-6 space-y-4 font-light">
         <p>
           Hi I am Alexandre 👋 I am a Full-Stack Developer from France,
           currently based in Rennes and working remotely at <Link
@@ -45,10 +45,13 @@ const pageSubtitle = "Sharing a bit more about me";
         <Link href="/work"> See all work </Link>
       </div>
       <section class="mx-auto my-8 mt-8 flex-col sm:flex sm:gap-8">
-        <h2 class="mb-4 opacity-60 sm:mb-0">
-          I have had the chance to work at various exciting companies over the
-          years.
-        </h2>
+        <article class="text-md font-light">
+          <p class="my-0">
+            I have had the chance to work at various exciting companies over the
+            years.
+          </p>
+        </article>
+
         <div>
           <Work limit="3" />
           <a

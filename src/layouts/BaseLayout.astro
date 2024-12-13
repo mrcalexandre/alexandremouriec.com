@@ -26,11 +26,7 @@ const { pageSubtitle, pageTitle } = Astro.props;
           </h1>
         )
       }
-      {
-        pageSubtitle && (
-          <p class="font-serif text-base italic opacity-60">{pageSubtitle}</p>
-        )
-      }
+      {pageSubtitle && <p class="text-sm italic opacity-60">{pageSubtitle}</p>}
       <Container>
         <slot />
       </Container>
