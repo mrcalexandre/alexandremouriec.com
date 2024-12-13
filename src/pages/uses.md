@@ -15,14 +15,18 @@ subtitle: What do I use
 ## Mobile
 
 - iPhone 11
-- AirPods Pro
+- AirPods Pro 2
 - Garmin Forerunner 255
 
 ## DJ Equipment
 
 - Headphones: Audio Technica ATH-M50X
-- DJ equipment: Pioneer DDJ 800
+- DJ equipment: Pioneer DDJ 800 controller
 - USB keys for CDJs: 2x Sandisk Extreme 32Go
+
+## Other
+
+- Kindle Paperwhite (2015)
 
 ## Software
 
