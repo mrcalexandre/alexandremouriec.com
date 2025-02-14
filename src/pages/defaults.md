@@ -9,7 +9,7 @@ title: App Defaults
 | 📮 **Mail Server**                    | Gmail - Infomaniak [^1]                                                                                                                                |
 | 📝 **Notes**                          | Obsidian [^2]                                                                                                                                          |
 | ✅ **To-Do**                          | Apple Reminders (Personal) - Notion (Work)                                                                                                             |
-| 🎯 **Habit Tracker**                  | Apple Reminders (improved using [alto.daily](https://apps.apple.com/fr/app/alto-daily/id6478018751?l=en-GB)[^3])                                       |
+| 🎯 **Habit Tracker**                  | Habo[^3]                                                                                                                                               |
 | 📷 **iPhone Photo Shooting**          | Camera                                                                                                                                                 |
 | 🟦 **Photo Management**               | Apple Photos                                                                                                                                           |
 | 📆 **Calendar**                       | Apple Calendar (CalDAV via Infomaniak)                                                                                                                 |
@@ -27,9 +27,9 @@ title: App Defaults
 | 🛒 **Shopping Lists**                 | Apple Reminders                                                                                                                                        |
 | 💰 **Budgeting and Personal Finance** | Finary                                                                                                                                                 |
 | 📰 **News**                           | I try to avoid news if it's not necessary [^1]                                                                                                         |
-| 🎵 **Music**                          | Spotify - SoundCloud                                                                                                                                   |
+| 🎵 **Music**                          | Spotify (Currently looking for alternatives) - SoundCloud                                                                                              |
 | 🎤 **Podcasts**                       | Overcast [^3]                                                                                                                                          |
-| 🔐 **Password Management**            | Bitwarden [^1]                                                                                                                                         |
+| 🔐 **Password Management**            | Bitwarden [^1][^1]                                                                                                                                     |
 | 🔐 **Weather**                        | [Yr.no](https://apps.apple.com/no/app/yr-no/id490989206)                                                                                               |
 | 👨‍💻 **Code Editor**                    | VSCodium [^1]                                                                                                                                          |
 | 💾 **Terminal**                       | iTerm2 [^1]                                                                                                                                            |
@@ -42,7 +42,7 @@ title: App Defaults
 | 🔍 **Search Engine**                  | Brave Search                                                                                                                                           |
 | 📚 **Book tracking**                  | Goodreads (I tried different alternatives but haven't found the right one yet. Books are synced to [my bookshelf](https://alexandremouriec.com/books)) |
 | 🎬 **Movies / Shows tracking**        | Obsidian [^2]                                                                                                                                          |
-| 🗣️ **Language Checker**               | LanguageTool [^1]                                                                                                                                      |
+| 🗣️ **Language Checker**               | LanguageTool [^1][^1]                                                                                                                                  |
 | 📵 **Screen Time App**                | Jomo [^2][^3]                                                                                                                                          |
 | 🧘‍♂️ **Meditation**                     | Headspace                                                                                                                                              |
 | 🏃‍♂️ **Running**                        | Kiprun Pacer - Strava - Garmin Connect                                                                                                                 |
