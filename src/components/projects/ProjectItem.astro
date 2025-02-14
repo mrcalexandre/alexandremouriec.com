@@ -6,7 +6,7 @@ const { entry } = Astro.props;
 ---
 
 <a
-  class="w-88 group relative flex h-full cursor-pointer flex-col items-stretch rounded-2xl p-4 shadow-sm duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5"
+  class="w-88 group relative flex h-full cursor-pointer flex-col items-stretch rounded-2xl p-4 shadow-xs duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5"
   href={entry.data.url}
   target="_blank">
   <span
@@ -25,7 +25,7 @@ const { entry } = Astro.props;
       />
     </span>
     <!-- Text Content -->
-    <span class="mt-3 flex flex-grow flex-col">
+    <span class="mt-3 flex grow flex-col">
       <span class="truncate font-serif text-lg font-semibold">
         {entry.data.name}
       </span>

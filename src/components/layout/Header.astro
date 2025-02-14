@@ -5,28 +5,13 @@ import Logo from "@/images/logos/logo-512x512.png";
 import { Astronav, MenuIcon, MenuItems } from "astro-navbar";
 import { Image } from "astro:assets";
 
+// 🔹 Correction de la liste (suppression de la virgule en trop)
 const menuitems = [
-  {
-    path: "/about",
-    title: "About",
-  },
-  {
-    path: "/blog",
-    title: "Blog",
-  },
-  {
-    path: "/newsletter",
-    title: "Newsletter",
-  },
-  {
-    path: "https://links.alexandremouriec.com/",
-    title: "Links",
-  },
-  ,
-  {
-    path: "/books",
-    title: "Books",
-  },
+  { path: "/about", title: "About" },
+  { path: "/blog", title: "Blog" },
+  { path: "/newsletter", title: "Newsletter" },
+  { path: "https://links.alexandremouriec.com/", title: "Links" },
+  { path: "/books", title: "Books" },
 ];
 ---
 

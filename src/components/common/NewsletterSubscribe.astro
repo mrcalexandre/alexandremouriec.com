@@ -19,9 +19,9 @@ import RssIcon from "@/components/icons/RssIcon.astro";
     class="flex space-x-4"
     method="get"
     target="_blank">
-    <div class="flex-grow">
+    <div class="grow">
       <input
-        class="form-input w-full rounded-lg border border-dashed bg-white px-4 py-3 text-gray-900 placeholder-gray-600 transition duration-300 ease-out focus:border-gray-300 focus:outline-none dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-gray-600 sm:text-sm"
+        class="form-input w-full rounded-lg border border-dashed bg-white px-4 py-3 text-gray-900 placeholder-gray-600 transition duration-300 ease-out focus:border-gray-300 focus:outline-hidden dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-gray-600 sm:text-sm"
         id="email"
         name="email"
         placeholder="Enter your email"
@@ -34,7 +34,7 @@ import RssIcon from "@/components/icons/RssIcon.astro";
     </div>
 
     <input
-      class="cursor-pointer rounded-lg bg-blue-600 px-5 py-3 text-white shadow-sm transition duration-300 ease-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+      class="cursor-pointer rounded-lg bg-blue-600 px-5 py-3 text-white shadow-xs transition duration-300 ease-out hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
       type="submit"
       value="Subscribe"
     />
@@ -43,7 +43,7 @@ import RssIcon from "@/components/icons/RssIcon.astro";
   <div class="mt-6">
     <a href="https://fulltimecurious.substack.com/feed" target="_blank">
       <button
-        class="flex w-full items-center justify-center space-x-2 rounded-lg border px-4 py-3 text-gray-900 shadow-sm transition duration-300 ease-out hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        class="flex w-full items-center justify-center space-x-2 rounded-lg border px-4 py-3 text-gray-900 shadow-xs transition duration-300 ease-out hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-gray-300 dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
         <RssIcon />
         <span>Subscribe to RSS</span>
       </button>

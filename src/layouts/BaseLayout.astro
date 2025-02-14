@@ -17,11 +17,11 @@ const { pageSubtitle, pageTitle } = Astro.props;
   <body
     class="bg-light dark:bg-dark flex min-h-screen flex-col items-center justify-center">
     <main
-      class="mx-auto mb-12 flex w-full flex-grow flex-col items-center py-8 text-sm">
+      class="mx-auto mb-12 flex w-full grow flex-col items-center py-8 text-sm">
       <Header />
       {
         pageTitle && (
-          <h1 class="prose mx-auto font-serif text-3xl font-semibold tracking-tight lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:text-white md:text-4xl">
+          <h1 class="prose lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto font-serif text-3xl font-semibold tracking-tight md:text-4xl dark:text-white">
             {pageTitle}
           </h1>
         )
