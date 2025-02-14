@@ -19,6 +19,5 @@ export default defineConfig({
     "/resume": "https://kdrive.infomaniak.com/app/share/1247749/e07325e1-160f-42ae-a0c8-7722811139af"
   },
   site: "https://alexandremouriec.com",
-  trailingSlash: "never",
   vite: { plugins: [tailwindcss()] }
 });
