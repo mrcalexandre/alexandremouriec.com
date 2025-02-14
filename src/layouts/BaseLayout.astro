@@ -14,19 +14,22 @@ const { pageSubtitle, pageTitle } = Astro.props;
     description="Alexandre Mouriec's personal website"
     title="Alexandre Mouriec"
   />
-  <body
-    class="bg-light dark:bg-dark flex min-h-screen flex-col items-center justify-center">
+  <body class="bg-light dark:bg-dark flex min-h-screen flex-col">
     <main
-      class="mx-auto mb-12 flex w-full grow flex-col items-center py-8 text-sm">
+      class="mx-auto mb-12 flex w-full grow flex-col px-4 py-8 text-base text-zinc-700 sm:px-6 lg:px-8 dark:text-zinc-100">
       <Header />
       {
         pageTitle && (
-          <h1 class="prose lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto font-serif text-3xl font-semibold tracking-tight md:text-4xl dark:text-white">
+          <h1 class="mx-auto text-center font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
             {pageTitle}
           </h1>
         )
       }
-      {pageSubtitle && <p class="text-sm italic opacity-60">{pageSubtitle}</p>}
+      {
+        pageSubtitle && (
+          <p class="text-center text-sm italic opacity-60">{pageSubtitle}</p>
+        )
+      }
       <Container>
         <slot />
       </Container>

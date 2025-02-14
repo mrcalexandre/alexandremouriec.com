@@ -12,8 +12,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
-        serif: ['EBGaramondVariable', ...defaultTheme.fontFamily.serif],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        serif: ['EBGaramond', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         "xs": "12px"

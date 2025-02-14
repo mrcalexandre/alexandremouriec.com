@@ -43,12 +43,12 @@ const pageTitle = "Blog";
       {
         years.map((year) => (
           <section class="space-y-4">
-            <h2 class="text-xl font-semibold">{year}</h2>
+            <h2 class="font-serif text-xl font-semibold">{year}</h2>
             {Object.keys(allBlogPosts[year])
               .sort((a, b) => parseInt(b) - parseInt(a))
               .map((month) => (
                 <div class="space-y-2">
-                  <h3 class="text-lg font-medium">
+                  <h3 class="font-serif text-lg font-semibold">
                     {new Date(
                       parseInt(year),
                       parseInt(month) - 1

@@ -14,14 +14,14 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
     <a class="u-url no-underline" href={Astro.url}>
       {
         publishedDate && (
-          <span class="font-normal">
+          <span class="font-medium">
             Published on{" "}
             <FormattedDate class="dt-published" date={publishedDate} />
             &bull;
           </span>
         )
       }
-      <span class="font-normal">Updated on {lastModified}</span>
+      <span class="font-medium">Updated on {lastModified}</span>
     </a>
   </div>
 
