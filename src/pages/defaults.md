@@ -6,7 +6,7 @@ title: App Defaults
 | **Type**                              | **Apps**                                                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 📨 **Mail Client**                    | Apple Mail                                                                                                                                             |
-| 📮 **Mail Server**                    | Gmail - Infomaniak [^1]                                                                                                                                |
+| 📮 **Mail Server**                    | Infomaniak [^1] - Gmail                                                                                                                                |
 | 📝 **Notes**                          | Obsidian [^2]                                                                                                                                          |
 | ✅ **To-Do**                          | Apple Reminders (Personal) - Notion (Work)                                                                                                             |
 | 🎯 **Habit Tracker**                  | Habo[^3]                                                                                                                                               |
@@ -32,7 +32,7 @@ title: App Defaults
 | 🔐 **Password Management**            | Bitwarden [^1][^1]                                                                                                                                     |
 | 🔐 **Weather**                        | [Yr.no](https://apps.apple.com/no/app/yr-no/id490989206)                                                                                               |
 | 👨‍💻 **Code Editor**                    | VSCodium [^1]                                                                                                                                          |
-| 💾 **Terminal**                       | iTerm2 [^1]                                                                                                                                            |
+| 💾 **Terminal**                       | Ghostty [^1]                                                                                                                                           |
 | 🚀 **Launcher**                       | Raycast                                                                                                                                                |
 | ✏️ **Clipboard Manager**              | Maccy [^1]                                                                                                                                             |
 | 🖼️ **Screenshots**                    | Shottr                                                                                                                                                 |
