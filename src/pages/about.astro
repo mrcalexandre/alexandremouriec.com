@@ -11,32 +11,54 @@ const pageSubtitle = "Sharing a bit more about me";
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
   <div class="space-y-16">
     <section class="content mt-4">
-      <article class="text-md mt-6 space-y-4 font-light">
+      <article class="h-card text-md mt-6 space-y-4 font-light">
         <p>
-          Hi I am Alexandre 👋 I am a Full-Stack Developer from France,
-          currently based in Rennes and working remotely at <Link
-            external
-            href="https://omsandco.com">OMS</Link
-          >.
-        </p>
+          I am <Link
+            class="p-name u-url u-uid"
+            href="https://alexandremouriec.com/"
+            rel="me">
+            Alexandre Mouriec</Link
+          >,
+          <span class="p-note"
+            ><span class="p-job-title">Full-Stack Developer</span> from <span
+              class="p-country-name">France</span
+            >, currently based in <span class="p-locality">Rennes</span> and working
+            remotely at <Link class="p-org" external href="https://omsandco.com"
+              >OMS</Link
+            >.
+          </span>
 
-        <p>
-          Previously, I had the chance to work with amazing companies like
-          Crisp, Apitic, Getro and Henge.
-        </p>
+          <p>
+            Previously, I had the chance to work with amazing companies like
+            Crisp, Apitic, Getro and Henge.
+          </p>
 
-        <p>
-          Full-time Curious, I am always excited to discover a new industry or
-          topic. In my free time, I am djing and managing a DJ collective which
-          I cofounded, hosting house and techno parties in the West of France. I
-          am writing a bimonthly curated newsletter called <Link
-            href="/newsletter">
-            Full-Time Curious
-          </Link>.
-        </p>
-        <p>
-          I also read a lot, build side-projects, and spend time with my close
-          ones.
+          <p>
+            Full-time Curious, I am always excited to discover a new industry or
+            topic. In my free time, I am writing a bimonthly curated newsletter
+            called <Link href="/newsletter"> Full-Time Curious </Link> in addition
+            to <Link
+              external
+              href="https://links.alexandremouriec.com/"
+              rel="me">sharing curated links here</Link
+            >. I am also djing and managing a DJ collective which I cofounded,
+            hosting house and techno parties in the West of France.
+          </p>
+          <p>
+            I also read a lot, build side-projects, and spend time with my close
+            ones. You can find me on GitHub at <Link
+              class="u-url u-uid p-nickname"
+              external
+              href="https://github.com/mrcalexandre"
+              rel="me">@mrcalexandre</Link
+            >, and on Mastodon at <Link
+              class="u-url u-uid p-nickname"
+              external
+              href="https://mamot.fr/@mrcalexandre"
+              rel="me">@mrcalexandre@mamot.fr</Link
+            >, and obviously on this website where I am trying to build my Indie
+            Web presence.
+          </p>
         </p>
       </article>
     </section>
