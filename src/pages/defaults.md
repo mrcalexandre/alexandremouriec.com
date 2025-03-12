@@ -13,11 +13,11 @@ title: App Defaults
 | 📷 **iPhone Photo Shooting**          | Camera                                                                                                                                                 |
 | 🟦 **Photo Management**               | Apple Photos                                                                                                                                           |
 | 📆 **Calendar**                       | Apple Calendar (CalDAV via Infomaniak)                                                                                                                 |
-| 📁 **Cloud File Storage**             | iCloud / Infomaniak [^1]                                                                                                                               |
+| 📁 **Cloud File Storage**             | Infomaniak [^1]                                                                                                                                        |
 | 🖥️ **Backups**                        | Time Machine                                                                                                                                           |
 | 📖 **RSS**                            | NetNewsWire [^1]                                                                                                                                       |
 | 🙍🏻‍♂️ **Contacts**                       | Apple Contacts (CardDAV via Infomaniak)                                                                                                                |
-| 🌐 **Browser**                        | Zen (Firefox fork) [^1] (Desktop - Personal) - Brave [^1] (Desktop - Work) - Firefox Focus [^1] (iOS)                                                  |
+| 🌐 **Browser**                        | Zen (Firefox fork) [^1] (Desktop - Personal) - Vivaldi (Desktop - Work) - Quiche Browser (iOS)                                                         |
 | 💬 **Chat**                           | Beeper [^1] - Messages                                                                                                                                 |
 | 🔖 **Bookmarks**                      | Zen Browser bookmarks [^1][^2]                                                                                                                         |
 | 📑 **Read It Later**                  | Readwise Reader [^2]                                                                                                                                   |
