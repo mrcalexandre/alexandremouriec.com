@@ -22,11 +22,10 @@ title: App Defaults
 | 🔖 **Bookmarks**                      | Zen Browser bookmarks [^1][^2]                                                                                                                         |
 | 📑 **Read It Later**                  | Readwise Reader [^2]                                                                                                                                   |
 | 🔗 **Link Curation**                  | Shaarli [^1]                                                                                                                                           |
-| 🔗 **Newsletter**                     | Substack (At some point I might switch to another provider)                                                                                            |
+| 🔗 **Newsletter**                     | Substack (I am currently switching to publishing on my website and will only use a provider to send the link to subscribers)                                                                                            |
 | 📷 **Image compression**              | ImagOptim [^1]                                                                                                                                         |
 | 🛒 **Shopping Lists**                 | Apple Reminders                                                                                                                                        |
-| 💰 **Budgeting and Personal Finance** | Finary                                                                                                                                                 |
-| 📰 **News**                           | I try to avoid news if it's not necessary [^1]                                                                                                         |
+| 💰 **Budgeting and Personal Finance** | Finary                                                                                                                                                 |                                                                                                     |
 | 🎵 **Music**                          | Spotify (Currently looking for alternatives) - SoundCloud                                                                                              |
 | 🎤 **Podcasts**                       | Overcast [^3]                                                                                                                                          |
 | 🔐 **Password Management**            | Bitwarden [^1][^1]                                                                                                                                     |
