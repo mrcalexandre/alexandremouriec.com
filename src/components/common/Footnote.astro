@@ -1,4 +1,5 @@
 ---
+import Icon from "@/components/common/Icon.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
 import CalendarIcon from "@/components/icons/CalendarIcon.astro";
 import ClockIcon from "@/components/icons/ClockIcon.astro";
@@ -9,7 +10,7 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
 
 <div class="mt-2 space-y-2 text-sm">
   <div class="flex items-center space-x-2">
-    <CalendarIcon />
+    <Icon name="calendar" class="h-4 w-4" />
 
     <a class="u-url no-underline" href={Astro.url}>
       {
@@ -28,7 +29,7 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
   {
     readingTime && (
       <div class="flex items-center space-x-2">
-        <ClockIcon />
+        <Icon name="clock" class="h-4 w-4" />
         <span>{readingTime}</span>
       </div>
     )
@@ -39,7 +40,7 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
       <a
         class="flex items-center space-x-2 text-blue-600 hover:underline dark:text-blue-300"
         href="/blog/feed.xml">
-        <RssIcon />
+        <Icon name="rss" class="h-4 w-4" />
         <span>Subscribe via RSS</span>
       </a>
     )

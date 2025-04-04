@@ -1,13 +1,13 @@
 ---
 import Link from "@/components/common/Link.astro";
-import Error404Icon from "@/components/icons/Error404Icon.astro";
+import Icon from "@/components/common/Icon.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "404 Not Found";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <Error404Icon />
+  <Icon name="error-404" class="h-64 w-64" />
   <div class="flex flex-col items-center justify-center space-y-6 text-center">
     <p class="mt-16 text-sm font-light opacity-80">
       Oops! It seems like the page you're looking for doesn't exist anymore or

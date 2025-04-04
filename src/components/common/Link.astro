@@ -1,5 +1,5 @@
 ---
-import ArrowUpRightIcon from "@/components/icons/ArrowUpRightIcon.astro";
+import Icon from "./Icon.astro";
 
 const { external, href, underline = true, ...rest } = Astro.props;
 ---
@@ -12,7 +12,7 @@ const { external, href, underline = true, ...rest } = Astro.props;
   <slot />
   {
     external && (
-      <ArrowUpRightIcon class="ml-1 h-4 w-4 transition-colors duration-300 ease-in-out" />
+      <Icon name="arrow-up-right" class="h-4 w-4 transition-colors duration-300 ease-in-out" />
     )
   }
 </a>
