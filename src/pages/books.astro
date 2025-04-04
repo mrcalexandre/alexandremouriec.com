@@ -6,19 +6,22 @@ import { getCollection } from "astro:content";
 const books = await getCollection("books");
 
 // Group books by year with improved type safety and performance
-const booksByYear = books.reduce((acc: Record<number, typeof books[0]['data'][]>, book) => {
-  if (book.data.date_read) {
-    const year = new Date(book.data.date_read).getFullYear();
-    if (!acc[year]) {
-      acc[year] = [];
+const booksByYear = books.reduce(
+  (acc: Record<number, (typeof books)[0]["data"][]>, book) => {
+    if (book.data.date_read) {
+      const year = new Date(book.data.date_read).getFullYear();
+      if (!acc[year]) {
+        acc[year] = [];
+      }
+      acc[year].push(book.data);
     }
-    acc[year].push(book.data);
-  }
-  return acc;
-}, {});
+    return acc;
+  },
+  {}
+);
 
 // Sort books within each year
-Object.values(booksByYear).forEach(yearBooks => {
+Object.values(booksByYear).forEach((yearBooks) => {
   yearBooks.sort((a, b) => {
     const dateA = a.date_read ? new Date(a.date_read).valueOf() : 0;
     const dateB = b.date_read ? new Date(b.date_read).valueOf() : 0;
@@ -36,41 +39,39 @@ const pageSubtitle = "Books I've read, organized by year";
 
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
   <section class="content mx-auto mt-4">
-    {sortedYears.map((year) => (
-      <div class="mt-8">
-        <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
-          {year}
-        </h2>
-        <div class="grid grid-cols-2 justify-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {booksByYear[year].map((book) => (
-            <div class="group relative flex flex-col items-center text-center">
-              <a 
-                href={book.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                class="overflow-hidden transition-transform duration-300 hover:scale-105"
-              >
-                <img
-                  alt={book.cover_image.cover_image_alt}
-                  class="mb-4 h-60 w-auto object-cover sm:h-48 lg:h-40"
-                  src={book.cover_image.cover_image_url}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <h2 class="line-clamp-2 text-sm font-semibold">
-                {book.title}
-              </h2>
-              <p class="text-sm font-light opacity-80">by {book.author}</p>
-              <div 
-                class="absolute left-1/2 top-full z-10 mt-2 w-64 -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-              >
-                {book.title}
+    {
+      sortedYears.map((year) => (
+        <div class="mt-8">
+          <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
+            {year}
+          </h2>
+          <div class="grid grid-cols-2 justify-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {booksByYear[year].map((book) => (
+              <div class="group relative flex flex-col items-center text-center">
+                <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="overflow-hidden transition-transform duration-300 hover:scale-105"
+                >
+                  <img
+                    alt={book.cover_image.cover_image_alt}
+                    class="mb-4 h-60 w-auto object-cover sm:h-48 lg:h-40"
+                    src={book.cover_image.cover_image_url}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+                <h2 class="line-clamp-2 text-sm font-semibold">{book.title}</h2>
+                <p class="text-sm font-light opacity-80">by {book.author}</p>
+                <div class="absolute top-full left-1/2 z-10 mt-2 w-64 -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {book.title}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </section>
 </BaseLayout>

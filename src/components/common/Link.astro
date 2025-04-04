@@ -8,11 +8,15 @@ const { external, href, underline = true, ...rest } = Astro.props;
   class="decoration-zinc/15 hover:decoration-zinc/25 inline-flex cursor-pointer items-center text-current underline underline-offset-4 transition-colors duration-300 ease-in-out dark:decoration-white/30 dark:hover:decoration-white/50"
   href={href}
   target={external ? "_blank" : "_self"}
-  {...rest}>
+  {...rest}
+>
   <slot />
   {
     external && (
-      <Icon name="arrow-up-right" class="h-4 w-4 transition-colors duration-300 ease-in-out" />
+      <Icon
+        name="arrow-up-right"
+        class="h-4 w-4 transition-colors duration-300 ease-in-out"
+      />
     )
   }
 </a>

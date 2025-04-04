@@ -1,7 +1,6 @@
 ---
 import Link from "@/components/common/Link.astro";
 import Icon from "@/components/common/Icon.astro";
-import RssIcon from "@/components/icons/RssIcon.astro";
 ---
 
 <div class="mx-auto max-w-3xl py-8">
@@ -19,7 +18,8 @@ import RssIcon from "@/components/icons/RssIcon.astro";
     action="https://fulltimecurious.substack.com/subscribe"
     class="flex space-x-4"
     method="get"
-    target="_blank">
+    target="_blank"
+  >
     <div class="grow">
       <input
         class="form-input w-full rounded-lg border border-dashed bg-white px-4 py-3 text-gray-900 placeholder-gray-600 transition duration-300 ease-out focus:border-gray-300 focus:outline-hidden sm:text-sm dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-gray-600"
@@ -44,7 +44,8 @@ import RssIcon from "@/components/icons/RssIcon.astro";
   <div class="mt-6">
     <a href="https://fulltimecurious.substack.com/feed" target="_blank">
       <button
-        class="flex w-full items-center justify-center space-x-2 rounded-lg border px-4 py-3 text-gray-900 shadow-xs transition duration-300 ease-out hover:bg-gray-100 focus:ring-2 focus:ring-gray-300 focus:outline-hidden dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        class="flex w-full items-center justify-center space-x-2 rounded-lg border px-4 py-3 text-gray-900 shadow-xs transition duration-300 ease-out hover:bg-gray-100 focus:ring-2 focus:ring-gray-300 focus:outline-hidden dark:text-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      >
         <Icon name="rss" class="h-4 w-4" />
         <span>Subscribe to RSS</span>
       </button>

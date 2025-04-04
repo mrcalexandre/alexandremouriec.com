@@ -25,30 +25,35 @@ const menuitems = [
           width="64"
         />
       </a>
-      
+
       <!-- Mobile menu button -->
       <button
         id="mobile-menu-button"
         class="block cursor-pointer sm:hidden"
         aria-label="Toggle menu"
-        aria-expanded="false">
+        aria-expanded="false"
+      >
         <svg
           class="h-6 w-6 transition-transform duration-200"
           fill="none"
           stroke="currentColor"
-          viewBox="0 0 24 24">
+          viewBox="0 0 24 24"
+        >
           <path
             class="transition-transform duration-200"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
+            d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
 
     <!-- Navigation menu -->
-    <nav id="mobile-menu" class="hidden w-full transform opacity-0 transition-all duration-200 ease-in-out sm:block sm:w-auto sm:transform-none sm:opacity-100">
+    <nav
+      id="mobile-menu"
+      class="hidden w-full transform opacity-0 transition-all duration-200 ease-in-out sm:block sm:w-auto sm:transform-none sm:opacity-100"
+    >
       <ul class="my-4 flex flex-col gap-4 sm:flex-row sm:gap-3">
         {
           menuitems.map((item) => (
@@ -57,7 +62,8 @@ const menuitems = [
                 class="mx-0.5 cursor-pointer rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-black/5 dark:hover:bg-gray-700"
                 href={item.path}
                 rel={item.path.startsWith("http") ? "noopener noreferrer" : ""}
-                target={item.path.startsWith("http") ? "_blank" : "_self"}>
+                target={item.path.startsWith("http") ? "_blank" : "_self"}
+              >
                 <span>{item.title}</span>
               </a>
             </li>
@@ -72,43 +78,46 @@ const menuitems = [
 
 <script>
   // Mobile menu functionality
-  document.addEventListener('astro:page-load', () => {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = mobileMenuButton?.querySelector('svg');
-    const menuPath = menuIcon?.querySelector('path');
-    
+  document.addEventListener("astro:page-load", () => {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = mobileMenuButton?.querySelector("svg");
+    const menuPath = menuIcon?.querySelector("path");
+
     if (mobileMenuButton && mobileMenu && menuIcon && menuPath) {
-      mobileMenuButton.addEventListener('click', () => {
-        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-        
+      mobileMenuButton.addEventListener("click", () => {
+        const isExpanded =
+          mobileMenuButton.getAttribute("aria-expanded") === "true";
+        mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+
         // Toggle menu with animation
         if (!isExpanded) {
-          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.remove("hidden");
           // Trigger reflow
           mobileMenu.offsetHeight;
-          mobileMenu.classList.remove('opacity-0');
+          mobileMenu.classList.remove("opacity-0");
           // Transform hamburger to cross
-          menuPath.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+          menuPath.setAttribute("d", "M6 18L18 6M6 6l12 12");
         } else {
-          mobileMenu.classList.add('opacity-0');
+          mobileMenu.classList.add("opacity-0");
           // Transform cross back to hamburger
-          menuPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+          menuPath.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
           setTimeout(() => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.add("hidden");
           }, 200);
         }
       });
 
       // Close menu when clicking outside
-      document.addEventListener('click', (event) => {
-        const isClickInside = mobileMenu.contains(event.target) || mobileMenuButton.contains(event.target);
-        if (!isClickInside && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('opacity-0');
-          mobileMenuButton.setAttribute('aria-expanded', 'false');
+      document.addEventListener("click", (event) => {
+        const isClickInside =
+          mobileMenu.contains(event.target) ||
+          mobileMenuButton.contains(event.target);
+        if (!isClickInside && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("opacity-0");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
           setTimeout(() => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.add("hidden");
           }, 200);
         }
       });

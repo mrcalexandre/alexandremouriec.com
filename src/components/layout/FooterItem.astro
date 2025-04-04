@@ -7,6 +7,7 @@ const { external, href, label } = Astro.props;
   class="mx-0.5 rounded-lg px-3 py-2 text-sm font-medium hover:bg-black/5 dark:hover:bg-gray-700"
   href={href}
   rel={external ? "noopener noreferrer" : null}
-  target={external ? "_blank" : "_self"}>
+  target={external ? "_blank" : "_self"}
+>
   {label}
 </a>

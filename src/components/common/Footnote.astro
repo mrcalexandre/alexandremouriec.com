@@ -1,9 +1,6 @@
 ---
 import Icon from "@/components/common/Icon.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
-import CalendarIcon from "@/components/icons/CalendarIcon.astro";
-import ClockIcon from "@/components/icons/ClockIcon.astro";
-import RssIcon from "@/components/icons/RssIcon.astro";
 
 const { lastModified, publishedDate, readingTime } = Astro.props;
 ---
@@ -39,7 +36,8 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
     publishedDate && (
       <a
         class="flex items-center space-x-2 text-blue-600 hover:underline dark:text-blue-300"
-        href="/blog/feed.xml">
+        href="/blog/feed.xml"
+      >
         <Icon name="rss" class="h-4 w-4" />
         <span>Subscribe via RSS</span>
       </a>

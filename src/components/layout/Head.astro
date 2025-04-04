@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-
 let { description, title } = Astro.props;
 
 const ogImage = new URL("opengraph.png", Astro.url);
@@ -121,7 +119,4 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     rel="preload"
     type="font/woff2"
   />
-
-  <!-- View Transitions -->
-  <ViewTransitions />
 </head>

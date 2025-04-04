@@ -1,72 +1,92 @@
 ---
 interface Props {
-  name: 'moon' | 'sun' | 'arrow-right' | 'arrow-up-right' | 'calendar' | 'clock' | 'rss' | 'header-rss' | 'error-404';
+  name:
+    | "moon"
+    | "sun"
+    | "arrow-right"
+    | "arrow-up-right"
+    | "calendar"
+    | "clock"
+    | "rss"
+    | "header-rss"
+    | "error-404";
   class?: string;
   size?: number;
 }
 
-const { name, class: className = '', size = 24 } = Astro.props;
+const { name, class: className = "", size = 24 } = Astro.props;
 
 const icons = {
   moon: {
-    viewBox: '0 0 24 24',
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z' }
-    ]
+      { type: "path", d: "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" },
+    ],
   },
   sun: {
-    viewBox: '0 0 24 24',
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z' }
-    ]
+      {
+        type: "path",
+        d: "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z",
+      },
+    ],
   },
-  'arrow-right': {
-    viewBox: '0 0 24 24',
-    elements: [
-      { type: 'path', d: 'M5 12h14M12 5l7 7-7 7' }
-    ]
+  "arrow-right": {
+    viewBox: "0 0 24 24",
+    elements: [{ type: "path", d: "M5 12h14M12 5l7 7-7 7" }],
   },
-  'arrow-up-right': {
-    viewBox: '0 0 24 24',
-    elements: [
-      { type: 'path', d: 'M7 17L17 7M7 7h10v10' }
-    ]
+  "arrow-up-right": {
+    viewBox: "0 0 24 24",
+    elements: [{ type: "path", d: "M7 17L17 7M7 7h10v10" }],
   },
   calendar: {
-    viewBox: '0 0 24 24',
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18' }
-    ]
+      {
+        type: "path",
+        d: "M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18",
+      },
+    ],
   },
   clock: {
-    viewBox: '0 0 24 24',
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M12 6v6l4 2M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z' }
-    ]
+      {
+        type: "path",
+        d: "M12 6v6l4 2M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z",
+      },
+    ],
   },
   rss: {
-    viewBox: '0 0 24 24',
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M4 11a9 9 0 0 1 9 9' },
-      { type: 'path', d: 'M4 4a16 16 0 0 1 16 16' },
-      { type: 'circle', cx: '5', cy: '19', r: '1' }
-    ]
+      { type: "path", d: "M4 11a9 9 0 0 1 9 9" },
+      { type: "path", d: "M4 4a16 16 0 0 1 16 16" },
+      { type: "circle", cx: "5", cy: "19", r: "1" },
+    ],
   },
-  'header-rss': {
-    viewBox: '0 0 24 24',
+  "header-rss": {
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M4 11a9 9 0 0 1 9 9' },
-      { type: 'path', d: 'M4 4a16 16 0 0 1 16 16' },
-      { type: 'circle', cx: '5', cy: '19', r: '1' }
-    ]
+      { type: "path", d: "M4 11a9 9 0 0 1 9 9" },
+      { type: "path", d: "M4 4a16 16 0 0 1 16 16" },
+      { type: "circle", cx: "5", cy: "19", r: "1" },
+    ],
   },
-  'error-404': {
-    viewBox: '0 0 24 24',
+  "error-404": {
+    viewBox: "0 0 24 24",
     elements: [
-      { type: 'path', d: 'M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z' },
-      { type: 'path', d: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z' }
-    ]
-  }
+      {
+        type: "path",
+        d: "M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z",
+      },
+      {
+        type: "path",
+        d: "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z",
+      },
+    ],
+  },
 };
 
 const icon = icons[name];
@@ -86,11 +106,11 @@ const icon = icons[name];
 >
   {
     icon.elements.map((element) => {
-      if (element.type === 'path') {
+      if (element.type === "path") {
         return <path d={element.d} />;
-      } else if (element.type === 'circle') {
+      } else if (element.type === "circle") {
         return <circle cx={element.cx} cy={element.cy} r={element.r} />;
       }
     })
   }
-</svg> 
+</svg>
