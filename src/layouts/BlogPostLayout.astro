@@ -6,11 +6,11 @@ import { Image } from "astro:assets";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
+import BaseLayout from "./BaseLayout.astro";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter, readingTime } = Astro.props;
 
@@ -22,34 +22,28 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
 <BaseLayout>
   <section class="mx-auto mb-12 sm:px-6">
     <BackToPrev href="/blog">Back to Blog</BackToPrev>
-    <section class="mx-auto pt-4">
-      <article class="h-entry mx-auto px-4">
-        <header class="mt-6 mb-4">
-          <h1
-            class="mb-4 font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
-            {frontmatter.title}
-          </h1>
-          <div class="mt-2 flex items-center gap-2">
-            <Image
-              alt="Alexandre Mouriec"
-              class="u-photo h-8 w-8 rounded-full"
-              src={Logo}
-            />
-            <a class="p-author h-card text-sm" href={Astro.site}
-              >Alexandre Mouriec</a
-            >
-          </div>
-        </header>
+    <article class="h-entry mx-auto px-4 pt-4">
+      <header class="mt-6 mb-4">
+        <h1 class="mb-4 font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
+          {frontmatter.title}
+        </h1>
+        <div class="mt-2 flex items-center gap-2">
+          <Image
+            alt="Alexandre Mouriec"
+            class="u-photo h-8 w-8 rounded-full"
+            src={Logo}
+          />
+          <a class="p-author h-card text-sm" href={Astro.site}>Alexandre Mouriec</a>
+        </div>
+      </header>
 
-        {
-          frontmatter.image && (
-            <Image
-              alt={frontmatter.image.alt}
-              class="mb-6 rounded-lg object-cover"
-              src={frontmatter.image.url}
-            />
-          )
-        }
+      {frontmatter.image && (
+        <Image
+          alt={frontmatter.image.alt}
+          class="mb-6 rounded-lg object-cover"
+          src={frontmatter.image.url}
+        />
+      )}
 
         <div
           class="prose dark:prose-invert prose-headings:font-serif prose-p:font-light prose-li:font-light prose-ul:font-light prose-headings:mb-2 prose-headings:text-zinc-800 text-md font-sans leading-relaxed text-zinc-700 dark:text-zinc-300">
@@ -68,13 +62,12 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
           }
         </div>
 
-        <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
-        <Footnote
-          lastModified={formattedLastModified}
-          publishedDate={frontmatter.pubDate}
-          readingTime={readingTime}
-        />
-      </article>
-    </section>
+      <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
+      <Footnote
+        lastModified={formattedLastModified}
+        publishedDate={frontmatter.pubDate}
+        readingTime={readingTime}
+      />
+    </article>
   </section>
 </BaseLayout>

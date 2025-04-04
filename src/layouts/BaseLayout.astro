@@ -6,14 +6,16 @@ import Head from "@/components/layout/Head.astro";
 import Header from "@/components/layout/Header.astro";
 import "@/styles/app.css";
 
-const { pageSubtitle, pageTitle } = Astro.props;
+
+const { 
+  pageSubtitle, 
+  pageTitle,
+  description = "Alexandre Mouriec's personal website"
+} = Astro.props;
 ---
 
 <html lang="en">
-  <Head
-    description="Alexandre Mouriec's personal website"
-    title="Alexandre Mouriec"
-  />
+  <Head description={description} title="Alexandre Mouriec" />
   <body class="bg-light dark:bg-dark flex min-h-screen flex-col">
     <main
       class="mx-auto mb-12 flex w-full grow flex-col px-4 py-8 text-base text-zinc-700 sm:px-6 lg:px-8 dark:text-zinc-100">
