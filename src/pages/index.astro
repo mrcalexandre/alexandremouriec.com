@@ -5,40 +5,45 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <h1 class="pb-2 font-serif text-2xl font-medium italic">
-    Hi, I'm Alexandre <span class="text-xl not-italic">👋</span>
-  </h1>
-  <h2 class="font-serif text-lg font-light opacity-80">
-    Full-Stack Developer & Full-Time Curious
-  </h2>
-  <div class="space-y-16">
-    <section class="content mt-4 space-y-8">
-      <article class="h-card text-md mt-6 space-y-4 font-light">
-        <p>
-          I am <Link
-            class="p-name u-url u-uid"
-            href="https://alexandremouriec.com/"
-            rel="me">
-            Alexandre Mouriec</Link
-          >,
-          <span class="p-note"
-            ><span class="p-job-title">Full-Stack Developer</span> from <span
-              class="p-country-name">France</span
-            >, currently based in <span class="p-locality">Rennes</span> and working
-            remotely at <Link class="p-org" external href="https://omsandco.com"
-              >OMS</Link
-            >.
-          </span>
+  <main class="max-w-3xl mx-auto px-4 py-8">
+    <header class="mb-12">
+      <h1 class="pb-2 font-serif text-3xl font-medium italic">
+        Hi, I'm Alexandre <span class="text-2xl not-italic">👋</span>
+      </h1>
+      <h2 class="font-serif text-xl font-light opacity-80">
+        Full-Stack Developer & Full-Time Curious
+      </h2>
+    </header>
+
+    <div class="space-y-16">
+      <section class="content mt-4 space-y-8">
+        <article class="h-card text-md mt-6 space-y-4 font-light">
+          <p>
+            I am <Link
+              class="p-name u-url u-uid"
+              href="https://alexandremouriec.com/"
+              rel="me">
+              Alexandre Mouriec</Link
+            >,
+            <span class="p-note"
+              ><span class="p-job-title">Full-Stack Developer</span> from <span
+                class="p-country-name">France</span
+              >, currently based in <span class="p-locality">Rennes</span> and working
+              remotely at <Link class="p-org" external href="https://omsandco.com"
+                >OMS</Link
+              >.
+            </span>
+          </p>
 
           <p>
             Previously, I had the chance to work with amazing companies like
             Crisp, Apitic, Getro and Henge.
           </p>
 
-            <p>
+          <p>
             Full-time Curious, I am always excited to discover a new industry or
             topic. In my free time, I am sharing my curation in a format named
-             <Link
+            <Link
               external
               href="https://links.alexandremouriec.com/"
               rel="me">Full-Time Curious</Link
@@ -52,7 +57,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
               external
               href="https://github.com/mrcalexandre"
               rel="me">@mrcalexandre</Link
-            >, and on Mastodon at <Link
+            >, and on Mastodon at <Link 
               class="u-url u-uid p-nickname"
               external
               href="https://mamot.fr/@mrcalexandre"
@@ -60,16 +65,16 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             >, and obviously on this website where I am trying to build my Indie
             Web presence.
           </p>
-        </p>
-      </article>
+        </article>
 
-      <section class="space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-serif text-xl font-semibold">Latest Posts</h2>
-          <Link href="/blog"> See all posts </Link>
-        </div>
-        <BlogPosts />
+        <section class="space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-serif text-xl font-semibold">Latest Posts</h2>
+            <Link href="/blog" class="text-sm hover:underline">See all posts →</Link>
+          </div>
+          <BlogPosts />
+        </section>
       </section>
-    </section>
-  </div>
+    </div>
+  </main>
 </BaseLayout>
