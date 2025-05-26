@@ -6,11 +6,13 @@ subtitle: What do I use
 
 ## Computer
 
-- Macbook Pro 16" 512Go (2019)
+- MacBook Pro 16" 512Go (2019)
+- Dell U2723QE UltraSharp 27"
 - Logitech K380 keyboard
 - Apple Mouse
 - Roost Stand
 - Logitech UE Boom 2
+- Xiaomi Mi Computer Monitor Light Bar
 
 ## Mobile
 
@@ -26,7 +28,8 @@ subtitle: What do I use
 
 ## Other
 
-- Kindle Paperwhite (2015)
+- Kindle Paperwhite (2015) (Jailbroken and running KOReader)
+- Redmi Note 7 (Rooted and running e/os ROM)
 
 ## Software
 
