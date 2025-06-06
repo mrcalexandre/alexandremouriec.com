@@ -34,4 +34,32 @@ lastModified: 2025-06-06
 
 ## Software
 
-For my software, visit my [App Defaults page](/defaults).
+### Zen Browser extensions
+
+- LanguageTool
+- Archive Page
+- Bitwarden
+- ClearURLs
+- Decentraleyes
+- Firefox Multi-Account Containers
+- Get RSS Feed URL
+- Jomo
+- LeechBlock NG
+- LibRedirect
+- Readwise
+- Readwise Highlighter
+- SocialFocus
+- StreetPass for Mastodon
+- uBlock Origin
+
+### Vivaldi extensions
+
+- LanguageTool
+- Bitwarden
+- Obsidian Web Clipper
+- Readwise Highlighter
+- uBlock Origin
+- Zoom for Google Chrome
+
+
+For my Defaults apps, visit my [App Defaults page](/defaults).
