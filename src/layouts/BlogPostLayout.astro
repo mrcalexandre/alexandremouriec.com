@@ -3,19 +3,9 @@ import BackToPrev from "@/components/common/BackToPrev.astro";
 import Footnote from "@/components/common/Footnote.astro";
 import Logo from "@/images/logos/logo-512x512.png";
 import { Image } from "astro:assets";
-import dayjs from "dayjs";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
 import BaseLayout from "./BaseLayout.astro";
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-
 const { frontmatter, readingTime } = Astro.props;
-
-const formattedLastModified = dayjs(frontmatter.lastModified)
-  .tz("Europe/Paris")
-  .format("MMMM DD, YYYY");
 ---
 
 <BaseLayout>
@@ -68,7 +58,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
 
       <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
       <Footnote
-        lastModified={formattedLastModified}
+        lastModified={frontmatter.lastModified}
         publishedDate={frontmatter.pubDate}
         readingTime={readingTime}
       />

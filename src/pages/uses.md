@@ -2,6 +2,7 @@
 layout: ../layouts/MarkdownPageLayout.astro
 title: Uses
 subtitle: What do I use
+lastModified: 2025-06-06
 ---
 
 ## Computer

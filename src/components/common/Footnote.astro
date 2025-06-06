@@ -3,6 +3,9 @@ import Icon from "@/components/common/Icon.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
 
 const { lastModified, publishedDate, readingTime } = Astro.props;
+
+const formattedLastModified = lastModified ? new Date(lastModified) : null;
+const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
 ---
 
 <div class="mt-2 space-y-2 text-sm">
@@ -11,15 +14,21 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
 
     <a class="u-url no-underline" href={Astro.url}>
       {
-        publishedDate && (
+        formattedPublishedDate && (
           <span>
             Published on{" "}
-            <FormattedDate class="dt-published" date={publishedDate} />
-            &bull;
+            <FormattedDate class="dt-published" date={formattedPublishedDate} />
+            {formattedLastModified && " • "}
           </span>
         )
       }
-      <span>Updated on {lastModified}</span>
+      {
+        formattedLastModified && (
+          <span>
+            Updated on <FormattedDate date={formattedLastModified} />
+          </span>
+        )
+      }
     </a>
   </div>
 
@@ -33,7 +42,7 @@ const { lastModified, publishedDate, readingTime } = Astro.props;
   }
 
   {
-    publishedDate && (
+    formattedPublishedDate && (
       <a
         class="flex items-center space-x-2 text-blue-600 hover:underline dark:text-blue-300"
         href="/blog/feed.xml"

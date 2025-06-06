@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
-import { remarkModifiedTime } from "./src/utils/remark-modified-time.mjs";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
 // https://astro.build/config
@@ -12,7 +11,7 @@ export default defineConfig({
     iconDir: "src/images/icons"
   })],
   markdown: {
-    remarkPlugins: [remarkModifiedTime, remarkReadingTime]
+    remarkPlugins: [remarkReadingTime]
   },
   output: "static",
   redirects: {
