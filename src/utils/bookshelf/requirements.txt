@@ -1,0 +1,5 @@
+beautifulsoup4>=4.9.3
+selenium>=4.15.2
+webdriver-manager>=4.0.1
+python-dotenv>=1.0.0
+soupsieve>=2.6  # Required by beautifulsoup4
