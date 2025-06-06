@@ -4,14 +4,15 @@ import { defineCollection, z } from "astro:content";
 const booksCollection = defineCollection({
   type: "data",
   schema: z.object({
-    author: z.string(),
-    date_read: z.string().optional(),
     title: z.string(),
-    link: z.string().url(),
+    author: z.string(),
+    link: z.string(),
     cover_image: z.object({
-      cover_image_url: z.string().url(),
-      cover_image_alt: z.string(),
+      cover_image_url: z.string(),
+      cover_image_alt: z.string()
     }),
+    date_read: z.string().optional(),
+    currently_reading: z.boolean().optional()
   }),
 });
 
