@@ -10,21 +10,26 @@
     "astro": "astro",
     "optimize:fonts": "glyphhanger https://alexandremouriec.com --subset='*.ttf' --spider-limit=0",
     "optimize:images": "imageoptim './src/images'",
-    "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\""
+    "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\"",
+    "bookshelf:read": "python3 src/utils/bookshelf/read_books.py",
+    "bookshelf:current": "python3 src/utils/bookshelf/currently_reading_books.py",
+    "cli": "node cli.js"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.13",
-    "astro": "^5.8.0",
+    "astro": "^5.9.0",
     "astro-icon": "^1.1.4",
+    "commander": "^12.0.0",
     "dayjs": "^1.11.13",
     "jsdom": "^26.0.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "tailwindcss": "^4.0.13",
-    "xmldom": "^0.6.0"
+    "xmldom": "^0.6.0",
+    "inquirer": "^9.2.16"
   },
   "devDependencies": {
     "eslint": "^9.22.0",
