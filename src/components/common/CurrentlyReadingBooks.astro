@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content"; // Fetch the books from the Astro collection
+
+const books = await getCollection("books"); // Separate currently reading books
+const currentlyReading = books.filter(
+  (book) => book.data.currently_reading === true
+);
+---
+
+{
+  currentlyReading.length > 0 && (
+    <div class="grid grid-cols-2 justify-center gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {currentlyReading.map((book) => (
+        <div class="group relative flex flex-col items-center text-center">
+          <a
+            href={book.data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="overflow-hidden transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              alt={book.data.cover_image.cover_image_alt}
+              class="mb-4 h-60 w-auto object-cover sm:h-48 lg:h-40"
+              src={book.data.cover_image.cover_image_url}
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <h2 class="line-clamp-2 text-sm font-semibold">{book.data.title}</h2>
+          <p class="text-sm font-light opacity-80">by {book.data.author}</p>
+          <div class="absolute top-full left-1/2 z-10 mt-2 w-64 -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            {book.data.title}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

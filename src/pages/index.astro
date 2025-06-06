@@ -2,6 +2,10 @@
 import BlogPosts from "@/components/blog/BlogPosts.astro";
 import Link from "@/components/common/Link.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.astro";
+
+const pageTitle = "Alexandre Mouriec";
+const pageSubtitle = "Software Engineer & Technical Writer";
 ---
 
 <BaseLayout>
@@ -70,13 +74,23 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
         <section class="space-y-6">
           <div class="flex flex-wrap items-center justify-between gap-y-2">
-            <h2 class="font-serif text-xl font-semibold">Latest Posts</h2>
-            <Link href="/blog" class="text-sm hover:underline"
-              >See all posts →</Link
+            <h2 class="font-serif text-xl font-semibold">Currently Reading</h2>
+            <Link href="/books" class="text-sm hover:underline"
+              >See all books →</Link
             >
           </div>
-          <BlogPosts />
+          <CurrentlyReadingBooks />
         </section>
+      </section>
+
+      <section class="space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h2 class="font-serif text-xl font-semibold">Latest Posts</h2>
+          <Link href="/blog" class="text-sm hover:underline"
+            >See all posts →</Link
+          >
+        </div>
+        <BlogPosts />
       </section>
     </div>
   </main>
