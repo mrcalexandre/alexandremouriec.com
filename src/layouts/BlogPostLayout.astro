@@ -19,12 +19,12 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
 ---
 
 <BaseLayout>
-  <section class="mx-auto mb-12 sm:px-6">
+  <section class="mx-auto max-w-3xl px-4 py-16">
     <BackToPrev href="/blog">Back to Blog</BackToPrev>
     <article class="h-entry mx-auto pt-4">
       <header class="mt-6 mb-4">
         <h1
-          class="mb-4 font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100"
+          class="mb-4 font-serif text-4xl font-semibold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
         >
           {frontmatter.title}
         </h1>
@@ -51,7 +51,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
       }
 
       <div
-        class="prose dark:prose-invert prose-headings:font-serif prose-p:font-light prose-li:font-light prose-ul:font-light prose-headings:mb-2 prose-headings:text-zinc-800 text-md font-sans leading-relaxed text-zinc-700 dark:text-zinc-300"
+        class="prose dark:prose-invert prose-headings:font-serif prose-p:font-light prose-li:font-light prose-ul:font-light prose-headings:mb-2 prose-headings:text-zinc-800 prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl text-md font-sans leading-relaxed text-zinc-700 dark:text-zinc-300"
       >
         <slot />
       </div>
@@ -59,10 +59,7 @@ const formattedLastModified = dayjs(frontmatter.lastModified)
       <div class="mt-8 flex flex-wrap gap-2">
         {
           frontmatter.tags.map((tag) => (
-            <span
-              class="p-category inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-slate-100 px-3 py-1 text-xs font-semibold no-underline transition hover:scale-105 hover:rotate-2 active:scale-95 dark:bg-slate-600 dark:text-zinc-100"
-              key={tag}
-            >
+            <span class="p-category inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-slate-100 px-3 py-1 text-xs font-semibold no-underline transition hover:scale-105 hover:rotate-2 active:scale-95 dark:bg-slate-600 dark:text-zinc-100">
               {tag}
             </span>
           ))
