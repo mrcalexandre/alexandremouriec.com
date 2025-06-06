@@ -1,10 +1,11 @@
 {
+  "title": "Arretez-moi",
   "author": "Lisa Gardner",
   "cover_image": {
-    "cover_image_alt": "",
-    "cover_image_url": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1419626723l/23795335.jpg"
+    "cover_image_url": "https://cdn.thestorygraph.com/objc6q0ui7f5l1ct3b5lxvwlp6av",
+    "cover_image_alt": "Arretez-moi by Lisa Gardner"
   },
-  "date_read": "Sun, 30 Mar 2025 00:00:00 +0000",
-  "link": "https://www.goodreads.com/review/show/7427075376?utm_medium=api&utm_source=rss",
-  "title": "Arretez-moi"
+  "date_read": "2025-03-30",
+  "link": "https://app.thestorygraph.com/books/6212f192-f316-4799-9398-04e5ab42d13c",
+  "currently_reading": false
 }

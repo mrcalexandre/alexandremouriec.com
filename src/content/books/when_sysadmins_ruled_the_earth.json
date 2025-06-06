@@ -1,10 +1,11 @@
 {
+  "title": "When Sysadmins Ruled the Earth",
   "author": "Cory Doctorow",
   "cover_image": {
-    "cover_image_alt": "",
-    "cover_image_url": "https://s.gr-assets.com/assets/nophoto/book/111x148-bcc042a9c91a29c1d680899eff700a03.png"
+    "cover_image_url": "https://cdn.thestorygraph.com/beddr625z3tp4j0qkkzl7d3wg6tp",
+    "cover_image_alt": "When Sysadmins Ruled the Earth by Cory Doctorow"
   },
-  "date_read": "Tue, 15 Apr 2025 00:00:00 +0000",
-  "link": "https://www.goodreads.com/review/show/7490847956?utm_medium=api&utm_source=rss",
-  "title": "When Sysadmins Ruled the Earth"
+  "date_read": "2025-04-06",
+  "link": "https://app.thestorygraph.com/books/b5fc485e-ee19-4a6c-bc22-f3c84a9a3f2d",
+  "currently_reading": false
 }
