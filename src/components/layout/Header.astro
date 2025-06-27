@@ -111,8 +111,8 @@ const menuitems = [
       // Close menu when clicking outside
       document.addEventListener("click", (event) => {
         const isClickInside =
-          mobileMenu.contains(event.target) ||
-          mobileMenuButton.contains(event.target);
+          mobileMenu.contains(event.target as Node) ||
+          mobileMenuButton.contains(event.target as Node);
         if (!isClickInside && !mobileMenu.classList.contains("hidden")) {
           mobileMenu.classList.add("opacity-0");
           mobileMenuButton.setAttribute("aria-expanded", "false");

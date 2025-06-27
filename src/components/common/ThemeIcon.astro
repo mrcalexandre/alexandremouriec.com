@@ -19,37 +19,24 @@ import Icon from "../common/Icon.astro";
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const theme = (() => {
-      if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("theme")
-      ) {
-        return localStorage.getItem("theme") || "light";
-      }
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return "dark";
-      }
-      return "light";
-    })();
+    // Get theme from localStorage or use system preference
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
-    if (theme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
+    // Apply theme
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
 
-    window.localStorage.setItem("theme", theme);
-
-    const handleToggleClick = () => {
+    // Toggle theme on click
+    document.getElementById("theme-toggle")?.addEventListener("click", () => {
       const element = document.documentElement;
-      element.classList.toggle("dark");
-
-      const isDark = element.classList.contains("dark");
+      const isDark = element.classList.toggle("dark");
       localStorage.setItem("theme", isDark ? "dark" : "light");
-    };
-
-    document
-      .getElementById("theme-toggle")
-      ?.addEventListener("click", handleToggleClick);
+    });
   });
 </script>
