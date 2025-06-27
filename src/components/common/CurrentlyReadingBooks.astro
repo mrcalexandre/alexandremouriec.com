@@ -1,37 +1,15 @@
 ---
-import { getCollection } from "astro:content"; // Fetch the books from the Astro collection
+import BookCard from "./BookCard.astro";
+import { getBooksData } from "@/utils/books.js";
 
-const books = await getCollection("books"); // Separate currently reading books
-const currentlyReading = books.filter(
-  (book) => book.data.currently_reading === true
-);
+const { currentlyReading } = await getBooksData();
 ---
 
 {
   currentlyReading.length > 0 && (
-    <div class="grid grid-cols-2 justify-center gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-5">
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
       {currentlyReading.map((book) => (
-        <div class="group relative flex flex-col items-center text-center">
-          <a
-            href={book.data.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="overflow-hidden transition-transform duration-300 hover:scale-105"
-          >
-            <img
-              alt={book.data.cover_image.cover_image_alt}
-              class="mb-4 h-40 w-full max-w-[120px] object-cover sm:h-36 sm:max-w-none lg:h-40"
-              src={book.data.cover_image.cover_image_url}
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-          <h2 class="line-clamp-2 text-sm font-semibold">{book.data.title}</h2>
-          <p class="text-sm font-light opacity-80">by {book.data.author}</p>
-          <div class="absolute top-full left-1/2 z-10 mt-2 w-48 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:w-64">
-            {book.data.title}
-          </div>
-        </div>
+        <BookCard book={book} />
       ))}
     </div>
   )

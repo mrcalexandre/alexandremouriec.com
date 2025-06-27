@@ -1,43 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import BookCard from "@/components/common/BookCard.astro";
+import { getBooksData } from "@/utils/books.js";
 
-// Fetch the books from the Astro collection
-const books = await getCollection("books");
-
-// Separate currently reading books
-const currentlyReading = books.filter(
-  (book) => book.data.currently_reading === true
-);
-const readBooks = books.filter((book) => !book.data.currently_reading);
-
-// Group read books by year with improved type safety and performance
-const booksByYear = readBooks.reduce(
-  (acc: Record<number, (typeof books)[0]["data"][]>, book) => {
-    if (book.data.date_read) {
-      const year = new Date(book.data.date_read).getFullYear();
-      if (!acc[year]) {
-        acc[year] = [];
-      }
-      acc[year].push(book.data);
-    }
-    return acc;
-  },
-  {}
-);
-
-// Sort books within each year
-Object.values(booksByYear).forEach((yearBooks) => {
-  yearBooks.sort((a, b) => {
-    const dateA = a.date_read ? new Date(a.date_read).valueOf() : 0;
-    const dateB = b.date_read ? new Date(b.date_read).valueOf() : 0;
-    return dateB - dateA;
-  });
-});
-
-const sortedYears = Object.keys(booksByYear)
-  .map(Number)
-  .sort((a, b) => b - a);
+const { currentlyReading, booksByYear, sortedYears } = await getBooksData();
 
 const pageTitle = "Bookshelf";
 const pageSubtitle = "Books I've read and am currently reading";
@@ -51,33 +17,9 @@ const pageSubtitle = "Books I've read and am currently reading";
           <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
             Currently Reading
           </h2>
-          <div class="grid grid-cols-2 justify-center gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-5">
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
             {currentlyReading.map((book) => (
-              <div class="group relative flex flex-col items-center text-center">
-                <a
-                  href={book.data.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="overflow-hidden transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    alt={book.data.cover_image.cover_image_alt}
-                    class="mb-4 h-40 w-full max-w-[120px] object-cover sm:h-48 sm:max-w-none lg:h-40"
-                    src={book.data.cover_image.cover_image_url}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </a>
-                <h2 class="line-clamp-2 text-sm font-semibold">
-                  {book.data.title}
-                </h2>
-                <p class="text-sm font-light opacity-80">
-                  by {book.data.author}
-                </p>
-                <div class="absolute top-full left-1/2 z-10 mt-2 w-48 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:w-64">
-                  {book.data.title}
-                </div>
-              </div>
+              <BookCard book={book} />
             ))}
           </div>
         </div>
@@ -90,29 +32,9 @@ const pageSubtitle = "Books I've read and am currently reading";
           <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
             {year}
           </h2>
-          <div class="grid grid-cols-2 justify-center gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-5">
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
             {booksByYear[year].map((book) => (
-              <div class="group relative flex flex-col items-center text-center">
-                <a
-                  href={book.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="overflow-hidden transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    alt={book.cover_image.cover_image_alt}
-                    class="mb-4 h-40 w-full max-w-[120px] object-cover sm:h-48 sm:max-w-none lg:h-40"
-                    src={book.cover_image.cover_image_url}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </a>
-                <h2 class="line-clamp-2 text-sm font-semibold">{book.title}</h2>
-                <p class="text-sm font-light opacity-80">by {book.author}</p>
-                <div class="absolute top-full left-1/2 z-10 mt-2 w-48 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:w-64">
-                  {book.title}
-                </div>
-              </div>
+              <BookCard book={book} />
             ))}
           </div>
         </div>
