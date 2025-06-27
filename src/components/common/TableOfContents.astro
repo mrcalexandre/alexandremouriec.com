@@ -54,8 +54,12 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
 }
 
 <style>
+  @reference {
+    @import "tailwindcss";
+  }
+
   .toc-link.active {
-    @apply border-l-3 border-l-blue-500 bg-zinc-100 font-medium text-zinc-900 dark:border-l-blue-400 dark:bg-zinc-800 dark:text-zinc-100;
+    @apply border-l-3 border-l-[#3b82f6] bg-[#f4f4f5] font-medium text-[#18181b] dark:border-l-[#60a5fa] dark:bg-[#27272a] dark:text-[#fafafa];
   }
 
   html {
@@ -75,7 +79,7 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
     tocLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        const href = link.getAttribute("href");
+        const href = (link as HTMLAnchorElement).getAttribute("href");
         if (href) {
           const targetId = href.substring(1);
           const target = document.getElementById(targetId);
@@ -89,7 +93,7 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
     // Active section highlighting
     function updateActive() {
       const headings = document.querySelectorAll("h2[id], h3[id], h4[id]");
-      let activeHeading = null;
+      let activeHeading: Element | null = null;
 
       for (let i = 0; i < headings.length; i++) {
         const heading = headings[i];
