@@ -15,6 +15,13 @@ const menuitems = [
 
 <Container>
   <header class="mb-6 flex flex-col items-center justify-between sm:flex-row">
+    <!-- Hidden checkbox for CSS-only menu toggle -->
+    <input
+      type="checkbox"
+      id="mobile-menu-toggle"
+      class="mobile-menu-checkbox"
+    />
+
     <div class="flex w-full items-center justify-between sm:w-auto">
       <a aria-label="Header Logo" class="mr-6 flex-none" href="/">
         <Image
@@ -26,13 +33,6 @@ const menuitems = [
           width="64"
         />
       </a>
-
-      <!-- Hidden checkbox for CSS-only menu toggle -->
-      <input
-        type="checkbox"
-        id="mobile-menu-toggle"
-        class="mobile-menu-checkbox"
-      />
 
       <!-- Mobile menu button -->
       <label
@@ -58,7 +58,7 @@ const menuitems = [
 
     <!-- Navigation menu -->
     <nav
-      class="mobile-menu hidden w-full transform opacity-0 transition-all duration-200 ease-in-out sm:block sm:w-auto sm:transform-none sm:opacity-100"
+      class="mobile-menu w-full transform opacity-0 transition-all duration-200 ease-in-out sm:block sm:w-auto sm:transform-none sm:opacity-100"
     >
       <ul class="my-4 flex flex-col gap-4 sm:flex-row sm:gap-3">
         {
@@ -101,7 +101,6 @@ const menuitems = [
   .mobile-menu-checkbox:checked ~ .mobile-menu {
     max-height: 300px;
     opacity: 1;
-    display: block;
   }
 
   /* Hamburger icon animation */
@@ -114,7 +113,6 @@ const menuitems = [
     .mobile-menu {
       max-height: none;
       opacity: 1;
-      display: block;
     }
   }
 </style>
