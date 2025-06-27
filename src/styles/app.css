@@ -53,9 +53,72 @@
 
   body {
     @apply font-sans;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "liga" 1, "kern" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  blockquote {
+    font-style: italic;
+    border-left: 3px solid #d1d5db;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  code {
+    background-color: #f3f4f6;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+
+  pre {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  pre code {
+    background-color: transparent;
+    padding: 0;
   }
 }
 
 html.dark {
   color-scheme: dark;
+}
+
+.dark blockquote {
+  border-left-color: #4b5563;
+}
+
+.dark code {
+  background-color: #374151;
+}
+
+.dark pre {
+  background-color: #374151;
 }
