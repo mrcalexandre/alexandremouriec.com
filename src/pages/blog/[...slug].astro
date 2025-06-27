@@ -12,11 +12,15 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
+
+// Get the raw content for heading extraction
+const rawContent = await entry.body;
 ---
 
 <PostLayout
   frontmatter={entry.data}
   readingTime={remarkPluginFrontmatter.minutesRead}
+  content={rawContent}
 >
   <section class="e-content">
     <Content />

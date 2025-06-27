@@ -1,0 +1,137 @@
+---
+export interface Props {
+  headings: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
+  title?: string;
+}
+
+const { headings, title = "Table of Contents" } = Astro.props;
+const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
+---
+
+{
+  tocHeadings.length > 0 && (
+    <nav class="my-8 rounded-lg border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-700 dark:bg-zinc-900/50">
+      <div class="mb-4 flex items-center gap-2">
+        <svg
+          class="h-5 w-5 text-zinc-600 dark:text-zinc-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 10h16M4 14h16M4 18h16"
+          />
+        </svg>
+        <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+          {title}
+        </h2>
+      </div>
+
+      <ul class="space-y-2">
+        {tocHeadings.map((heading) => (
+          <li
+            class={`toc-item ${heading.depth === 2 ? "pl-2" : heading.depth === 3 ? "pl-6" : "pl-10"}`}
+          >
+            <a
+              href={`#${heading.slug}`}
+              class="toc-link block rounded px-2 py-1 text-sm text-zinc-600 transition-colors duration-200 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+              data-depth={heading.depth}
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .toc-link.active {
+    @apply border-l-3 border-l-blue-500 bg-zinc-100 font-medium text-zinc-900 dark:border-l-blue-400 dark:bg-zinc-800 dark:text-zinc-100;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  :global(h2[id], h3[id], h4[id]) {
+    scroll-margin-top: 2rem;
+  }
+</style>
+
+<script>
+  function initTOC() {
+    const tocLinks = document.querySelectorAll(".toc-link");
+    if (!tocLinks.length) return;
+
+    // Smooth scroll
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = link.getAttribute("href");
+        if (href) {
+          const targetId = href.substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+    });
+
+    // Active section highlighting
+    function updateActive() {
+      const headings = document.querySelectorAll("h2[id], h3[id], h4[id]");
+      let activeHeading = null;
+
+      for (let i = 0; i < headings.length; i++) {
+        const heading = headings[i];
+        const rect = heading.getBoundingClientRect();
+        if (rect.top <= 100) {
+          activeHeading = heading;
+        }
+      }
+
+      tocLinks.forEach((link) => link.classList.remove("active"));
+
+      if (activeHeading) {
+        const headingId = activeHeading.getAttribute("id");
+        if (headingId) {
+          const activeLink = document.querySelector(
+            `.toc-link[href="#${headingId}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add("active");
+          }
+        }
+      }
+    }
+
+    // Throttled scroll listener
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    updateActive(); // Initial state
+  }
+
+  // Initialize
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", initTOC)
+    : initTOC();
+</script>

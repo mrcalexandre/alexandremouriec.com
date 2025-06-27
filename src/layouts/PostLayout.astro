@@ -4,9 +4,17 @@ import BackToPrev from "@/components/common/BackToPrev.astro";
 import Footnote from "@/components/common/Footnote.astro";
 import ProseContent from "@/components/common/ProseContent.astro";
 import TagList from "@/components/common/TagList.astro";
+import TableOfContents from "@/components/common/TableOfContents.astro";
 import BaseLayout from "./BaseLayout.astro";
+import { extractHeadings } from "@/utils/extract_headings.js";
 
-const { frontmatter, readingTime } = Astro.props;
+const { frontmatter, readingTime, content } = Astro.props;
+
+// Extract headings from content if provided
+let headings: Array<{ depth: number; slug: string; text: string }> = [];
+if (content) {
+  headings = extractHeadings(content);
+}
 
 // Determine the back link based on the current URL
 const currentPath = Astro.url.pathname;
@@ -32,6 +40,14 @@ if (currentPath.startsWith("/newsletter/")) {
 
     <article class="h-entry pt-8">
       <PostHeader title={frontmatter.title} image={frontmatter.image} />
+
+      {
+        headings.length > 0 && (
+          <div class="mt-6">
+            <TableOfContents headings={headings} />
+          </div>
+        )
+      }
 
       <div class="mt-6">
         <ProseContent>
