@@ -142,15 +142,15 @@ tags: ["newsletter", "monthly"]
         
         articles.length > 0 ? 
             `## ✍️ Articles I wrote this month\n\n${articles.map(article => 
-                `#### [${article.title}](/blog/${article.slug})\n\n${article.description ? `> ${article.description}\n\n` : ''}**Published:** ${formatDate(article.pubDate)}\n\n---\n`
+                `### [${article.title}](/blog/${article.slug})\n\n${article.description ? `> ${article.description}\n\n` : ''}**Published:** ${formatDate(article.pubDate)}\n\n---\n`
             ).join('')}\n` : '',
         
-        `## 📚 What I liked consuming the last month\n\n_Let's dive now into what I consumed the last month and especially liked_\n\n### Links\n\n${links.map(link => 
-            `#### ${link.title}\n<small><u>link:</u> ${link.link}</small>\n\n${link.description ? `> ${link.description.trim().replace(/<[^>]*>?/gm, '').replace(/\n/g, '\n> ')}\n\n---\n` : '---\n'}`
+        `## 📚 What I liked consuming the last month\n\n_Let's dive now into what I consumed the last month and especially liked_\n\n${links.map(link => 
+            `### ${link.title}\n<small><u>link:</u> ${link.link}</small>\n\n${link.description ? `> ${link.description.trim().replace(/<[^>]*>?/gm, '').replace(/\n/g, '\n> ')}\n\n---\n` : '---\n'}`
         ).join('')}`,
         
-        `### Books\n\n${books.map(book => 
-            `#### ${book.title}\n\n<div style="display: flex; gap: 20px; margin-bottom: 20px;">\n${book.cover_image.cover_image_url ? `  <img src="${book.cover_image.cover_image_url}" alt="${book.cover_image.cover_image_alt || book.title}" width="150" style="border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />\n` : ''}  <div>\n    <p style="margin-top: 25px;"><strong>Author:</strong> ${book.author}</p>\n    <p style="margin: 0;"><strong>Read:</strong> ${formatDate(book.date_read)}</p>\n  </div>\n</div>\n\n---\n`
+        `## Books\n\n${books.map(book => 
+            `### ${book.title}\n\n<div style="display: flex; gap: 20px; margin-bottom: 20px;">\n${book.cover_image.cover_image_url ? `  <img src="${book.cover_image.cover_image_url}" alt="${book.cover_image.cover_image_alt || book.title}" width="150" style="border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" />\n` : ''}  <div>\n    <p style="margin-top: 25px;"><strong>Author:</strong> ${book.author}</p>\n    <p style="margin: 0;"><strong>Read:</strong> ${formatDate(book.date_read)}</p>\n  </div>\n</div>\n\n---\n`
         ).join('')}`,
         
         `## 👀 What I'm up to the next month\n\n<!-- Add your future plans here -->\n\n---
