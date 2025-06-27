@@ -20,8 +20,8 @@ const {
   <Head description={description} title={pageTitle || "Alexandre Mouriec"} />
   <body class="flex min-h-screen flex-col bg-white dark:bg-zinc-900">
     {showReadingProgress && (
-      <div class="fixed top-0 left-0 w-full h-0.5 z-50 bg-zinc-200 dark:bg-zinc-700">
-        <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 ease-out" style="width: var(--scroll-progress, 0%)"></div>
+      <div class="reading-progress fixed top-0 left-0 w-full h-0.5 z-50 bg-zinc-200 dark:bg-zinc-700">
+        <div class="reading-progress-bar h-full bg-gradient-to-r from-blue-500 to-blue-700"></div>
       </div>
     )}
     
@@ -53,18 +53,28 @@ const {
     <BackToTop />
     
     {showReadingProgress && (
-      <script>
-        function updateReadingProgress() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const scrollPercent = (scrollTop / docHeight) * 100;
-          document.documentElement.style.setProperty('--scroll-progress', scrollPercent + '%');
+      <style>
+        /* CSS-only reading progress bar using scroll-driven animations */
+        .reading-progress-bar {
+          width: 0%;
+          animation: reading-progress linear;
+          animation-timeline: scroll();
+          animation-range: 0 100%;
         }
-        
-        window.addEventListener('scroll', updateReadingProgress);
-        window.addEventListener('resize', updateReadingProgress);
-        updateReadingProgress(); // Initial call
-      </script>
+
+        @keyframes reading-progress {
+          to {
+            width: 100%;
+          }
+        }
+
+        /* Fallback for browsers that don't support scroll-driven animations */
+        @supports not (animation-timeline: scroll()) {
+          .reading-progress-bar {
+            width: 0%;
+          }
+        }
+      </style>
     )}
   </body>
 </html>

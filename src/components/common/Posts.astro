@@ -18,9 +18,9 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
   <ul class="h-feed flex flex-col gap-4">
     {
       displayEntries.map((entry) => (
-        <li class="animate-fade-in">
+        <li>
           <a
-            class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
+            class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group transition-optimized hover-lift relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
             href={
               externalLinks ? entry.data.link : `${basePath}/${entry.slug}/`
             }
@@ -39,7 +39,10 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
               <FormattedDate class="dt-published" date={entry.data.pubDate} />
             </div>
 
-            <Icon name="arrow-right" class="h-4 w-4" />
+            <Icon
+              name="arrow-right"
+              class="transition-optimized h-4 w-4 group-hover:translate-x-1"
+            />
           </a>
         </li>
       ))
@@ -48,24 +51,7 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
 
   {
     showEmptyMessage && displayEntries.length === 0 && (
-      <p class="py-8 text-center text-gray-500">{emptyMessage}</p>
+      <p class="fade-in py-8 text-center text-gray-500">{emptyMessage}</p>
     )
   }
 </section>
-
-<style>
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>

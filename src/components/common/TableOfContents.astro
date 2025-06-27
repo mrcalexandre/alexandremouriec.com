@@ -41,7 +41,7 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
           >
             <a
               href={`#${heading.slug}`}
-              class="toc-link block rounded px-2 py-1 text-sm text-zinc-600 transition-colors duration-200 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+              class="toc-link block rounded px-2 py-1 text-sm text-zinc-600 transition-all duration-200 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
               data-depth={heading.depth}
             >
               {heading.text}
@@ -68,6 +68,42 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
   :global(h2[id], h3[id], h4[id]) {
     scroll-margin-top: 2rem;
   }
+
+  /* Enhanced hover effects */
+  .toc-link {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .toc-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.1),
+      transparent
+    );
+    transition: width 0.3s ease;
+  }
+
+  .toc-link:hover::before {
+    width: 100%;
+  }
+
+  .toc-link.active::before {
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.2),
+      transparent
+    );
+  }
 </style>
 
 <script>
@@ -75,63 +111,30 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
     const tocLinks = document.querySelectorAll(".toc-link");
     if (!tocLinks.length) return;
 
-    // Smooth scroll
-    tocLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = (link as HTMLAnchorElement).getAttribute("href");
-        if (href) {
-          const targetId = href.substring(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-      });
-    });
-
-    // Active section highlighting
-    function updateActive() {
-      const headings = document.querySelectorAll("h2[id], h3[id], h4[id]");
-      let activeHeading: Element | null = null;
-
-      for (let i = 0; i < headings.length; i++) {
-        const heading = headings[i];
-        const rect = heading.getBoundingClientRect();
-        if (rect.top <= 100) {
-          activeHeading = heading;
-        }
-      }
-
-      tocLinks.forEach((link) => link.classList.remove("active"));
-
-      if (activeHeading) {
-        const headingId = activeHeading.getAttribute("id");
-        if (headingId) {
-          const activeLink = document.querySelector(
-            `.toc-link[href="#${headingId}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("active");
-          }
-        }
-      }
-    }
-
-    // Throttled scroll listener
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updateActive();
-          ticking = false;
-        });
-        ticking = true;
-      }
+    // Active section highlighting with Intersection Observer (more performant)
+    const observerOptions = {
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0,
     };
 
-    window.addEventListener("scroll", handleScroll);
-    updateActive(); // Initial state
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const tocLink = document.querySelector(`.toc-link[href="#${id}"]`);
+
+        if (entry.isIntersecting) {
+          // Remove active class from all links
+          tocLinks.forEach((link) => link.classList.remove("active"));
+          // Add active class to current link
+          if (tocLink) tocLink.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all headings
+    document.querySelectorAll("h2[id], h3[id], h4[id]").forEach((heading) => {
+      observer.observe(heading);
+    });
   }
 
   // Initialize
