@@ -36,7 +36,6 @@ def extract_book_data(book_div: BeautifulSoup, extract_date: bool = False) -> Op
     title_tag = book_div.find("h3", class_="text-xl")
     author_tag = book_div.find("p", class_="font-body")
     img_tag = book_div.find("img", class_="dark:shadow-darkerGrey/40")
-    link_tag = book_div.find("a", href=lambda x: x and x.startswith("/books/"))
     
     title = extract_text(title_tag)
     if not title:
@@ -49,7 +48,6 @@ def extract_book_data(book_div: BeautifulSoup, extract_date: bool = False) -> Op
             "cover_image_url": extract_attribute(img_tag, "src")
         },
         "date_read": extract_date_read(book_div) if extract_date else "",
-        "link": f"https://app.thestorygraph.com{link_tag['href']}" if link_tag else "",
         "title": title
     }
 

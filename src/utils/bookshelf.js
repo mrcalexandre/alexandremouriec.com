@@ -92,7 +92,6 @@ function processBookItem(item) {
                 cover_image_url: item.getElementsByTagName('book_large_image_url')[0]?.textContent || '',
             },
             date_read: formattedDate,
-            link: bookUrl,
             title
         };
     } catch (error) {

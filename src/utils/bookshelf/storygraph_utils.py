@@ -78,7 +78,6 @@ def save_book(book: Dict[str, Any], directory: str, currently_reading: bool = Fa
             'cover_image_alt': str(book.get('cover_image', {}).get('cover_image_alt', ''))
         },
         'date_read': str(book.get('date_read', '')),
-        'link': str(book.get('link', '')),
         'currently_reading': currently_reading
     }
 
