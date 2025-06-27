@@ -21,7 +21,7 @@ const {
   <body class="flex min-h-screen flex-col bg-white dark:bg-zinc-900">
     {showReadingProgress && (
       <div class="reading-progress fixed top-0 left-0 w-full h-0.5 z-50 bg-zinc-200 dark:bg-zinc-700">
-        <div class="reading-progress-bar h-full bg-gradient-to-r from-blue-500 to-blue-700"></div>
+        <div class="reading-progress-bar h-full bg-gradient-to-r from-blue-500 to-blue-700" style="width: 0%"></div>
       </div>
     )}
     
@@ -54,27 +54,38 @@ const {
     
     {showReadingProgress && (
       <style>
-        /* CSS-only reading progress bar using scroll-driven animations */
-        .reading-progress-bar {
-          width: 0%;
-          animation: reading-progress linear;
-          animation-timeline: scroll();
-          animation-range: 0 100%;
-        }
-
-        @keyframes reading-progress {
-          to {
-            width: 100%;
-          }
-        }
-
-        /* Fallback for browsers that don't support scroll-driven animations */
-        @supports not (animation-timeline: scroll()) {
+        /* Modern scroll-driven animations for supported browsers */
+        @supports (animation-timeline: scroll()) {
           .reading-progress-bar {
-            width: 0%;
+            animation: reading-progress linear;
+            animation-timeline: scroll(nearest);
+            animation-range: 0 100%;
+          }
+
+          @keyframes reading-progress {
+            to {
+              width: 100%;
+            }
           }
         }
       </style>
+    )}
+
+    {showReadingProgress && (
+      <script>
+        // JavaScript fallback for browsers that don't support scroll-driven animations
+        if (!CSS.supports('animation-timeline', 'scroll()')) {
+          const progressBar = document.querySelector('.reading-progress-bar') as HTMLElement;
+          if (progressBar) {
+            window.addEventListener('scroll', () => {
+              const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+              const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+              const scrollPercent = (scrollTop / scrollHeight) * 100;
+              progressBar.style.width = scrollPercent + '%';
+            });
+          }
+        }
+      </script>
     )}
   </body>
 </html>
