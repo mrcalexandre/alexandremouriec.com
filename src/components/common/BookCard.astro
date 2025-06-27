@@ -9,7 +9,7 @@ const bookData = "data" in book ? book.data : book;
   <div class="w-20 sm:w-28 md:w-32 lg:w-36">
     <img
       alt={bookData.cover_image.cover_image_alt}
-      class="mb-4 h-auto w-full object-cover transition-transform duration-300 hover:scale-105"
+      class="mb-4 h-auto w-full rounded-sm object-cover shadow-sm transition-transform duration-300 hover:scale-105"
       src={bookData.cover_image.cover_image_url}
       loading="lazy"
       decoding="async"
