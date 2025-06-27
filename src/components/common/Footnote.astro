@@ -8,16 +8,22 @@ const formattedLastModified = lastModified ? new Date(lastModified) : null;
 const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
 ---
 
-<div class="mt-2 space-y-2 text-sm">
-  <div class="flex items-center space-x-2">
-    <Icon name="calendar" class="h-4 w-4" />
+<div class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+  <div class="flex items-center gap-2">
+    <Icon name="calendar" class="h-4 w-4 text-zinc-500 dark:text-zinc-500" />
 
-    <a class="u-url no-underline" href={Astro.url}>
+    <a
+      class="u-url no-underline transition-colors hover:text-zinc-800 dark:hover:text-zinc-200"
+      href={Astro.url}
+    >
       {
         formattedPublishedDate && (
           <span>
             Published on{" "}
-            <FormattedDate class="dt-published" date={formattedPublishedDate} />
+            <FormattedDate
+              class="dt-published font-medium"
+              date={formattedPublishedDate}
+            />
             {formattedLastModified && " • "}
           </span>
         )
@@ -25,7 +31,8 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
       {
         formattedLastModified && (
           <span>
-            Updated on <FormattedDate date={formattedLastModified} />
+            Updated on{" "}
+            <FormattedDate class="font-medium" date={formattedLastModified} />
           </span>
         )
       }
@@ -34,8 +41,8 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
 
   {
     readingTime && (
-      <div class="flex items-center space-x-2">
-        <Icon name="clock" class="h-4 w-4" />
+      <div class="flex items-center gap-2">
+        <Icon name="clock" class="h-4 w-4 text-zinc-500 dark:text-zinc-500" />
         <span>{readingTime}</span>
       </div>
     )
@@ -44,7 +51,7 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
   {
     formattedPublishedDate && (
       <a
-        class="flex items-center space-x-2 text-blue-600 hover:underline dark:text-blue-300"
+        class="flex items-center gap-2 text-blue-600 transition-colors hover:underline dark:text-blue-300"
         href="/blog/feed.xml"
       >
         <Icon name="rss" class="h-4 w-4" />

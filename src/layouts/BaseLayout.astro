@@ -17,23 +17,27 @@ const {
 
 <html lang="en">
   <Head description={description} title={pageTitle || "Alexandre Mouriec"} />
-  <body class="bg-light dark:bg-dark flex min-h-screen flex-col">
+  <body class="flex min-h-screen flex-col bg-white dark:bg-zinc-900">
     <main
-      class="mx-auto mb-12 flex w-full grow flex-col px-4 py-8 text-base text-zinc-700 sm:px-2 lg:px-8 dark:text-zinc-100"
+      class="mx-auto flex w-full grow flex-col px-4 py-12 text-base text-zinc-800 sm:px-6 lg:px-8 dark:text-zinc-200"
     >
       {showHeader && <Header />}
+
       {
         showTitle && pageTitle && (
-          <h1 class="mx-auto text-center font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
-            {pageTitle}
-          </h1>
+          <div class="mx-auto mb-4 max-w-3xl text-center">
+            <h1 class="font-serif text-3xl leading-tight font-medium tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+              {pageTitle}
+            </h1>
+            {pageSubtitle && (
+              <p class="text-md mt-2 font-light text-zinc-600 dark:text-zinc-400">
+                {pageSubtitle}
+              </p>
+            )}
+          </div>
         )
       }
-      {
-        showTitle && pageSubtitle && (
-          <p class="text-center text-sm italic opacity-80">{pageSubtitle}</p>
-        )
-      }
+
       <Container>
         <slot />
       </Container>

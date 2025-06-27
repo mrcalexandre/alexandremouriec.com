@@ -1,5 +1,5 @@
 ---
-import ArticleHeader from "@/components/blog/ArticleHeader.astro";
+import PostHeader from "@/components/blog/PostHeader.astro";
 import BackToPrev from "@/components/common/BackToPrev.astro";
 import Footnote from "@/components/common/Footnote.astro";
 import ProseContent from "@/components/common/ProseContent.astro";
@@ -23,21 +23,31 @@ if (currentPath.startsWith("/newsletter/")) {
 ---
 
 <BaseLayout showTitle={false} pageTitle={frontmatter.title}>
-  <BackToPrev href={backHref}>{backText}</BackToPrev>
-  <article class="h-entry mx-auto max-w-3xl pt-4">
-    <ArticleHeader title={frontmatter.title} image={frontmatter.image} />
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <BackToPrev href={backHref}>{backText}</BackToPrev>
 
-    <ProseContent>
-      <slot />
-    </ProseContent>
+    <article class="h-entry pt-8">
+      <PostHeader title={frontmatter.title} image={frontmatter.image} />
 
-    <TagList tags={frontmatter.tags} />
+      <div class="mt-6">
+        <ProseContent>
+          <slot />
+        </ProseContent>
+      </div>
 
-    <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
-    <Footnote
-      lastModified={frontmatter.lastModified}
-      publishedDate={frontmatter.pubDate}
-      readingTime={readingTime}
-    />
-  </article>
+      <div class="mt-6">
+        <TagList tags={frontmatter.tags} />
+      </div>
+
+      <hr class="my-6 border-zinc-200 dark:border-zinc-700" />
+
+      <div class="mb-8">
+        <Footnote
+          lastModified={frontmatter.lastModified}
+          publishedDate={frontmatter.pubDate}
+          readingTime={readingTime}
+        />
+      </div>
+    </article>
+  </div>
 </BaseLayout>

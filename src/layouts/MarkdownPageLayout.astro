@@ -8,11 +8,17 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageSubtitle={frontmatter.subtitle} pageTitle={frontmatter.title}>
-  <Container>
-    <ProseContent class="dark:prose-headings:text-zinc-200">
-      <slot />
-    </ProseContent>
-    <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
-    <Footnote lastModified={frontmatter.lastModified} />
-  </Container>
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mt-6">
+      <ProseContent class="dark:prose-headings:text-zinc-200">
+        <slot />
+      </ProseContent>
+    </div>
+
+    <hr class="my-6 border-zinc-200 dark:border-zinc-700" />
+
+    <div class="mb-6">
+      <Footnote lastModified={frontmatter.lastModified} />
+    </div>
+  </div>
 </BaseLayout>
