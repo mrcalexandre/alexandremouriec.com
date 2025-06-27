@@ -12,12 +12,19 @@ const {
   description = "Alexandre Mouriec's personal website",
   showHeader = true,
   showTitle = true,
+  showReadingProgress = false,
 } = Astro.props;
 ---
 
 <html lang="en">
   <Head description={description} title={pageTitle || "Alexandre Mouriec"} />
   <body class="flex min-h-screen flex-col bg-white dark:bg-zinc-900">
+    {showReadingProgress && (
+      <div class="fixed top-0 left-0 w-full h-1 z-50 bg-zinc-200 dark:bg-zinc-700">
+        <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 transition-all duration-300 ease-out" style="width: var(--scroll-progress, 0%)"></div>
+      </div>
+    )}
+    
     <main
       class="mx-auto flex w-full grow flex-col px-4 py-12 text-base text-zinc-800 sm:px-6 lg:px-8 dark:text-zinc-200"
     >
@@ -44,5 +51,20 @@ const {
     </main>
     <Footer />
     <BackToTop />
+    
+    {showReadingProgress && (
+      <script>
+        function updateReadingProgress() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          document.documentElement.style.setProperty('--scroll-progress', scrollPercent + '%');
+        }
+        
+        window.addEventListener('scroll', updateReadingProgress);
+        window.addEventListener('resize', updateReadingProgress);
+        updateReadingProgress(); // Initial call
+      </script>
+    )}
   </body>
 </html>
