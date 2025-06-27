@@ -34,7 +34,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   />
 
   <!-- Primary Meta Tags -->
-  <title>{title}</title>
+  <title>
+    {Astro.url.pathname === "/" ? title : `${title} - Alexandre Mouriec`}
+  </title>
   <meta content={title} name="title" />
   <meta content={description} name="description" />
 
