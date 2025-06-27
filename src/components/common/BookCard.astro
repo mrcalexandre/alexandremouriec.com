@@ -13,6 +13,8 @@ const bookData = "data" in book ? book.data : book;
       src={bookData.cover_image.cover_image_url}
       loading="lazy"
       decoding="async"
+      width="128"
+      height="192"
     />
   </div>
   <h2 class="line-clamp-2 text-sm font-semibold">{bookData.title}</h2>
