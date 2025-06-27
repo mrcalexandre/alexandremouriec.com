@@ -61,6 +61,19 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* LCP Optimization for main title */
+  h1.font-serif {
+    contain: layout style paint;
+    will-change: auto;
+    text-rendering: optimizeSpeed;
+  }
+
+  /* Optimize text rendering for LCP elements */
+  .font-serif {
+    text-rendering: optimizeSpeed;
+    font-synthesis: none;
+  }
+
   a {
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
