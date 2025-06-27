@@ -6,7 +6,6 @@ const booksCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     author: z.string(),
-    link: z.string(),
     cover_image: z.object({
       cover_image_url: z.string(),
       cover_image_alt: z.string()
