@@ -1,5 +1,5 @@
 ---
-import BlogPostItem from "@/components/blog/BlogPostItem.astro";
+import Posts from "@/components/common/Posts.astro";
 import { getCollection } from "astro:content";
 
 // Get all blog posts and sort by date
@@ -11,37 +11,9 @@ const allBlogPosts = (await getCollection("posts")).sort(
 const latestPosts = allBlogPosts.slice(0, 5);
 ---
 
-<section class="blog-posts">
-  <ul class="h-feed flex flex-col gap-4">
-    {
-      latestPosts.map((post) => (
-        <li class="animate-fade-in">
-          <BlogPostItem entry={post} />
-        </li>
-      ))
-    }
-  </ul>
-  
-  {latestPosts.length === 0 && (
-    <p class="text-center text-gray-500 py-8">
-      No blog posts yet. Check back soon!
-    </p>
-  )}
-</section>
-
-<style>
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
+<Posts
+  entries={latestPosts}
+  basePath="/blog"
+  limit={5}
+  emptyMessage="No blog posts yet. Check back soon!"
+/>

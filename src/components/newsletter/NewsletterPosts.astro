@@ -1,0 +1,19 @@
+---
+import Posts from "@/components/common/Posts.astro";
+import { getCollection } from "astro:content";
+
+// Get all newsletters and sort by date
+const allNewsletters = (await getCollection("newsletters")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Limit to latest 5 newsletters for the homepage
+const latestNewsletters = allNewsletters.slice(0, 5);
+---
+
+<Posts
+  entries={latestNewsletters}
+  basePath="/newsletter"
+  limit={5}
+  emptyMessage="No newsletters yet. Check back soon!"
+/>

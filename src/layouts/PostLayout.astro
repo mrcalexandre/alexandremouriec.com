@@ -7,10 +7,23 @@ import TagList from "@/components/common/TagList.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter, readingTime } = Astro.props;
+
+// Determine the back link based on the current URL
+const currentPath = Astro.url.pathname;
+let backHref = "/";
+let backText = "Back";
+
+if (currentPath.startsWith("/newsletter/")) {
+  backHref = "/newsletter";
+  backText = "Back to Newsletter";
+} else if (currentPath.startsWith("/blog/")) {
+  backHref = "/blog";
+  backText = "Back to Blog";
+}
 ---
 
 <BaseLayout showTitle={false} pageTitle={frontmatter.title}>
-  <BackToPrev href="/blog">Back to Blog</BackToPrev>
+  <BackToPrev href={backHref}>{backText}</BackToPrev>
   <article class="h-entry mx-auto max-w-3xl pt-4">
     <ArticleHeader title={frontmatter.title} image={frontmatter.image} />
 

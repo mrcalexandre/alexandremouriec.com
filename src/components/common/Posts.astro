@@ -1,0 +1,71 @@
+---
+import FormattedDate from "@/components/common/FormattedDate.astro";
+import Icon from "@/components/common/Icon.astro";
+
+const {
+  entries,
+  basePath = "/blog",
+  externalLinks = false,
+  limit,
+  showEmptyMessage = true,
+  emptyMessage = "No posts yet. Check back soon!",
+} = Astro.props;
+
+const displayEntries = limit ? entries.slice(0, limit) : entries;
+---
+
+<section class="posts">
+  <ul class="h-feed flex flex-col gap-4">
+    {
+      displayEntries.map((entry) => (
+        <li class="animate-fade-in">
+          <a
+            class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
+            href={
+              externalLinks ? entry.data.link : `${basePath}/${entry.slug}/`
+            }
+            target={externalLinks ? "_blank" : undefined}
+          >
+            <div class="flex flex-1 flex-col truncate">
+              <div class="p-name truncate text-sm font-semibold">
+                {entry.data.title}
+              </div>
+              <div class="e-content truncate text-sm font-light opacity-80">
+                {entry.data.description}
+              </div>
+            </div>
+
+            <div class="text-sm italic">
+              <FormattedDate class="dt-published" date={entry.data.pubDate} />
+            </div>
+
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    showEmptyMessage && displayEntries.length === 0 && (
+      <p class="py-8 text-center text-gray-500">{emptyMessage}</p>
+    )
+  }
+</section>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

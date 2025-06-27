@@ -16,12 +16,13 @@ const booksCollection = defineCollection({
 });
 
 const newslettersCollection = defineCollection({
-  type: "data",
+  type: "content",
   schema: z.object({
     title: z.string(),
-    pubDate: z.string(),
+    author: z.string(),
+    pubDate: z.date(),
     description: z.string(),
-    link: z.string().url()
+    tags: z.array(z.string()),
   }),
 });
 
