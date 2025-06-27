@@ -8,7 +8,7 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter, readingTime } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={frontmatter.title}>
   <section class="mx-auto max-w-3xl px-4 py-16">
     <BackToPrev href="/blog">Back to Blog</BackToPrev>
     <article class="h-entry mx-auto pt-4">
