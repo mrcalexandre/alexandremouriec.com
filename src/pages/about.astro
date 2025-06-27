@@ -10,8 +10,8 @@ const pageSubtitle = "Sharing a bit more about me";
 
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
   <div class="space-y-16">
-    <section class="content mt-4">
-      <article class="h-card text-md mt-6 space-y-4 font-light">
+    <section class="prose dark:prose-invert max-w-none">
+      <article class="h-card text-md space-y-6 font-light">
         <p>
           I am <Link
             class="p-name u-url u-uid"
@@ -28,80 +28,63 @@ const pageSubtitle = "Sharing a bit more about me";
               >OMS</Link
             >.
           </span>
+        </p>
 
-          <p>
-            Previously, I had the chance to work with amazing companies like
-            Crisp, Apitic, Getro and Henge.
-          </p>
+        <p>
+          Previously, I had the chance to work with amazing companies like
+          Crisp, Apitic, Getro and Henge.
+        </p>
 
-          <p>
-            Full-time Curious, I am always excited to discover a new industry or
-            topic. In my free time, I am sharing my curation in a format named
-            <Link external href="https://links.alexandremouriec.com/" rel="me"
-              >Full-Time Curious</Link
-            >. I am also djing and managing a DJ collective which I cofounded,
-            hosting house and techno parties in the West of France.
-          </p>
-          <p>
-            I also read a lot, build side-projects, and spend time with my close
-            ones. You can find me on GitHub at <Link
-              class="u-url u-uid p-nickname"
-              external
-              href="https://github.com/mrcalexandre"
-              rel="me">@mrcalexandre</Link
-            >, and on Mastodon at <Link
-              class="u-url u-uid p-nickname"
-              external
-              href="https://mamot.fr/@mrcalexandre"
-              rel="me">@mrcalexandre@mamot.fr</Link
-            >, and obviously on this website where I am trying to build my Indie
-            Web presence.
-          </p>
+        <p>
+          Full-time Curious, I am always excited to discover a new industry or
+          topic. In my free time, I am sharing my curation in a format named
+          <Link external href="https://links.alexandremouriec.com/" rel="me"
+            >Full-Time Curious</Link
+          >. I am also djing and managing a DJ collective which I cofounded,
+          hosting house and techno parties in the West of France.
+        </p>
+
+        <p>
+          I also read a lot, build side-projects, and spend time with my close
+          ones. You can find me on GitHub at <Link
+            class="u-url u-uid p-nickname"
+            external
+            href="https://github.com/mrcalexandre"
+            rel="me">@mrcalexandre</Link
+          >, and on Mastodon at <Link
+            class="u-url u-uid p-nickname"
+            external
+            href="https://mamot.fr/@mrcalexandre"
+            rel="me">@mrcalexandre@mamot.fr</Link
+          >, and obviously on this website where I am trying to build my Indie
+          Web presence.
         </p>
       </article>
     </section>
-    <section class="space-y-6">
-      <div class="flex flex-wrap items-center justify-between gap-y-2">
-        <h2 class="font-serif text-xl font-semibold">Work Experience</h2>
-        <Link href="/work"> See all work </Link>
-      </div>
-      <section class="mx-auto my-8 mt-8 flex-col sm:flex sm:gap-8">
-        <article class="text-md font-light">
-          <p class="my-0">
-            I have had the chance to work at various exciting companies over the
-            years.
-          </p>
-        </article>
 
-        <div>
-          <Work limit="3" />
-          <!-- <a
-            class="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-gray-50 px-3 py-2 text-sm font-medium outline-offset-2 transition hover:bg-gray-100 active:bg-gray-100 active:text-gray-900/60 active:transition-none dark:bg-gray-600/50 dark:hover:bg-gray-600 dark:active:bg-gray-600/50 dark:active:text-gray-50/70"
-            href="/resume"
-            target="_blank"
-            >Download CV <svg
-              class="top-4 right-8 size-4 rotate-90 fill-none stroke-current stroke-2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <line
-                class="translate-x-2 scale-x-0 transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100"
-                x1="5"
-                x2="19"
-                y1="12"
-                y2="12"></line>
-              <polyline
-                class="-translate-x-1 transition-transform duration-300 ease-in-out group-hover:translate-x-0"
-                points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a> -->
-        </div>
-      </section>
+    <section class="space-y-8">
+      <div class="flex flex-wrap items-center justify-between gap-y-2">
+        <h2 class="font-serif text-2xl font-semibold">Work Experience</h2>
+        <Link href="/work" class="text-blue-600 hover:underline"
+          >See all work →</Link
+        >
+      </div>
+
+      <div class="space-y-6">
+        <p class="text-md font-light text-gray-600 dark:text-gray-400">
+          I have had the chance to work at various exciting companies over the
+          years.
+        </p>
+        <Work limit="3" />
+      </div>
     </section>
 
-    <section class="space-y-6">
+    <section class="space-y-8">
       <div class="flex flex-wrap items-center justify-between gap-y-2">
-        <h2 class="font-serif text-xl font-semibold">Recent Projects</h2>
-        <Link href="/projects"> See all projects </Link>
+        <h2 class="font-serif text-2xl font-semibold">Recent Projects</h2>
+        <Link href="/projects" class="text-blue-600 hover:underline"
+          >See all projects →</Link
+        >
       </div>
       <Projects limit="4" />
     </section>

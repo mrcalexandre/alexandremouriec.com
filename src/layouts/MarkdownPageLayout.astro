@@ -1,6 +1,7 @@
 ---
 import Container from "@/components/common/Container.astro";
 import Footnote from "@/components/common/Footnote.astro";
+import ProseContent from "@/components/common/ProseContent.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -8,11 +9,9 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageSubtitle={frontmatter.subtitle} pageTitle={frontmatter.title}>
   <Container>
-    <div
-      class="prose dark:prose-invert prose-headings:font-serif prose-p:font-light prose-li:font-light prose-ul:font-light prose-headings:mb-2 prose-headings:text-zinc-800 dark:prose-headings:text-zinc-200 text-md font-sans leading-relaxed text-zinc-700 dark:text-zinc-300"
-    >
+    <ProseContent class="dark:prose-headings:text-zinc-200">
       <slot />
-    </div>
+    </ProseContent>
     <hr class="my-6 border-zinc-300 dark:border-zinc-600" />
     <Footnote lastModified={frontmatter.lastModified} />
   </Container>

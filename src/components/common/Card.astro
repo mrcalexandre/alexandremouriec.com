@@ -5,15 +5,13 @@ const { entry } = Astro.props;
 <div
   class="border-zinc/15 hover:bg-zinc/5 relative gap-2 rounded-2xl border border-dashed transition-colors duration-300 ease-in-out dark:border-white/20 dark:hover:bg-white/5"
 >
-  <div class="flex flex-col gap-y-1.5">
+  <div class="flex flex-col gap-y-1.5 p-4">
     <div class="flex flex-col gap-y-0.5">
       <h1 class="text-lg font-medium">{entry.data.title}</h1>
-      <h2 class="opacity-80">
-        {entry.data.description}
-      </h2>
-      <h2 class="opacity-80">
+      <p class="opacity-80">{entry.data.description}</p>
+      <time class="text-sm opacity-60">
         {entry.data.pubDate.toString().slice(0, 16)}
-      </h2>
+      </time>
     </div>
     <slot />
   </div>

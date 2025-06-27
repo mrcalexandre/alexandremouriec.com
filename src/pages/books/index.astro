@@ -10,11 +10,11 @@ const pageSubtitle = "Books I've read and am currently reading";
 ---
 
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
-  <section class="content mx-auto mt-4 px-4">
+  <div class="space-y-12">
     {
       currentlyReading.length > 0 && (
-        <div class="mt-8">
-          <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
+        <section>
+          <h2 class="mb-6 font-serif text-2xl font-semibold sm:text-3xl">
             Currently Reading
           </h2>
           <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
@@ -22,14 +22,14 @@ const pageSubtitle = "Books I've read and am currently reading";
               <BookCard book={book} />
             ))}
           </div>
-        </div>
+        </section>
       )
     }
 
     {
       sortedYears.map((year) => (
-        <div class="mt-8">
-          <h2 class="mb-4 font-serif text-2xl font-semibold sm:text-3xl">
+        <section>
+          <h2 class="mb-6 font-serif text-2xl font-semibold sm:text-3xl">
             {year}
           </h2>
           <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
@@ -37,8 +37,8 @@ const pageSubtitle = "Books I've read and am currently reading";
               <BookCard book={book} />
             ))}
           </div>
-        </div>
+        </section>
       ))
     }
-  </section>
+  </div>
 </BaseLayout>

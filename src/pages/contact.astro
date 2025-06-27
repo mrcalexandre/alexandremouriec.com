@@ -2,59 +2,66 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const pageTitle = "Contact Me";
+const pageSubtitle =
+  "Feel free to reach out if you'd like to discuss anything or just say hello.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <div class="mx-auto px-5 py-8">
+<BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
+  <div class="mx-auto max-w-2xl px-5 py-8">
     <form
       action="https://formspree.io/f/xvovrbod"
-      class="group flex flex-wrap"
+      class="group space-y-6"
       method="post"
     >
-      <div class="w-full p-3 lg:w-1/2">
-        <label class="block text-sm font-medium" for="name">Name</label>
-        <input
-          class="form-input mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:outline-hidden sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
-          id="name"
-          name="name"
-          placeholder="Name"
-          required
-          type="text"
-        />
-        <p class="mt-2 text-sm text-red-600" id="name-error"></p>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div>
+          <label class="mb-2 block text-sm font-medium" for="name">Name *</label
+          >
+          <input
+            class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+            type="text"
+          />
+        </div>
+
+        <div>
+          <label class="mb-2 block text-sm font-medium" for="email"
+            >Email *</label
+          >
+          <input
+            class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+            id="email"
+            name="_replyto"
+            placeholder="your.email@example.com"
+            required
+            type="email"
+          />
+        </div>
       </div>
 
-      <div class="w-full p-3 lg:w-1/2">
-        <label class="block text-sm font-medium" for="email">Email</label>
-        <input
-          class="form-input mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:outline-hidden sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
-          id="email"
-          name="_replyto"
-          placeholder="Email"
-          required
-          type="email"
-        />
-        <p class="mt-2 text-sm text-red-600" id="email-error"></p>
-      </div>
-
-      <div class="w-full p-3">
-        <label class="block text-sm font-medium" for="message">Message</label>
+      <div>
+        <label class="mb-2 block text-sm font-medium" for="message"
+          >Message *</label
+        >
         <textarea
-          class="form-textarea mt-1 block w-full rounded-lg border border-dashed px-3 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:outline-hidden sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+          class="form-textarea w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
           id="message"
           name="message"
-          placeholder="Write your message here ..."
+          placeholder="Write your message here..."
           required
           rows="8"></textarea>
-        <p class="mt-2 text-sm text-red-600" id="message-error"></p>
       </div>
 
-      <div class="flex w-full justify-center p-3">
-        <input
-          class="cursor-pointer rounded-sm border px-8 py-1.5 shadow-xs transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+      <div class="flex justify-center">
+        <button
+          class="cursor-pointer rounded-sm border px-8 py-1.5 shadow-xs transition duration-300 hover:bg-gray-100 focus:ring-2 focus:outline-none dark:hover:bg-gray-700"
           type="submit"
-          value="Send"
-        />
+        >
+          Send Message
+        </button>
       </div>
     </form>
   </div>

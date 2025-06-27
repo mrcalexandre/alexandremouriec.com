@@ -1,19 +1,17 @@
 <a
   href="#top"
   aria-label="Back to top"
-  class="fixed right-5 bottom-16 z-50 hidden cursor-pointer rounded-full border border-gray-200 bg-white stroke-current p-2 shadow-xs transition-colors duration-800 ease-in-out hover:bg-gray-100 hover:stroke-gray-600 md:right-10 dark:border-white/25 dark:bg-gray-800 dark:stroke-white dark:hover:bg-gray-700 dark:hover:stroke-gray-200 [&:hover]:opacity-100 [&:not(:hover)]:opacity-0"
+  class="fixed right-5 bottom-16 z-50 hidden cursor-pointer rounded-full border border-gray-200 bg-white stroke-current p-2 opacity-0 shadow-xs transition-all duration-300 ease-in-out hover:bg-gray-100 hover:stroke-gray-600 hover:opacity-100 md:right-10 dark:border-white/25 dark:bg-gray-800 dark:stroke-white dark:hover:bg-gray-700 dark:hover:stroke-gray-200"
   id="back-to-top"
 >
   <svg
     class="h-5 w-5"
     fill="none"
-    height="24"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="2"
     viewBox="0 0 24 24"
-    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <line x1="12" x2="12" y1="19" y2="5"></line>
@@ -29,49 +27,27 @@
     }
   }
 
-  /* Hide back to top button when at the top */
-  html:not([data-scrolled]) #back-to-top {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* Smooth scrolling for the entire page */
+  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Add a target at the top of the page */
-  body::before {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
   /* Show back to top button when scrolled */
-  @media (min-height: 100vh) {
-    html[data-scrolled="true"] #back-to-top {
-      opacity: 1;
-      pointer-events: auto;
-    }
+  html[data-scrolled="true"] #back-to-top {
+    opacity: 1;
   }
 </style>
 
 <script>
-  // Minimal JavaScript to add scroll detection
   document.addEventListener("astro:page-load", () => {
     const html = document.documentElement;
 
-    function updateScrollState() {
-      if (window.scrollY > 50) {
-        html.setAttribute("data-scrolled", "true");
-      } else {
-        html.removeAttribute("data-scrolled");
-      }
-    }
+    const updateScrollState = () => {
+      html.setAttribute(
+        "data-scrolled",
+        window.scrollY > 50 ? "true" : "false"
+      );
+    };
 
     window.addEventListener("scroll", updateScrollState);
     updateScrollState(); // Initial check

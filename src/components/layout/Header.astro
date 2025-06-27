@@ -64,7 +64,7 @@ const menuitems = [
                 rel={item.path.startsWith("http") ? "noopener noreferrer" : ""}
                 target={item.path.startsWith("http") ? "_blank" : "_self"}
               >
-                <span>{item.title}</span>
+                {item.title}
               </a>
             </li>
           ))
@@ -77,50 +77,43 @@ const menuitems = [
 </Container>
 
 <script>
-  // Mobile menu functionality
   document.addEventListener("astro:page-load", () => {
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = mobileMenuButton?.querySelector("svg");
     const menuPath = menuIcon?.querySelector("path");
 
-    if (mobileMenuButton && mobileMenu && menuIcon && menuPath) {
-      mobileMenuButton.addEventListener("click", () => {
-        const isExpanded =
-          mobileMenuButton.getAttribute("aria-expanded") === "true";
-        mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+    if (!mobileMenuButton || !mobileMenu || !menuIcon || !menuPath) return;
 
-        // Toggle menu with animation
-        if (!isExpanded) {
-          mobileMenu.classList.remove("hidden");
-          // Trigger reflow
-          mobileMenu.offsetHeight;
-          mobileMenu.classList.remove("opacity-0");
-          // Transform hamburger to cross
-          menuPath.setAttribute("d", "M6 18L18 6M6 6l12 12");
-        } else {
-          mobileMenu.classList.add("opacity-0");
-          // Transform cross back to hamburger
-          menuPath.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        }
-      });
+    const toggleMenu = (isExpanded) => {
+      mobileMenuButton.setAttribute("aria-expanded", isExpanded);
 
-      // Close menu when clicking outside
-      document.addEventListener("click", (event) => {
-        const isClickInside =
-          mobileMenu.contains(event.target as Node) ||
-          mobileMenuButton.contains(event.target as Node);
-        if (!isClickInside && !mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.add("opacity-0");
-          mobileMenuButton.setAttribute("aria-expanded", "false");
-          setTimeout(() => {
-            mobileMenu.classList.add("hidden");
-          }, 200);
-        }
-      });
-    }
+      if (isExpanded) {
+        mobileMenu.classList.remove("hidden");
+        mobileMenu.offsetHeight; // Trigger reflow
+        mobileMenu.classList.remove("opacity-0");
+        menuPath.setAttribute("d", "M6 18L18 6M6 6l12 12");
+      } else {
+        mobileMenu.classList.add("opacity-0");
+        menuPath.setAttribute("d", "M4 6h16M4 12h16M4 18h16");
+        setTimeout(() => mobileMenu.classList.add("hidden"), 200);
+      }
+    };
+
+    mobileMenuButton.addEventListener("click", () => {
+      const isExpanded =
+        mobileMenuButton.getAttribute("aria-expanded") === "true";
+      toggleMenu(!isExpanded);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+      const isClickInside =
+        mobileMenu.contains(event.target as Node) ||
+        mobileMenuButton.contains(event.target as Node);
+      if (!isClickInside && !mobileMenu.classList.contains("hidden")) {
+        toggleMenu(false);
+      }
+    });
   });
 </script>

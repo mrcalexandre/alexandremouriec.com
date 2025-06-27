@@ -10,7 +10,7 @@ const posts = (await getCollection("posts")).sort(
 
 const allBlogPosts = posts.reduce((acc, post) => {
   const year = post.data.pubDate.getFullYear().toString();
-  const month = (post.data.pubDate.getMonth() + 1).toString().padStart(2, "0"); // Get month and pad with leading zero
+  const month = (post.data.pubDate.getMonth() + 1).toString().padStart(2, "0");
 
   if (!acc[year]) {
     acc[year] = {};
@@ -21,6 +21,7 @@ const allBlogPosts = posts.reduce((acc, post) => {
   acc[year][month].push(post);
   return acc;
 }, {});
+
 const years = Object.keys(allBlogPosts).sort(
   (a, b) => parseInt(b) - parseInt(a)
 );
@@ -29,32 +30,32 @@ const pageTitle = "Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="space-y-16">
-    <section class="content mt-4">
-      <article class="space-y-4 text-center font-light">
-        <p>
-          Here are my latest blog posts. You can receive them by subscribing to
-          my <Link href="/blog/feed.xml">RSS feed</Link>.
-        </p>
-      </article>
+  <div class="space-y-12">
+    <section class="text-center">
+      <p class="text-md mx-auto max-w-2xl font-light">
+        Here are my latest blog posts. You can receive them by subscribing to my <Link
+          href="/blog/feed.xml"
+          class="text-blue-600 hover:underline">RSS feed</Link
+        >.
+      </p>
     </section>
 
-    <div class="space-y-4">
+    <div class="space-y-8">
       {
         years.map((year) => (
-          <section class="space-y-4">
-            <h2 class="font-serif text-xl font-semibold">{year}</h2>
+          <section class="space-y-6">
+            <h2 class="pb-2 font-serif text-2xl font-semibold">{year}</h2>
             {Object.keys(allBlogPosts[year])
               .sort((a, b) => parseInt(b) - parseInt(a))
               .map((month) => (
-                <div class="space-y-2">
-                  <h3 class="font-serif text-lg font-semibold">
+                <div class="space-y-4">
+                  <h3 class="font-serif text-lg font-semibold text-gray-600 dark:text-gray-400">
                     {new Date(
                       parseInt(year),
                       parseInt(month) - 1
                     ).toLocaleString("default", { month: "long" })}
                   </h3>
-                  <ul class="flex flex-col gap-4">
+                  <ul class="space-y-6">
                     {allBlogPosts[year][month].map((post) => (
                       <li>
                         <BlogPost entry={post} />

@@ -1,16 +1,64 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Link from "@/components/common/Link.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const projectsEntries = await getCollection("projects");
   return projectsEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id.toString() },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
+const { data } = entry;
 ---
 
-<BaseLayout />
+<BaseLayout pageTitle={data.name} pageSubtitle={data.description}>
+  <div class="space-y-8">
+    <div class="space-y-6">
+      {
+        data.image && (
+          <div class="flex justify-center">
+            <img
+              src={`/images/projects/${data.image.url}.png`}
+              alt={data.image.alt}
+              class="w-full max-w-2xl rounded-lg shadow-lg"
+            />
+          </div>
+        )
+      }
+
+      <div class="space-y-4">
+        <div class="prose dark:prose-invert max-w-none">
+          <p class="text-lg font-light">{data.description}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Created in {data.date}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-4">
+      {
+        data.url && (
+          <Link
+            external
+            href={data.url}
+            class="rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors duration-200 hover:bg-blue-600"
+          >
+            View Project
+          </Link>
+        )
+      }
+
+      <Link
+        href="/projects"
+        class="rounded-lg border border-gray-300 px-6 py-3 transition-colors duration-200 hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700"
+      >
+        Back to Projects
+      </Link>
+    </div>
+  </div>
+</BaseLayout>

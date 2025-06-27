@@ -10,6 +10,8 @@ const {
   pageSubtitle,
   pageTitle,
   description = "Alexandre Mouriec's personal website",
+  showHeader = true,
+  showTitle = true,
 } = Astro.props;
 ---
 
@@ -19,16 +21,16 @@ const {
     <main
       class="mx-auto mb-12 flex w-full grow flex-col px-4 py-8 text-base text-zinc-700 sm:px-2 lg:px-8 dark:text-zinc-100"
     >
-      <Header />
+      {showHeader && <Header />}
       {
-        pageTitle && (
+        showTitle && pageTitle && (
           <h1 class="mx-auto text-center font-serif text-3xl font-semibold tracking-tight text-zinc-800 sm:text-4xl dark:text-zinc-100">
             {pageTitle}
           </h1>
         )
       }
       {
-        pageSubtitle && (
+        showTitle && pageSubtitle && (
           <p class="text-center text-sm italic opacity-80">{pageSubtitle}</p>
         )
       }
