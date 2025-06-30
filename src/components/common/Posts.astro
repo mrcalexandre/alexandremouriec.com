@@ -15,12 +15,12 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
 ---
 
 <section class="posts">
-  <ul class="h-feed flex flex-col gap-4">
+  <ul class="h-feed space-y-6">
     {
       displayEntries.map((entry) => (
         <li>
           <a
-            class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group transition-optimized hover-lift relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
+            class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
             href={
               externalLinks ? entry.data.link : `${basePath}/${entry.slug}/`
             }
@@ -35,13 +35,13 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
               </div>
             </div>
 
-            <div class="text-sm italic">
+            <div class="text-sm italic opacity-60">
               <FormattedDate class="dt-published" date={entry.data.pubDate} />
             </div>
 
             <Icon
               name="arrow-right"
-              class="transition-optimized h-4 w-4 group-hover:translate-x-1"
+              class="transition-optimized h-4 w-4 opacity-60 group-hover:translate-x-1 group-hover:opacity-100"
             />
           </a>
         </li>
@@ -51,7 +51,9 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
 
   {
     showEmptyMessage && displayEntries.length === 0 && (
-      <p class="fade-in py-8 text-center text-gray-500">{emptyMessage}</p>
+      <p class="fade-in text-center text-gray-500 dark:text-gray-400">
+        {emptyMessage}
+      </p>
     )
   }
 </section>

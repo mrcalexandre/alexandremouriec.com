@@ -8,7 +8,7 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
 
 <BaseLayout>
   <main class="mx-auto max-w-4xl py-8">
-    <header class="mb-12">
+    <header>
       <h1
         class="pb-2 font-serif text-3xl font-medium italic"
         style="contain: layout style paint;"
@@ -23,13 +23,14 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
       </h2>
     </header>
 
-    <div class="space-y-16">
+    <div class="space-y-8">
       <section class="prose dark:prose-invert max-w-none">
         <article class="h-card text-md space-y-6 font-light">
           <p>
             I am <Link
               class="p-name u-url u-uid"
-              href="https://alexandremouriec.com/"
+              external
+              href="https://mamot.fr/@mrcalexandre"
               rel="me"
             >
               Alexandre Mouriec</Link
@@ -45,35 +46,10 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
               >.
             </span>
           </p>
-
           <p>
-            Previously, I had the chance to work with amazing companies like
-            Crisp, Apitic, Getro and Henge.
-          </p>
-
-          <p>
-            Full-time Curious, I am always excited to discover a new industry or
-            topic. In my free time, I am sharing my curation in a format named
-            <Link external href="https://links.alexandremouriec.com/" rel="me"
-              >Full-Time Curious</Link
-            >. I am also djing and managing a DJ collective which I cofounded,
-            hosting house and techno parties in the West of France.
-          </p>
-
-          <p>
-            I also read a lot, build side-projects, and spend time with my close
-            ones. You can find me on GitHub at <Link
-              class="u-url u-uid p-nickname"
-              external
-              href="https://github.com/mrcalexandre"
-              rel="me">@mrcalexandre</Link
-            >, and on Mastodon at <Link
-              class="u-url u-uid p-nickname"
-              external
-              href="https://mamot.fr/@mrcalexandre"
-              rel="me">@mrcalexandre@mamot.fr</Link
-            >, and obviously on this website where I am trying to build my Indie
-            Web presence.
+            I am a curious person, always looking for new things to learn and
+            share. My current focus is on taking back control of my devices and
+            software, and to build my own tools to make my life easier.
           </p>
         </article>
       </section>
@@ -100,9 +76,7 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
 
       <section class="space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-serif text-2xl font-semibold">
-            Latest Curated Newsletters
-          </h2>
+          <h2 class="font-serif text-2xl font-semibold">Latest Newsletters</h2>
           <Link href="/newsletter" class="text-blue-600 hover:underline"
             >See all newsletters →</Link
           >
