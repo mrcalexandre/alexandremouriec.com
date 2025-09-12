@@ -1,6 +1,7 @@
 ---
-import WorkItem from "@/components/work/WorkItem.astro";
 import { getCollection } from "astro:content";
+
+import WorkItem from "@/components/work/WorkItem.astro";
 
 const allJobs = (await getCollection("jobs")).sort(
   (a, b) => b.data.id - a.data.id

@@ -1,8 +1,9 @@
 ---
+import { Image } from "astro:assets";
+
 import Container from "@/components/common/Container.astro";
 import HeaderIcons from "@/components/common/HeaderIcons.astro";
 import Logo from "@/images/logos/logo-512x512.png";
-import { Image } from "astro:assets";
 
 const menuitems = [
   { path: "/about", title: "About" },
@@ -17,9 +18,9 @@ const menuitems = [
   <header class="mb-6 flex flex-col items-center justify-between sm:flex-row">
     <!-- Hidden checkbox for CSS-only menu toggle -->
     <input
-      type="checkbox"
-      id="mobile-menu-toggle"
       class="mobile-menu-checkbox"
+      id="mobile-menu-toggle"
+      type="checkbox"
     />
 
     <div class="flex w-full items-center justify-between sm:w-auto">
@@ -36,9 +37,9 @@ const menuitems = [
 
       <!-- Mobile menu button -->
       <label
-        for="mobile-menu-toggle"
-        class="mobile-menu-button block cursor-pointer sm:hidden"
         aria-label="Toggle menu"
+        class="mobile-menu-button block cursor-pointer sm:hidden"
+        for="mobile-menu-toggle"
       >
         <svg
           class="h-6 w-6 transition-transform duration-200"
@@ -48,10 +49,10 @@ const menuitems = [
         >
           <path
             class="transition-transform duration-200"
+            d="M4 6h16M4 12h16M4 18h16"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
+            stroke-width="2"></path>
         </svg>
       </label>
     </div>

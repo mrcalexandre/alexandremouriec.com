@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/MarkdownPageLayout.astro
 title: App Defaults
-lastModified: 2025-06-06
+lastModified: 2025-07-31
 ---
 
 | **Type**                             | **Apps**                                                                                       |     |
@@ -18,11 +18,11 @@ lastModified: 2025-06-06
 | 📖 **RSS**                            | NetNewsWire [^1]                                                                               |     |
 | 🙍🏻‍♂️ **Contacts**                       | Apple Contacts (CardDAV via Infomaniak)                                                        |     |
 | 🌐 **Browser**                        | Zen (Firefox fork) [^1] (Desktop - Personal) - Vivaldi (Desktop - Work) - Quiche Browser (iOS) |     |
-| 💬 **Chat**                           | Beeper [^1] - Messages                                                                         |     |
+| 💬 **Chat**                           | Beeper [^1] - Signal [^1] - - WhatsApp - Messages                                              |     |
 | 🔖 **Bookmarks**                      | Zen Browser bookmarks [^1][^2]                                                                 |     |
 | 📑 **Read It Later**                  | Readwise Reader [^2]                                                                           |     |
 | 🔗 **Link Curation**                  | Shaarli [^1]                                                                                   |     |
-| 📬 **Newsletter**                     | I stopped using Substack but have not found a replacement for now                              |     |
+| 📬 **Newsletter**                     |Buttondown                                                           |     |
 | 📷 **Image compression**              | ImagOptim [^1]                                                                                 |     |
 | 🛒 **Shopping Lists**                 | Apple Reminders                                                                                |     |
 | 💰 **Budgeting and Personal Finance** | Finary                                                                                         |     |
@@ -34,14 +34,14 @@ lastModified: 2025-06-06
 | 💾 **Terminal**                       | Ghostty [^1]                                                                                   |     |
 | 🚀 **Launcher**                       | Raycast                                                                                        |     |
 | ✏️ **Clipboard Manager**              | Maccy [^1]                                                                                     |     |
-| 🖼️ **Screenshots**                    | Shottr                                                                                         |     |
+| 🖼️ **Screenshots**                    | Flameshot                                                                                         |     |
 | 📞 **Video Call**                     | Google Meet - Slack                                                                            |     |
 | 🍅 **Pomodoro Timer**                 | [TomatoBar](https://github.com/AuroraWright/TomatoBar) [^1][^3]                                |     |
 | 🔍 **Search Engine**                  | Brave Search                                                                                   |     |
-| 📚 **Book tracking**                  | The Storygraph, synced to [my bookshelf](https://alexandremouriec.com/books))                  |     |
+| 📚 **Book tracking**                  | The Storygraph, synced to [my bookshelf](https://alexandremouriec.com/books)                   |     |
 | 📖 **Book Management**                | Calibre[^1]                                                                                    |     |
 | 🎬 **Movies / Shows tracking**        | Obsidian [^2]                                                                                  |     |
-| 🗣️ **Language Checker**               | LanguageTool [^1][^1]                                                                          |     |
+| 🗣️ **Language Checker**               | LanguageTool [^1]                                                                              |     |
 | 📵 **Screen Time App**                | Jomo [^2][^3]                                                                                  |     |
 | 🏃‍♂️ **Running**                        | Kiprun Pacer - Strava - Garmin Connect                                                         |     |
 | 🎧 **DJing**                          | Rekordbox                                                                                      |     |

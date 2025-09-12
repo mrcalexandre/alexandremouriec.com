@@ -1,20 +1,20 @@
 ---
-const { name, class: className = "", size = 24 } = Astro.props;
+const { class: className = "", name, size = 24 } = Astro.props;
 
 const icons = {
-  moon: "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z",
-  sun: "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z",
   "arrow-right": "M5 12h14M12 5l7 7-7 7",
   "arrow-up-right": "M7 17L17 7M7 7h10v10",
   calendar:
     "M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM16 2v4M8 2v4M3 10h18",
   clock:
     "M12 6v6l4 2M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z",
-  rss: "M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
-  "header-rss":
-    "M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
   "error-404":
     "M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828zM12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z",
+  "header-rss":
+    "M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
+  moon: "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z",
+  rss: "M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19a1 1 0 1 0 0-2 1 1 0 0 0 0 2z",
+  sun: "M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z",
 };
 
 const iconPath = icons[name];
@@ -22,14 +22,14 @@ const iconPath = icons[name];
 
 <svg
   class={className}
-  width={size}
-  height={size}
-  viewBox="0 0 24 24"
   fill="none"
+  height={size}
   stroke="currentColor"
-  stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
+  stroke-width="2"
+  viewBox="0 0 24 24"
+  width={size}
   xmlns="http://www.w3.org/2000/svg"
 >
   <path d={iconPath}></path>

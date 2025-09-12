@@ -1,9 +1,9 @@
 ---
 import BlogPosts from "@/components/blog/BlogPosts.astro";
+import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.astro";
 import Link from "@/components/common/Link.astro";
 import NewsletterPosts from "@/components/newsletter/NewsletterPosts.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.astro";
 ---
 
 <BaseLayout>
@@ -57,7 +57,7 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
       <section class="space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h2 class="font-serif text-2xl font-semibold">Currently Reading</h2>
-          <Link href="/books" class="text-blue-600 hover:underline"
+          <Link class="text-blue-600 hover:underline" href="/books"
             >See all books →</Link
           >
         </div>
@@ -67,7 +67,7 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
       <section class="space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h2 class="font-serif text-2xl font-semibold">Latest Posts</h2>
-          <Link href="/blog" class="text-blue-600 hover:underline"
+          <Link class="text-blue-600 hover:underline" href="/blog"
             >See all posts →</Link
           >
         </div>
@@ -77,7 +77,7 @@ import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.ast
       <section class="space-y-8">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h2 class="font-serif text-2xl font-semibold">Latest Newsletters</h2>
-          <Link href="/newsletter" class="text-blue-600 hover:underline"
+          <Link class="text-blue-600 hover:underline" href="/newsletter"
             >See all newsletters →</Link
           >
         </div>

@@ -1,6 +1,7 @@
 ---
-import Posts from "@/components/common/Posts.astro";
 import { getCollection } from "astro:content";
+
+import Posts from "@/components/common/Posts.astro";
 
 // Get all blog posts and sort by date
 const allBlogPosts = (await getCollection("posts")).sort(
@@ -12,8 +13,8 @@ const latestPosts = allBlogPosts.slice(0, 5);
 ---
 
 <Posts
-  entries={latestPosts}
   basePath="/blog"
-  limit={5}
   emptyMessage="No blog posts yet. Check back soon!"
+  entries={latestPosts}
+  limit={5}
 />

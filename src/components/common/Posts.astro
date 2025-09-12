@@ -3,12 +3,12 @@ import FormattedDate from "@/components/common/FormattedDate.astro";
 import Icon from "@/components/common/Icon.astro";
 
 const {
-  entries,
   basePath = "/blog",
+  emptyMessage = "No posts yet. Check back soon!",
+  entries,
   externalLinks = false,
   limit,
   showEmptyMessage = true,
-  emptyMessage = "No posts yet. Check back soon!",
 } = Astro.props;
 
 const displayEntries = limit ? entries.slice(0, limit) : entries;
@@ -40,8 +40,8 @@ const displayEntries = limit ? entries.slice(0, limit) : entries;
             </div>
 
             <Icon
-              name="arrow-right"
               class="transition-optimized h-4 w-4 opacity-60 group-hover:translate-x-1 group-hover:opacity-100"
+              name="arrow-right"
             />
           </a>
         </li>

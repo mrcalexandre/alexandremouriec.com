@@ -1,6 +1,7 @@
 ---
-import PostLayout from "@/layouts/PostLayout.astro";
 import { getCollection } from "astro:content";
+
+import PostLayout from "@/layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
   const newsletterEntries = await getCollection("newsletters");

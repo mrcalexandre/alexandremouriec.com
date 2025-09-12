@@ -1,6 +1,6 @@
 ---
-import Icon from "@/components/common/Icon.astro";
 import FormattedDate from "@/components/common/FormattedDate.astro";
+import Icon from "@/components/common/Icon.astro";
 
 const { lastModified, publishedDate, readingTime } = Astro.props;
 
@@ -10,7 +10,7 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
 
 <div class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
   <div class="flex items-center gap-2">
-    <Icon name="calendar" class="h-4 w-4 text-zinc-500 dark:text-zinc-500" />
+    <Icon class="h-4 w-4 text-zinc-500 dark:text-zinc-500" name="calendar" />
 
     <a
       class="u-url no-underline transition-colors hover:text-zinc-800 dark:hover:text-zinc-200"
@@ -42,7 +42,7 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
   {
     readingTime && (
       <div class="flex items-center gap-2">
-        <Icon name="clock" class="h-4 w-4 text-zinc-500 dark:text-zinc-500" />
+        <Icon class="h-4 w-4 text-zinc-500 dark:text-zinc-500" name="clock" />
         <span>{readingTime}</span>
       </div>
     )
@@ -54,7 +54,7 @@ const formattedPublishedDate = publishedDate ? new Date(publishedDate) : null;
         class="flex items-center gap-2 text-blue-600 transition-colors hover:underline dark:text-blue-300"
         href="/blog/feed.xml"
       >
-        <Icon name="rss" class="h-4 w-4" />
+        <Icon class="h-4 w-4" name="rss" />
         <span>Subscribe via RSS</span>
       </a>
     )

@@ -1,8 +1,9 @@
 ---
+import { getCollection } from "astro:content";
+
 import BlogPost from "@/components/blog/PostItem.astro";
 import Link from "@/components/common/Link.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
 
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -34,8 +35,8 @@ const pageTitle = "Blog";
     <section class="text-center">
       <p class="text-md mx-auto max-w-3xl font-light">
         Here are my latest blog posts. You can receive them by subscribing to my <Link
-          href="/blog/feed.xml"
-          class="text-blue-600 hover:underline">RSS feed</Link
+          class="text-blue-600 hover:underline"
+          href="/blog/feed.xml">RSS feed</Link
         >.
       </p>
     </section>

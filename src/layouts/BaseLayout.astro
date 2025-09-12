@@ -7,12 +7,12 @@ import Header from "@/components/layout/Header.astro";
 import "@/styles/app.css";
 
 const {
+  description = "Alexandre Mouriec's personal website",
   pageSubtitle,
   pageTitle,
-  description = "Alexandre Mouriec's personal website",
   showHeader = true,
-  showTitle = true,
   showReadingProgress = false,
+  showTitle = true,
 } = Astro.props;
 ---
 
@@ -75,8 +75,8 @@ const {
       <script>
         // JavaScript fallback for browsers that don't support scroll-driven animations
         if (!CSS.supports('animation-timeline', 'scroll()')) {
-          const progressBar = document.querySelector('.reading-progress-bar') as HTMLElement;
-          if (progressBar) {
+          const progressBar = document.querySelector('.reading-progress-bar');
+          if (progressBar && progressBar instanceof HTMLElement) {
             window.addEventListener('scroll', () => {
               const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
               const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;

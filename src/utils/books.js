@@ -36,8 +36,8 @@ export async function getBooksData() {
     .sort((a, b) => b - a);
 
   return {
-    currentlyReading,
     booksByYear,
+    currentlyReading,
     sortedYears
   };
 } 

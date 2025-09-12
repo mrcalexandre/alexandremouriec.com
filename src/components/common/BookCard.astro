@@ -10,11 +10,11 @@ const bookData = "data" in book ? book.data : book;
     <img
       alt={bookData.cover_image.cover_image_alt}
       class="transition-optimized hover-scale mb-4 h-auto w-full rounded-sm object-cover shadow-sm"
-      src={bookData.cover_image.cover_image_url}
-      loading="lazy"
       decoding="async"
-      width="128"
       height="192"
+      loading="lazy"
+      src={bookData.cover_image.cover_image_url}
+      width="128"
     />
   </div>
   <h2 class="line-clamp-2 text-sm font-semibold">{bookData.title}</h2>

@@ -1,6 +1,7 @@
 ---
-import PostLayout from "@/layouts/PostLayout.astro";
 import { getCollection } from "astro:content";
+
+import PostLayout from "@/layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
@@ -18,9 +19,9 @@ const rawContent = await entry.body;
 ---
 
 <PostLayout
+  content={rawContent}
   frontmatter={entry.data}
   readingTime={remarkPluginFrontmatter.minutesRead}
-  content={rawContent}
 >
   <section class="e-content">
     <Content />

@@ -21,14 +21,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta content="#fff7f3" name="theme-color" />
 
   <!-- DNS Prefetch for external domains -->
-  <link rel="dns-prefetch" href="//links.alexandremouriec.com" />
-  <link rel="dns-prefetch" href="//github.com" />
-  <link rel="dns-prefetch" href="//mamot.fr" />
+  <link href="//links.alexandremouriec.com" rel="dns-prefetch" />
+  <link href="//github.com" rel="dns-prefetch" />
+  <link href="//mamot.fr" rel="dns-prefetch" />
 
   <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://links.alexandremouriec.com" />
-  <link rel="preconnect" href="https://github.com" />
-  <link rel="preconnect" href="https://mamot.fr" />
+  <link href="https://links.alexandremouriec.com" rel="preconnect" />
+  <link href="https://github.com" rel="preconnect" />
+  <link href="https://mamot.fr" rel="preconnect" />
 
   <link
     href={new URL("blog/feed.xml", Astro.site)}
@@ -91,16 +91,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </>
     )
   }
-
-  <!-- Webmentions -->
-  <link
-    href="https://webmention.io/alexandremouriec.com/webmention"
-    rel="webmention"
-  />
-  <link
-    href="https://webmention.io/alexandremouriec.com/xmlrpc"
-    rel="pingback"
-  />
 
   <!-- Favicon -->
   <link href="/favicon.svg" rel="icon" type="image/x-icon" />

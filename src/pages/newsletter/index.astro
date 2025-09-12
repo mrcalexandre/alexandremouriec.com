@@ -1,8 +1,9 @@
 ---
-import Posts from "@/components/common/Posts.astro";
-import Link from "@/components/common/Link.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+
+import Link from "@/components/common/Link.astro";
+import Posts from "@/components/common/Posts.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const allNewsletters = (await getCollection("newsletters")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -17,17 +18,17 @@ const pageTitle = "Newsletter";
       <p class="text-md mx-auto max-w-3xl font-light">
         Here are my latest newsletters. You can receive them by subscribing to
         my <Link
-          href="/newsletter/feed.xml"
-          class="text-blue-600 hover:underline">RSS feed</Link
+          class="text-blue-600 hover:underline"
+          href="/newsletter/feed.xml">RSS feed</Link
         >.
       </p>
     </section>
 
     <Posts
-      entries={allNewsletters}
       basePath="/newsletter"
-      showEmptyMessage={true}
       emptyMessage="No newsletters yet. Check back soon!"
+      entries={allNewsletters}
+      showEmptyMessage={true}
     />
   </div>
 </BaseLayout>

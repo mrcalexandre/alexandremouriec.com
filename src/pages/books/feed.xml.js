@@ -22,10 +22,6 @@ export async function GET(context) {
       }
 
       return {
-        title: book.data.title,
-        link: book.data.link,
-        pubDate: new Date(book.data.date_read),
-        description: `I read "${book.data.title}" by ${book.data.author}`,
         content: `
           <div class="book-entry">
             <img 
@@ -40,6 +36,10 @@ export async function GET(context) {
             </div>
           </div>
         `,
+        description: `I read "${book.data.title}" by ${book.data.author}`,
+        link: book.data.link,
+        pubDate: new Date(book.data.date_read),
+        title: book.data.title,
       };
     }).filter(Boolean), // Remove any null entries
     site: context.site,

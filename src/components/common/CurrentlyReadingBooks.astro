@@ -1,6 +1,7 @@
 ---
-import BookCard from "./BookCard.astro";
 import { getBooksData } from "@/utils/books.js";
+
+import BookCard from "./BookCard.astro";
 
 const { currentlyReading } = await getBooksData();
 ---

@@ -1,6 +1,7 @@
 ---
-import ProjectItem from "@/components/projects/ProjectItem.astro";
 import { getCollection } from "astro:content";
+
+import ProjectItem from "@/components/projects/ProjectItem.astro";
 
 const allProjects = (await getCollection("projects")).sort(
   (a, b) => b.data.id - a.data.id

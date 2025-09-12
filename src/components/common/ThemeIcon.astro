@@ -3,17 +3,17 @@ import Icon from "../common/Icon.astro";
 ---
 
 <button
-  id="theme-toggle"
-  class="relative inline-flex items-center justify-center"
   aria-label="Toggle theme"
+  class="relative inline-flex items-center justify-center"
+  id="theme-toggle"
 >
   <Icon
-    name="sun"
     class="sun hidden h-9 w-9 cursor-pointer rounded-full border border-gray-200 bg-transparent stroke-current p-2 transition-colors duration-800 ease-in-out hover:bg-gray-100 hover:stroke-gray-600 dark:block dark:border-white/25 dark:hover:bg-white/20 dark:hover:stroke-white"
+    name="sun"
   />
   <Icon
-    name="moon"
     class="moon block h-9 w-9 cursor-pointer rounded-full border border-gray-200 bg-transparent stroke-current p-2 transition-colors duration-800 ease-in-out hover:bg-gray-100 hover:stroke-gray-600 dark:hidden dark:border-white/25 dark:hover:bg-white/20 dark:hover:stroke-white"
+    name="moon"
   />
 </button>
 

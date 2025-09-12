@@ -1,9 +1,9 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
 import BookCard from "@/components/common/BookCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getBooksData } from "@/utils/books.js";
 
-const { currentlyReading, booksByYear, sortedYears } = await getBooksData();
+const { booksByYear, currentlyReading, sortedYears } = await getBooksData();
 
 const pageTitle = "Bookshelf";
 const pageSubtitle = "Books I've read and am currently reading";

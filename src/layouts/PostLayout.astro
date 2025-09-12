@@ -3,15 +3,15 @@ import PostHeader from "@/components/blog/PostHeader.astro";
 import BackToPrev from "@/components/common/BackToPrev.astro";
 import Footnote from "@/components/common/Footnote.astro";
 import ProseContent from "@/components/common/ProseContent.astro";
-import TagList from "@/components/common/TagList.astro";
 import TableOfContents from "@/components/common/TableOfContents.astro";
-import BaseLayout from "./BaseLayout.astro";
+import TagList from "@/components/common/TagList.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { extractHeadings } from "@/utils/extract_headings.js";
 
-const { frontmatter, readingTime, content } = Astro.props;
+const { content, frontmatter, readingTime } = Astro.props;
 
 // Extract headings from content if provided
-let headings: Array<{ depth: number; slug: string; text: string }> = [];
+let headings = [];
 if (content) {
   headings = extractHeadings(content);
 }
@@ -31,15 +31,15 @@ if (currentPath.startsWith("/newsletter/")) {
 ---
 
 <BaseLayout
-  showTitle={false}
   pageTitle={frontmatter.title}
   showReadingProgress={true}
+  showTitle={false}
 >
   <div class="mx-auto max-w-3xl">
     <BackToPrev href={backHref}>{backText}</BackToPrev>
 
     <article class="h-entry pt-8">
-      <PostHeader title={frontmatter.title} image={frontmatter.image} />
+      <PostHeader image={frontmatter.image} title={frontmatter.title} />
 
       {
         headings.length > 0 && (

@@ -1,7 +1,8 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Link from "@/components/common/Link.astro";
 import { getCollection } from "astro:content";
+
+import Link from "@/components/common/Link.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const projectsEntries = await getCollection("projects");
@@ -15,16 +16,16 @@ const { entry } = Astro.props;
 const { data } = entry;
 ---
 
-<BaseLayout pageTitle={data.name} pageSubtitle={data.description}>
+<BaseLayout pageSubtitle={data.description} pageTitle={data.name}>
   <div class="space-y-8">
     <div class="space-y-6">
       {
         data.image && (
           <div class="flex justify-center">
             <img
-              src={`/images/projects/${data.image.url}.png`}
               alt={data.image.alt}
               class="w-full max-w-3xl rounded-lg shadow-lg"
+              src={`/images/projects/${data.image.url}.png`}
             />
           </div>
         )
@@ -44,9 +45,9 @@ const { data } = entry;
       {
         data.url && (
           <Link
+            class="rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors duration-200 hover:bg-blue-600"
             external
             href={data.url}
-            class="rounded-lg bg-blue-500 px-6 py-3 text-white transition-colors duration-200 hover:bg-blue-600"
           >
             View Project
           </Link>
@@ -54,8 +55,8 @@ const { data } = entry;
       }
 
       <Link
-        href="/projects"
         class="rounded-lg border border-gray-300 px-6 py-3 transition-colors duration-200 hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700"
+        href="/projects"
       >
         Back to Projects
       </Link>
