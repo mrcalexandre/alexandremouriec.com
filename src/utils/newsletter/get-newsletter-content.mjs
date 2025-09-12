@@ -28,10 +28,17 @@ const parseRssXml = (xml) => {
     const entry = match[1];
     const published = entry.match(/<published>(.*?)<\/published>/)?.[1];
     const title = entry.match(/<title>(.*?)<\/title>/)?.[1];
-    const link = entry.match(/<link[^>]*href="([^"]*)"[^>]*>/)?.[1];
-    const content = entry.match(/<content[^>]*>(.*?)<\/content>/)?.[1] || "";
-    const description =
-      content.match(/class="markdown">(.*?)<\/div>/s)?.[1]?.trim() || "";
+    const link = entry.match(/<link[^>]*href=\"([^\"]*)\"[^>]*>/)?.[1];
+    const content =
+      entry.match(/<content[^>]*>([\s\S]*?)<\/content>/)?.[1] || "";
+    let description = content
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    // Remove trailing permalink artifacts
+    description = description
+      .replace(/\s*(?:—|&#8212;)\s*Permalink\s*\]\]>\s*$/i, "")
+      .replace(/\s*(?:—|&#8212;)\s*Permalink\s*$/i, "");
 
     if (published && title && link) {
       entries.push({ description, link, published, title });
@@ -143,74 +150,50 @@ const getArticles = (month, year) => {
 
 // Generate markdown content
 const generateMarkdown = (month, year, links, books, articles) => {
-  const monthName = new Date(year, month - 1).toLocaleString("default", {
-    month: "long",
-    year: "numeric",
-  });
-  const pubDate = new Date(year, month - 1, 1).toISOString();
-  const formatDate = (date) =>
-    date.toLocaleDateString("en-US", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
+  const lines = [];
 
-  const stripHtml = (html) =>
-    (html || "")
-      .trim()
-      .replace(/<[^>]*>?/gm, "")
-      .replace(/\n\s*/g, "\n");
+  lines.push("Links");
+  if (!links || links.length === 0) {
+    lines.push("(none)");
+  } else {
+    for (const link of links) {
+      lines.push(`title: ${link.title}`);
+      lines.push(`link: ${link.link}`);
+      if (link.description) lines.push(`description: ${link.description}`);
+      lines.push("");
+    }
+  }
 
-  const sections = [
-    `---
-title: Full-Time Curious - ${monthName}
-author: Alexandre Mouriec
-pubDate: ${pubDate}
-description: A monthly recap of what I've been reading, watching, and thinking about.
-tags: ["newsletter", "monthly"]
----
+  lines.push("Articles");
+  if (articles.length === 0) {
+    lines.push("(none)");
+  } else {
+    for (const article of articles) {
+      lines.push(`title: ${article.title}`);
+      lines.push(`slug: ${article.slug}`);
+      lines.push(`date: ${article.pubDate.toISOString()}`);
+      if (article.description)
+        lines.push(`description: ${article.description}`);
+      lines.push("");
+    }
+  }
 
-## ✨ Highlights of the last month\n\n
+  lines.push("");
+  lines.push("Books");
+  if (books.length === 0) {
+    lines.push("(none)");
+  } else {
+    for (const book of books) {
+      lines.push(`title: ${book.title}`);
+      lines.push(`author: ${book.author}`);
+      lines.push(`date_read: ${book.date_read.toISOString()}`);
+      if (book.cover_image?.cover_image_url)
+        lines.push(`cover_image_url: ${book.cover_image.cover_image_url}`);
+      lines.push("");
+    }
+  }
 
----`,
-
-    articles.length > 0
-      ? `## ✍️ Articles I wrote this month\n\n${articles
-          .map(
-            (article) =>
-              `### [${article.title}](/blog/${article.slug})\n\n${article.description ? `${article.description}\n\n` : ""}**Published:** ${formatDate(article.pubDate)}\n\n---\n`
-          )
-          .join("")}\n`
-      : "",
-
-    `## 📚 What I liked consuming the last month\n\n_Let's dive now into what I consumed the last month and especially liked_\n\n${links
-      .map(
-        (link) =>
-          `### ${link.title}\nlink: ${link.link}\n\n${
-            link.description
-              ? `${stripHtml(link.description)}\n\n---\n`
-              : "---\n"
-          }`
-      )
-      .join("")}`,
-
-    `## Books\n\n${books
-      .map(
-        (book) =>
-          `### ${book.title}\n\nAuthor: ${book.author}\nRead: ${formatDate(book.date_read)}\n${
-            book.cover_image?.cover_image_url
-              ? `\nCover image: ${book.cover_image.cover_image_url}\n`
-              : "\n"
-          }---\n`
-      )
-      .join("")}`,
-
-    `## 👀 What I'm up to the next month\n\n<!-- Add your future plans here -->\n\n---
-
-> And that's it for this month's issue of Full-Time Curious 😁 If you enjoyed reading this issue, you can like this newsletter by clicking the ❤️ below, subscribe or respond to this email so we can chat.\n\n> Thanks for reading and see you next month!\n\n> **Alexandre**\n`,
-  ];
-
-  return sections.filter(Boolean).join("\n");
+  return lines.join("\n");
 };
 
 // Main function
@@ -257,8 +240,6 @@ const getMonthFromArgs = () => {
   for (let i = 0; i < args.length; i += 1) {
     const arg = args[i];
     if (arg.startsWith("-m=")) return parseInt(arg.split("=")[1], 10);
-    if (arg === "-m") return parseInt(args[i + 1], 10);
-    if (arg.startsWith("--month=")) return parseInt(arg.split("=")[1], 10);
   }
 
   // Fallback to npm's env var when using `npm run` without `--`
@@ -271,9 +252,7 @@ const getMonthFromArgs = () => {
 const month = getMonthFromArgs();
 
 if (Number.isNaN(month) || month < 1 || month > 12) {
-  console.error(
-    "Please specify a valid month (1-12). Examples: -m=3, -m 3, --month=3. If using npm run, prefer: npm run newsletter:create-draft -- -m=3"
-  );
+  console.error("Please specify a valid month (1-12). Example: -m=3");
   process.exit(1);
 }
 

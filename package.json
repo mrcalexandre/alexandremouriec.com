@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "newsletter:sync": "node src/utils/newsletter/sync-buttondown.mjs",
-    "newsletter:create-draft": "node src/utils/newsletter/create-newsletter-draft.mjs",
+    "newsletter:content": "node src/utils/newsletter/get-newsletter-content.mjs",
     "optimize:fonts": "glyphhanger https://alexandremouriec.com --subset='*.ttf' --spider-limit=0",
     "optimize:images": "imageoptim './src/images'",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\"",
