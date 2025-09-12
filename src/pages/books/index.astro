@@ -17,7 +17,7 @@ const pageSubtitle = "Books I've read and am currently reading";
           <h2 class="mb-6 font-serif text-2xl font-semibold sm:text-3xl">
             Currently Reading
           </h2>
-          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
+          <div class="xs:grid-cols-2 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
             {currentlyReading.map((book) => (
               <BookCard book={book} />
             ))}
@@ -32,7 +32,7 @@ const pageSubtitle = "Books I've read and am currently reading";
           <h2 class="mb-6 font-serif text-2xl font-semibold sm:text-3xl">
             {year}
           </h2>
-          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
+          <div class="xs:grid-cols-2 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4 md:gap-8 lg:grid-cols-4">
             {booksByYear[year].map((book) => (
               <BookCard book={book} />
             ))}

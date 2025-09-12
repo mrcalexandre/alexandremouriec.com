@@ -14,22 +14,26 @@ const bookId = "id" in book ? book.id : undefined;
           aria-label={`View details for ${bookData.title}`}
           href={`/books/${bookId}`}
         >
+          <div class="relative mb-4 aspect-[2/3] w-full">
+            <img
+              alt={bookData.cover_image.cover_image_alt}
+              class="transition-optimized hover-scale absolute inset-0 h-full w-full rounded-sm object-cover shadow-sm"
+              decoding="async"
+              loading="lazy"
+              src={bookData.cover_image.cover_image_url}
+            />
+          </div>
+        </a>
+      ) : (
+        <div class="relative mb-4 aspect-[2/3] w-full">
           <img
             alt={bookData.cover_image.cover_image_alt}
-            class="transition-optimized hover-scale mb-4 h-56 w-full rounded-sm object-cover shadow-sm"
+            class="transition-optimized hover-scale absolute inset-0 h-full w-full rounded-sm object-cover shadow-sm"
             decoding="async"
             loading="lazy"
             src={bookData.cover_image.cover_image_url}
           />
-        </a>
-      ) : (
-        <img
-          alt={bookData.cover_image.cover_image_alt}
-          class="transition-optimized hover-scale mb-4 h-auto w-full rounded-sm object-cover shadow-sm"
-          decoding="async"
-          loading="lazy"
-          src={bookData.cover_image.cover_image_url}
-        />
+        </div>
       )
     }
   </div>
