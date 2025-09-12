@@ -1,13 +1,4 @@
 ---
-export interface Props {
-  headings: Array<{
-    depth: number;
-    slug: string;
-    text: string;
-  }>;
-  title?: string;
-}
-
 const { headings, title = "Table of Contents" } = Astro.props;
 const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
 ---
@@ -23,10 +14,10 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
           viewBox="0 0 24 24"
         >
           <path
+            d="M4 6h16M4 10h16M4 14h16M4 18h16"
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M4 6h16M4 10h16M4 14h16M4 18h16"
           />
         </svg>
         <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -40,9 +31,9 @@ const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 5);
             class={`toc-item ${heading.depth === 2 ? "pl-2" : heading.depth === 3 ? "pl-6" : "pl-10"}`}
           >
             <a
-              href={`#${heading.slug}`}
               class="toc-link block rounded px-2 py-1 text-sm text-zinc-600 transition-all duration-200 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
               data-depth={heading.depth}
+              href={`#${heading.slug}`}
             >
               {heading.text}
             </a>

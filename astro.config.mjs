@@ -1,22 +1,20 @@
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
-import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), icon({
-    iconDir: "src/images/icons"
-  })],
+  integrations: [sitemap()],
   markdown: {
-    remarkPlugins: [remarkReadingTime]
+    remarkPlugins: [remarkReadingTime],
   },
   output: "static",
   redirects: {
-    "/resume": "https://kdrive.infomaniak.com/app/share/1247749/e07325e1-160f-42ae-a0c8-7722811139af"
+    "/resume":
+      "https://kdrive.infomaniak.com/app/share/1247749/e07325e1-160f-42ae-a0c8-7722811139af",
   },
   site: "https://alexandremouriec.com",
-  vite: { plugins: [tailwindcss()] }
+  vite: { plugins: [tailwindcss()] },
 });

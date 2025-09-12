@@ -10,15 +10,17 @@ export async function GET(context) {
   return rss({
     description: "A personal blog by Alexandre Mouriec on various topics",
     items: blog.map((post) => ({
-      content: sanitizeHtml(parser.render(post.body), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-      }) + "<p>Thank you for using RSS to follow this blog. You are taking control of what you consume.</p>",
+      content:
+        sanitizeHtml(parser.render(post.body), {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+        }) +
+        "<p>Thank you for using RSS to follow this blog. You are taking control of what you consume.</p>",
       link: `/blog/${post.slug}/`,
       ...post.data,
     })),
     site: context.site,
     stylesheet: "/rss/rss-style.xsl",
     title: "Alexandre Mouriec",
-    trailingSlash: false
+    trailingSlash: false,
   });
 }

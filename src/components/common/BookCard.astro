@@ -3,21 +3,52 @@ const { book } = Astro.props;
 
 // Handle both book.data and book formats
 const bookData = "data" in book ? book.data : book;
+const bookId = "id" in book ? book.id : undefined;
 ---
 
 <div class="group relative flex flex-col items-center text-center">
   <div class="w-20 sm:w-28 md:w-32 lg:w-36">
-    <img
-      alt={bookData.cover_image.cover_image_alt}
-      class="transition-optimized hover-scale mb-4 h-auto w-full rounded-sm object-cover shadow-sm"
-      decoding="async"
-      height="192"
-      loading="lazy"
-      src={bookData.cover_image.cover_image_url}
-      width="128"
-    />
+    {
+      bookId ? (
+        <a
+          aria-label={`View details for ${bookData.title}`}
+          href={`/books/${bookId}`}
+        >
+          <img
+            alt={bookData.cover_image.cover_image_alt}
+            class="transition-optimized hover-scale mb-4 h-auto w-full rounded-sm object-cover shadow-sm"
+            decoding="async"
+            height="192"
+            loading="lazy"
+            src={bookData.cover_image.cover_image_url}
+            width="128"
+          />
+        </a>
+      ) : (
+        <img
+          alt={bookData.cover_image.cover_image_alt}
+          class="transition-optimized hover-scale mb-4 h-auto w-full rounded-sm object-cover shadow-sm"
+          decoding="async"
+          height="192"
+          loading="lazy"
+          src={bookData.cover_image.cover_image_url}
+          width="128"
+        />
+      )
+    }
   </div>
-  <h2 class="line-clamp-2 text-sm font-semibold">{bookData.title}</h2>
+  {
+    bookId ? (
+      <a
+        class="line-clamp-2 text-sm font-semibold hover:underline"
+        href={`/books/${bookId}`}
+      >
+        {bookData.title}
+      </a>
+    ) : (
+      <h2 class="line-clamp-2 text-sm font-semibold">{bookData.title}</h2>
+    )
+  }
   <p class="text-sm font-light opacity-80">by {bookData.author}</p>
 
   <div

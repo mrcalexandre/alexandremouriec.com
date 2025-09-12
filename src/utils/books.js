@@ -2,12 +2,12 @@ import { getCollection } from "astro:content";
 
 export async function getBooksData() {
   const books = await getCollection("books");
-  
+
   // Separate currently reading books
   const currentlyReading = books.filter(
     (book) => book.data.currently_reading === true
   );
-  
+
   const readBooks = books.filter((book) => !book.data.currently_reading);
 
   // Group read books by year
@@ -17,7 +17,8 @@ export async function getBooksData() {
       if (!acc[year]) {
         acc[year] = [];
       }
-      acc[year].push(book.data);
+      // Keep the full entry so we keep access to id for linking
+      acc[year].push(book);
     }
     return acc;
   }, {});
@@ -25,8 +26,8 @@ export async function getBooksData() {
   // Sort books within each year
   Object.values(booksByYear).forEach((yearBooks) => {
     yearBooks.sort((a, b) => {
-      const dateA = a.date_read ? new Date(a.date_read).valueOf() : 0;
-      const dateB = b.date_read ? new Date(b.date_read).valueOf() : 0;
+      const dateA = a.data.date_read ? new Date(a.data.date_read).valueOf() : 0;
+      const dateB = b.data.date_read ? new Date(b.data.date_read).valueOf() : 0;
       return dateB - dateA;
     });
   });
@@ -38,6 +39,6 @@ export async function getBooksData() {
   return {
     booksByYear,
     currentlyReading,
-    sortedYears
+    sortedYears,
   };
-} 
+}

@@ -19,8 +19,7 @@
     "@astrojs/sitemap": "^3.5.1",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.13",
-    "astro": "^5.13.6",
-    "astro-icon": "^1.1.4",
+    "astro": "^5.13.7",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "tailwindcss": "^4.0.13"

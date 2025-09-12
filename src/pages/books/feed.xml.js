@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 export async function GET(context) {
   const books = await getCollection("books");
-  
+
   // Filter out currently reading books and sort by date_read
   const readBooks = books
     .filter((book) => !book.data.currently_reading)
@@ -15,14 +15,15 @@ export async function GET(context) {
 
   return rss({
     description: "Books I've read",
-    items: readBooks.map((book) => {
-      // Ensure we have all required fields
-      if (!book.data.title || !book.data.link || !book.data.date_read) {
-        return null;
-      }
+    items: readBooks
+      .map((book) => {
+        // Ensure we have all required fields
+        if (!book.data.title || !book.data.date_read) {
+          return null;
+        }
 
-      return {
-        content: `
+        return {
+          content: `
           <div class="book-entry">
             <img 
               src="${book.data.cover_image.cover_image_url}" 
@@ -36,15 +37,16 @@ export async function GET(context) {
             </div>
           </div>
         `,
-        description: `I read "${book.data.title}" by ${book.data.author}`,
-        link: book.data.link,
-        pubDate: new Date(book.data.date_read),
-        title: book.data.title,
-      };
-    }).filter(Boolean), // Remove any null entries
+          description: `I read "${book.data.title}" by ${book.data.author}`,
+          link: `/books/${book.id}`,
+          pubDate: new Date(book.data.date_read),
+          title: book.data.title,
+        };
+      })
+      .filter(Boolean), // Remove any null entries
     site: context.site,
     stylesheet: "/rss/rss-style.xsl",
     title: "Alexandre Mouriec's Bookshelf",
-    trailingSlash: false
+    trailingSlash: false,
   });
-} 
+}
