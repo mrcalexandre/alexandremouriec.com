@@ -3,18 +3,18 @@ import { getCollection } from "astro:content";
 
 import Posts from "@/components/common/Posts.astro";
 
-// Get all newsletters and sort by date
-const allNewsletters = (await getCollection("newsletters")).sort(
+// Get all newsletter issues and sort by date
+const allNewsletterIssues = (await getCollection("newsletter")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-// Limit to latest 5 newsletters for the homepage
-const latestNewsletters = allNewsletters.slice(0, 5);
+// Limit to latest 5 newsletter Issues for the homepage
+const latestNewsletterIssues = allNewsletterIssues.slice(0, 5);
 ---
 
 <Posts
   basePath="/newsletter"
-  emptyMessage="No newsletters yet. Check back soon!"
-  entries={latestNewsletters}
+  emptyMessage="No newsletter issues yet. Check back soon!"
+  entries={latestNewsletterIssues}
   limit={5}
 />

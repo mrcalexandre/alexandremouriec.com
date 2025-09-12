@@ -15,12 +15,12 @@ const booksCollection = defineCollection({
   }),
 });
 
-const newslettersCollection = defineCollection({
+const newsletterIssuesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
     author: z.string(),
-    pubDate: z.date(),
+    pubDate: z.coerce.date(),
     description: z.string(),
     tags: z.array(z.string()),
   }),
@@ -78,5 +78,5 @@ export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
   jobs: jobsCollection,
-  newsletters: newslettersCollection
+  newsletter: newsletterIssuesCollection,
 };
