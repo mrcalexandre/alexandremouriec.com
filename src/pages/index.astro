@@ -2,7 +2,6 @@
 import BlogPosts from "@/components/blog/BlogPosts.astro";
 import CurrentlyReadingBooks from "@/components/common/CurrentlyReadingBooks.astro";
 import Link from "@/components/common/Link.astro";
-import NewsletterPosts from "@/components/newsletter/NewsletterPosts.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
@@ -72,18 +71,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
           >
         </div>
         <BlogPosts />
-      </section>
-
-      <section class="space-y-8">
-        <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-serif text-2xl font-semibold">
-            Latest Newsletter Issues
-          </h2>
-          <Link class="text-blue-600 hover:underline" href="/newsletter"
-            >See all issues →</Link
-          >
-        </div>
-        <NewsletterPosts />
       </section>
     </div>
   </main>

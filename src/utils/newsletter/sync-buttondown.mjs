@@ -12,7 +12,7 @@ const RSS_URL =
   process.env.BUTTONDOWN_RSS_URL ||
   "https://buttondown.com/fulltimecurious/rss";
 const PROJECT_ROOT = join(__dirname, "..", "..");
-const CONTENT_DIR = join(PROJECT_ROOT, "src", "content", "newsletter");
+const CONTENT_DIR = join(PROJECT_ROOT, "src", "content", "posts");
 
 async function ensureDir(path) {
   if (!existsSync(path)) {

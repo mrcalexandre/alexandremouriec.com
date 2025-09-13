@@ -206,7 +206,7 @@ const generateRecap = async (month) => {
   const monthName = new Date(year, month - 1)
     .toLocaleString("default", { month: "long" })
     .toLowerCase();
-  const outputFile = `./src/content/newsletter/${year}-${monthName}.md`;
+  const outputFile = `./src/content/posts/${year}-${monthName}.md`;
   const rssUrl = "https://links.alexandremouriec.com/feed/atom";
 
   try {

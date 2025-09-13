@@ -18,16 +18,8 @@ if (content) {
 
 // Determine the back link based on the current URL
 const currentPath = Astro.url.pathname;
-let backHref = "/";
-let backText = "Back";
-
-if (currentPath.startsWith("/newsletter/")) {
-  backHref = "/newsletter";
-  backText = "Back to Newsletter";
-} else if (currentPath.startsWith("/blog/")) {
-  backHref = "/blog";
-  backText = "Back to Blog";
-}
+let backHref = "/blog";
+let backText = "Back to Blog";
 ---
 
 <BaseLayout
