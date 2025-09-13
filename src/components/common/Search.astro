@@ -1,0 +1,32 @@
+<div
+  id="fastSearch"
+  class="fixed inset-0 z-[1000] flex items-start justify-center bg-black/80 pt-[10vh] backdrop-blur-sm transition-all duration-200 ease-in-out"
+  style="display: none; visibility: hidden; opacity: 0;"
+>
+  <div class="mx-4 w-full max-w-2xl">
+    <div class="relative">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search through posts, books, and more..."
+        tabindex="0"
+        class="w-full rounded-lg border-2 border-gray-200 bg-white px-6 py-4 pr-20 text-lg text-gray-900 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] transition-all duration-200 ease-in-out outline-none focus:border-blue-500 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.1)] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-blue-500"
+      />
+      <div class="absolute top-1/2 right-4 -translate-y-1/2">
+        <kbd
+          class="inline-flex items-center rounded border border-gray-200 px-2 py-1 font-mono text-xs text-gray-500 dark:border-gray-600 dark:text-gray-400"
+        >
+          <span class="text-xs">⌘</span>
+          <span class="ml-1">K</span>
+        </kbd>
+      </div>
+    </div>
+    <ul
+      id="searchResults"
+      class="mt-2 max-h-96 list-none overflow-y-auto rounded-lg bg-white p-0 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_10px_10px_-5px_rgba(0,0,0,0.04)] dark:bg-gray-800"
+    >
+    </ul>
+  </div>
+</div>
+
+<script is:inline src="/js/fastsearch.js"></script>
