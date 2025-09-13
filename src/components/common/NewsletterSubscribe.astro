@@ -1,0 +1,48 @@
+---
+const {
+  className = "",
+  description = "Get the latest posts delivered right to your inbox.",
+  title = "Subscribe to my newsletter",
+  username = "fulltimecurious",
+} = Astro.props;
+---
+
+<div
+  class={`border-zinc/15 hover:bg-zinc/5 relative gap-2 rounded-2xl border border-dashed transition-colors duration-300 ease-in-out dark:border-white/20 dark:hover:bg-white/5 ${className}`}
+>
+  <div class="flex flex-col gap-y-4 p-6">
+    <div class="flex flex-col gap-y-2">
+      <h3 class="text-lg font-medium">{title}</h3>
+      <p class="text-sm opacity-80">{description}</p>
+    </div>
+
+    <form
+      action={`https://buttondown.com/api/emails/embed-subscribe/${username}`}
+      method="post"
+      target="popupwindow"
+      onsubmit={`window.open('https://buttondown.com/${username}', 'popupwindow')`}
+      class="embeddable-buttondown-form flex flex-col gap-y-3"
+    >
+      <div class="flex flex-col gap-y-2">
+        <label for="bd-email" class="text-sm font-medium"
+          >Enter your email</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="bd-email"
+          required
+          class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm placeholder-zinc-500 focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 focus:outline-none dark:border-zinc-600 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-400 dark:focus:border-zinc-400 dark:focus:ring-zinc-700"
+          placeholder="your@email.com"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="cursor-pointer rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+</div>
