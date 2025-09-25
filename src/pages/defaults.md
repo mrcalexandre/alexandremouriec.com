@@ -4,8 +4,8 @@ title: App Defaults
 lastModified: 2025-07-31
 ---
 
-| **Type**                             | **Apps**                                                                                       |     |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------- | --- |
+| **Type**                              | **Apps**                                                                                       |     |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------- | --- |
 | 📨 **Mail Client**                    | Apple Mail                                                                                     |     |
 | 📮 **Mail Server**                    | Infomaniak [^1] - Gmail                                                                        |     |
 | 📝 **Notes**                          | Obsidian [^2]                                                                                  |     |
@@ -22,7 +22,7 @@ lastModified: 2025-07-31
 | 🔖 **Bookmarks**                      | Zen Browser bookmarks [^1][^2]                                                                 |     |
 | 📑 **Read It Later**                  | Readwise Reader [^2]                                                                           |     |
 | 🔗 **Link Curation**                  | Shaarli [^1]                                                                                   |     |
-| 📬 **Newsletter**                     |Buttondown                                                           |     |
+| 📬 **Newsletter**                     | Buttondown                                                                                     |     |
 | 📷 **Image compression**              | ImagOptim [^1]                                                                                 |     |
 | 🛒 **Shopping Lists**                 | Apple Reminders                                                                                |     |
 | 💰 **Budgeting and Personal Finance** | Finary                                                                                         |     |
@@ -30,11 +30,11 @@ lastModified: 2025-07-31
 | 🎤 **Podcasts**                       | Overcast [^3]                                                                                  |     |
 | 🔐 **Password Management**            | Bitwarden [^1][^1]                                                                             |     |
 | ☀️ **Weather**                        | [Yr.no](https://apps.apple.com/no/app/yr-no/id490989206)                                       |     |
-| 👨‍💻 **Code Editor**                    | VSCodium [^1] - Cursor                                                                         |     |
+| 👨‍💻 **Code Editor**                    | VSCodium [^1]                                                                                  |     |
 | 💾 **Terminal**                       | Ghostty [^1]                                                                                   |     |
 | 🚀 **Launcher**                       | Raycast                                                                                        |     |
 | ✏️ **Clipboard Manager**              | Maccy [^1]                                                                                     |     |
-| 🖼️ **Screenshots**                    | Flameshot                                                                                         |     |
+| 🖼️ **Screenshots**                    | Flameshot                                                                                      |     |
 | 📞 **Video Call**                     | Google Meet - Slack                                                                            |     |
 | 🍅 **Pomodoro Timer**                 | [TomatoBar](https://github.com/AuroraWright/TomatoBar) [^1][^3]                                |     |
 | 🔍 **Search Engine**                  | Brave Search                                                                                   |     |
