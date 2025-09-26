@@ -7,53 +7,55 @@ const pageSubtitle =
 ---
 
 <BaseLayout pageSubtitle={pageSubtitle} pageTitle={pageTitle}>
-  <div class="mx-auto max-w-3xl px-5 py-8">
+  <section class="mx-auto max-w-3xl px-5 py-8">
     <form
       action="https://formspree.io/f/xvovrbod"
       class="group space-y-6"
       method="post"
     >
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div>
-          <label class="mb-2 block text-sm font-medium" for="name">Name *</label
-          >
-          <input
-            class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
-            id="name"
-            name="name"
-            placeholder="Your name"
-            required
-            type="text"
-          />
+      <fieldset class="space-y-6">
+        <legend class="sr-only">Contact Information</legend>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div>
+            <label class="mb-2 block text-sm font-medium" for="name">Name *</label>
+            <input
+              class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              type="text"
+            />
+          </div>
+
+          <div>
+            <label class="mb-2 block text-sm font-medium" for="email"
+              >Email *</label
+            >
+            <input
+              class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+              id="email"
+              name="_replyto"
+              placeholder="your.email@example.com"
+              required
+              type="email"
+            />
+          </div>
         </div>
 
         <div>
-          <label class="mb-2 block text-sm font-medium" for="email"
-            >Email *</label
+          <label class="mb-2 block text-sm font-medium" for="message"
+            >Message *</label
           >
-          <input
-            class="form-input w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:ring-blue-500/20 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
-            id="email"
-            name="_replyto"
-            placeholder="your.email@example.com"
+          <textarea
+            class="form-textarea w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
+            id="message"
+            name="message"
+            placeholder="Write your message here..."
             required
-            type="email"
-          />
+            rows="8"></textarea>
         </div>
-      </div>
-
-      <div>
-        <label class="mb-2 block text-sm font-medium" for="message"
-          >Message *</label
-        >
-        <textarea
-          class="form-textarea w-full rounded-lg border border-dashed px-4 py-3 duration-300 ease-out group-hover:border-neutral-300 focus:border-neutral-300 focus:ring-2 focus:outline-none sm:text-sm dark:group-hover:border-neutral-600 dark:focus:border-neutral-600"
-          id="message"
-          name="message"
-          placeholder="Write your message here..."
-          required
-          rows="8"></textarea>
-      </div>
+      </fieldset>
 
       <div class="flex justify-center">
         <button
@@ -64,5 +66,5 @@ const pageSubtitle =
         </button>
       </div>
     </form>
-  </div>
+  </section>
 </BaseLayout>

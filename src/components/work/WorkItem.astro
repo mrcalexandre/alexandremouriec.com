@@ -4,28 +4,32 @@ import { Image } from "astro:assets";
 const { entry } = Astro.props;
 ---
 
-<a
-  class="group relative flex flex-nowrap items-center justify-between gap-2 rounded-lg p-3 duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5"
-  href={entry.data.url}
-  id={entry.data.id}
->
-  <div class="flex items-center gap-4">
-    <Image
-      alt={entry.data.image.alt}
-      class="h-[40px] w-[40px] rounded-full border object-cover"
-      height={120}
-      loading="eager"
-      src={import(`../../images/jobs/${entry.data.image.url}.png`)}
-      width={120}
-    />
-    <div>
-      <h3 class="text-sm font-semibold">{entry.data.title}</h3>
-      <p class="text-sm opacity-80">
-        {entry.data.name}
-      </p>
+<article class="group relative rounded-lg duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5">
+  <a
+    class="flex flex-nowrap items-center justify-between gap-2 p-3"
+    href={entry.data.url}
+    id={entry.data.id}
+  >
+    <div class="flex items-center gap-4">
+      <figure class="h-[40px] w-[40px]">
+        <Image
+          alt={entry.data.image.alt}
+          class="h-full w-full rounded-full border object-cover"
+          height={120}
+          loading="eager"
+          src={import(`../../images/jobs/${entry.data.image.url}.png`)}
+          width={120}
+        />
+      </figure>
+      <div>
+        <h3 class="text-sm font-semibold">{entry.data.title}</h3>
+        <p class="text-sm opacity-80">
+          {entry.data.name}
+        </p>
+      </div>
     </div>
-  </div>
-  <p class="text-sm opacity-80">
-    {entry.data.date}
-  </p>
-</a>
+    <time class="text-sm opacity-80">
+      {entry.data.date}
+    </time>
+  </a>
+</article>

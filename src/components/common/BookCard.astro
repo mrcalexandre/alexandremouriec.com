@@ -6,8 +6,8 @@ const bookData = "data" in book ? book.data : book;
 const bookId = "id" in book ? book.id : undefined;
 ---
 
-<div class="group relative flex flex-col items-center text-center">
-  <div class="w-20 sm:w-28 md:w-32 lg:w-36">
+<article class="group relative flex flex-col items-center text-center">
+  <figure class="w-20 sm:w-28 md:w-32 lg:w-36">
     {
       bookId ? (
         <a
@@ -36,7 +36,7 @@ const bookId = "id" in book ? book.id : undefined;
         </div>
       )
     }
-  </div>
+  </figure>
   {
     bookId ? (
       <a
@@ -49,11 +49,12 @@ const bookId = "id" in book ? book.id : undefined;
       <h2 class="line-clamp-2 text-sm font-semibold">{bookData.title}</h2>
     )
   }
-  <p class="text-sm font-light opacity-80">by {bookData.author}</p>
+  <p class="text-sm font-light opacity-80">by <span class="author">{bookData.author}</span></p>
 
   <div
     class="transition-optimized absolute top-full left-1/2 z-10 mt-2 w-48 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg bg-black/80 p-2 text-sm text-white opacity-0 group-hover:opacity-100 sm:w-64"
+    role="tooltip"
   >
     {bookData.title}
   </div>
-</div>
+</article>

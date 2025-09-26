@@ -5,22 +5,24 @@ import Icon from "@/components/common/Icon.astro";
 const { entry } = Astro.props;
 ---
 
-<a
-  class="border-zinc/15 hover:bg-zinc/5 h-entry u-url group relative flex items-center gap-4 rounded-lg border border-dashed px-4 py-3 shadow-xs transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5"
-  href={`/blog/${entry.slug}/`}
->
-  <div class="flex flex-1 flex-col truncate">
-    <div class="p-name truncate text-sm font-semibold">
-      {entry.data.title}
+<article class="border-zinc/15 hover:bg-zinc/5 h-entry group relative rounded-lg border border-dashed shadow-xs transition-colors duration-300 ease-in-out hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/5">
+  <a
+    class="u-url flex items-center gap-4 px-4 py-3"
+    href={`/blog/${entry.slug}/`}
+  >
+    <div class="flex flex-1 flex-col truncate">
+      <h3 class="p-name truncate text-sm font-semibold">
+        {entry.data.title}
+      </h3>
+      <p class="e-content truncate text-sm font-light opacity-80">
+        {entry.data.description}
+      </p>
     </div>
-    <div class="e-content truncate text-sm font-light opacity-80">
-      {entry.data.description}
-    </div>
-  </div>
 
-  <div class="text-sm italic">
-    <FormattedDate class="dt-published" date={entry.data.pubDate} />
-  </div>
+    <time class="text-sm italic" datetime={entry.data.pubDate.toISOString()}>
+      <FormattedDate class="dt-published" date={entry.data.pubDate} />
+    </time>
 
-  <Icon class="h-4 w-4" name="arrow-right" />
-</a>
+    <Icon class="h-4 w-4" name="arrow-right" />
+  </a>
+</article>

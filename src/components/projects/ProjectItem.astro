@@ -5,34 +5,33 @@ import { Image } from "astro:assets";
 const { entry } = Astro.props;
 ---
 
-<a
-  class="group relative flex h-full w-full cursor-pointer flex-col items-stretch rounded-2xl p-4 shadow-xs duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5"
-  href={entry.data.url}
-  target="_blank"
->
+<article class="group relative h-full w-full rounded-2xl p-4 shadow-xs duration-300 ease-in-out hover:bg-black/5 dark:hover:bg-white/5">
   <span
     class="absolute inset-0 z-20 block h-full w-full rounded-2xl border border-dashed duration-300 ease-out group-hover:border-neutral-300 dark:border-neutral-400 dark:group-hover:border-neutral-600"
   ></span>
   <span
     class="absolute inset-0 z-10 block h-full w-full rounded-2xl border border-dashed border-neutral-300 duration-300 ease-out dark:border-neutral-600"
   ></span>
-  <span class="relative z-30 flex h-full flex-col">
-    <span class="block h-40 w-full">
+  <a
+    class="relative z-30 flex h-full cursor-pointer flex-col items-stretch"
+    href={entry.data.url}
+    target="_blank"
+  >
+    <figure class="block h-40 w-full">
       <Image
         alt={entry.data.image.alt}
         class="h-full w-full rounded-lg object-cover"
         loading="lazy"
         src={import(`../../images/projects/${entry.data.image.url}.png`)}
       />
-    </span>
-    <!-- Text Content -->
-    <span class="mt-3 flex grow flex-col">
-      <span class="truncate font-serif text-lg font-semibold">
+    </figure>
+    <div class="mt-3 flex grow flex-col">
+      <h3 class="truncate font-serif text-lg font-semibold">
         {entry.data.name}
-      </span>
-      <span class="line-clamp-3 text-sm font-light opacity-80">
+      </h3>
+      <p class="line-clamp-3 text-sm font-light opacity-80">
         {entry.data.description}
-      </span>
-    </span>
-  </span>
-</a>
+      </p>
+    </div>
+  </a>
+</article>
