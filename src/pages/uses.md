@@ -2,7 +2,7 @@
 layout: ../layouts/MarkdownPageLayout.astro
 title: Uses
 subtitle: What do I use
-lastModified: 2025-06-06
+lastModified: 2025-10-03
 ---
 
 ## Computer
@@ -36,7 +36,6 @@ lastModified: 2025-06-06
 
 ### Zen Browser extensions
 
-- LanguageTool
 - Archive Page
 - Bitwarden
 - ClearURLs
@@ -49,17 +48,13 @@ lastModified: 2025-06-06
 - Readwise
 - Readwise Highlighter
 - SocialFocus
-- StreetPass for Mastodon
 - uBlock Origin
 
 ### Vivaldi extensions
 
-- LanguageTool
 - Bitwarden
 - Obsidian Web Clipper
-- Readwise Highlighter
 - uBlock Origin
 - Zoom for Google Chrome
-
 
 For my Defaults apps, visit my [App Defaults page](/defaults).
