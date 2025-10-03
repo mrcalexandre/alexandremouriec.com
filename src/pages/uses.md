@@ -10,7 +10,7 @@ lastModified: 2025-10-03
 - MacBook Pro 16" 512Go (2019)
 - Dell U2723QE UltraSharp 27"
 - Logitech K380 keyboard
-- Apple Mouse
+- Logitech MX Master 4
 - Roost Stand
 - Logitech UE Boom 2
 - Xiaomi Mi Computer Monitor Light Bar
