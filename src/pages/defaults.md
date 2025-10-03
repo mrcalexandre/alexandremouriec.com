@@ -30,7 +30,7 @@ lastModified: 2025-07-31
 | 🎤 **Podcasts**                       | Overcast [^3]                                                                                  |     |
 | 🔐 **Password Management**            | Bitwarden [^1][^1]                                                                             |     |
 | ☀️ **Weather**                        | [Yr.no](https://apps.apple.com/no/app/yr-no/id490989206)                                       |     |
-| 👨‍💻 **Code Editor**                    | VSCodium [^1]                                                                                  |     |
+| 👨‍💻 **Code Editor**                    | VSCodium [^1] - Neovim [^1] (Trying to use it more)                                            |     |
 | 💾 **Terminal**                       | Ghostty [^1]                                                                                   |     |
 | 🚀 **Launcher**                       | Raycast                                                                                        |     |
 | ✏️ **Clipboard Manager**              | Maccy [^1]                                                                                     |     |
